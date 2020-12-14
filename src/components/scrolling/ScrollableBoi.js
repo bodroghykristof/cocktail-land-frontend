@@ -1,12 +1,11 @@
 import React from 'react';
-import './scrollable.css';
 import ScrollContainer from './ScrollContainer';
 import ScrollContent from './ScrollContent';
 import ScrollArrow from './ScrollArrow';
 
 export default function ScrollableBoi() {
   return (
-    <div className='outer'>
+    <div style={style}>
       <ScrollArrow direction='left' text='left' />
       <ScrollContainer>
         <ScrollContent>1</ScrollContent>
@@ -24,3 +23,7 @@ export default function ScrollableBoi() {
     </div>
   );
 }
+
+const style = {
+  display: 'flex',
+};
