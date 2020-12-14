@@ -1,10 +1,10 @@
 import './App.css';
-import ScrollableBoi from './components/scrolling/ScrollableBoi';
+import DynamicScroller from './components/scrolling/DynamicScroller';
 
 function App() {
   return (
     <div className='App'>
-      <ScrollableBoi>
+      <DynamicScroller>
         <div>1</div>
         <div>2</div>
         <div>3</div>
@@ -14,7 +14,7 @@ function App() {
         <div>7</div>
         <div>8</div>
         <div>9</div>
-      </ScrollableBoi>
+      </DynamicScroller>
     </div>
   );
 }
