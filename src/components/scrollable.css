@@ -12,15 +12,15 @@
   text-align: center;
   margin: 0 2px;
   height: 70px;
-  transition: transform 300ms ease 300ms;
+  transition: transform 300ms ease 50ms;
 }
 
 .container:hover .item {
-   transform: translateX(-25%);
+  transform: translateX(-25%);
 }
 
 .item:hover ~ .item {
-   transform: translateX(25%);
+  transform: translateX(25%);
 }
 
 .item:hover {
