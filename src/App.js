@@ -1,5 +1,5 @@
 import './App.css';
-import ScrollableBoi from './components/ScrollableBoi';
+import ScrollableBoi from './components/scrolling/ScrollableBoi';
 
 function App() {
   return (
