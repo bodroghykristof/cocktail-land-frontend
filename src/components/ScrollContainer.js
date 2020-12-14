@@ -7,7 +7,7 @@ const ScrollContainer = styled.div`
   overflow-x: hidden;
   width: 100%;
 
-  &:hover .item {
+  &:hover div {
     transform: translateX(-25%);
   }
 `;
