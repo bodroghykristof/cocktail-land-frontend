@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { AllCocktailsProvider } from './components/AllCocktailsContext';
 import { Home } from './components/Home';
 import Welcome from './components/Welcome';
+import Footer from './components/layout/Footer';
 import { SearchCocktails } from './components/SearchCocktails';
 
 const App = () => {
