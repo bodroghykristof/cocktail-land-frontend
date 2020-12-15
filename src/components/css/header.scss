@@ -4,7 +4,7 @@
     justify-content: space-between;
     height: 50px;
     width: 100vw;
-    background-color: aliceblue;
+    background-color: #EBCA6C;
     padding: 10px;
 
     .header-left-container {
@@ -41,12 +41,12 @@
             .link {
                 text-decoration: none;
                 cursor: pointer;
-                border: 1px solid aliceblue;
+                border: 1px solid #EBCA6C;
                 padding: 10px;
 
                 &:hover {
                     background-color: black;
-                    color: aliceblue;
+                    color: #EBCA6C;
                     transition: 0.1s all ease;
                 }
             }
