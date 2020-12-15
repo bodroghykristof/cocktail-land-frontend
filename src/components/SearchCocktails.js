@@ -5,14 +5,23 @@ import { AllCocktailsContext } from './AllCocktailsContext';
 export const SearchCocktails = () => {
   const [allCocktails] = useContext(AllCocktailsContext);
   const [resultsByName, setResultsByName] = useState([]);
-  const [resultByIngredient, setResultByIngredient] = useState([]);
+  const [resultsByIngredient, setResultsByIngredient] = useState([]);
 
   const hasIngredient = (cocktail, searchedIngredient) => {
+    for (let i = 1; i <= 15; i++) {
+      const key = `strIngredient${i.toString()}`;
+      if (cocktail[key] === null) {
+        return false;
+      } else if (
+        cocktail[key].toLowerCase() === searchedIngredient.toLowerCase()
+      ) {
+        return true;
+      }
+    }
     return false;
   };
 
-  const searchCocktailsByName = (event) => {
-    const keyword = event.target.value;
+  const searchCocktailsByName = (keyword) => {
     let currentResult = [];
     for (let cocktail of allCocktails) {
       if (
@@ -23,32 +32,35 @@ export const SearchCocktails = () => {
       }
     }
     setResultsByName(currentResult);
-    console.log(resultsByName);
   };
 
-  const searchCocktailsByIngredient = (event) => {
-    const keyword = event.target.value;
+  const searchCocktailsByIngredient = (keyword) => {
     let currentResult = [];
     for (let cocktail of allCocktails) {
-      if (hasIngredient(cocktail, keyword)) {
+      if (hasIngredient(cocktail, keyword) && keyword !== '') {
         currentResult.push(cocktail);
       }
     }
-    setResultsByName(currentResult);
-    console.log(resultsByName);
+    setResultsByIngredient(currentResult);
   };
 
-  const searchCocktails = () => {
-    searchCocktailsByName();
-    searchCocktailsByIngredient();
+  const searchCocktails = (event) => {
+    const keyword = event.target.value;
+    searchCocktailsByName(keyword);
+    searchCocktailsByIngredient(keyword);
   };
 
   return (
     <React.Fragment>
       <h1>Search Cocktails</h1>
-      <input type='text' onChange={searchCocktailsByName}></input>
+      <input type='text' onChange={searchCocktails}></input>
       {resultsByName.length > 0 ? (
         <ResultContainer cocktails={resultsByName} />
+      ) : (
+        ``
+      )}
+      {resultsByIngredient.length > 0 ? (
+        <ResultContainer cocktails={resultsByIngredient} />
       ) : (
         ``
       )}
