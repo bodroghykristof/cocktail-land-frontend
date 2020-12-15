@@ -10,7 +10,10 @@ export const SearchCocktails = () => {
     const keyword = event.target.value;
     let currentResult = [];
     for (let cocktail of allCocktails) {
-      if (cocktail.strDrink.startsWith(keyword) && keyword !== '') {
+      if (
+        cocktail.strDrink.toLowerCase().startsWith(keyword.toLowerCase()) &&
+        keyword !== ''
+      ) {
         currentResult.push(cocktail);
       }
     }
