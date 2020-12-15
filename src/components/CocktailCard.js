@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, Redirect } from "react-router-dom";
-import "../../components/css/cocktailCard.scss";
+import styled from 'styled-components';
+import { Div, P, Button, IMG, Card, Span } from './CocktailCardDesign';
 
 export const CocktailCard = props => {
 
@@ -10,12 +11,18 @@ export const CocktailCard = props => {
        
    }
 
+   const addFavorites = () => {
+       
+   }
+
     let content = ( 
-        <div className="card" onClick={toDetailPage}>
-            <img src={strDrinkThumb}></img>
-            <p>{ strDrink }</p><br />
-            <button onClick={addFavorites}>Add Favorites</button>
-        </div>
+        <Card className="card" onClick={toDetailPage}>
+            <IMG src={ strDrinkThumb }></IMG>
+            <Span>
+                <P>{ strDrink }</P><br />
+                <Button onClick={addFavorites}>Add Favorites</Button>
+            </Span>
+        </Card>
       )
     
     return content;
