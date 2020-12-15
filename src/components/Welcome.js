@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import WelcomeBox from '../elements/WelcomeBox';
 
 export default function Welcome() {
   const [verbose, setVerbose] = useState(false);
@@ -8,7 +9,7 @@ export default function Welcome() {
   };
 
   return (
-    <div>
+    <WelcomeBox>
       <h1>Welcome to Cocktail Land</h1>
       <h2>Warning</h2>
       <p>
@@ -22,13 +23,13 @@ export default function Welcome() {
           ? `Underage drinking is a serious public health problem in the United
         States. Alcohol is the most widely used substance among America’s youth,
         and drinking by young people poses enormous health and safety risks. The
-        consequences of underage drinking can affect everyone—regardless of age
+        consequences of underage drinking can affect everyone - regardless of age
         or drinking status.`
           : ``}
       </p>
       <p>Would you like to enter the page?</p>
       <button>Yes</button>
       <button>No</button>
-    </div>
+    </WelcomeBox>
   );
 }
