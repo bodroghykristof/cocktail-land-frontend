@@ -7,22 +7,20 @@ export const CocktailCard = props => {
 
     const { idDrink, strDrink, strDrinkThumb } = props.cocktail;
 
-   const toDetailPage = () => {
-       
-   }
-
    const addFavorites = () => {
        
    }
 
     let content = ( 
-        <Card className="card" onClick={toDetailPage}>
+        <Link to={`cocktail/${idDrink}`}>
+        <Card className="card" >
             <IMG src={ strDrinkThumb }></IMG>
             <Span>
                 <P>{ strDrink }</P><br />
                 <Button onClick={addFavorites}>Add Favorites</Button>
             </Span>
         </Card>
+        </Link>
       )
     
     return content;

@@ -21,7 +21,7 @@ export const IMG = styled.img`
 `
 
 export const P = styled.p`
-    margin-top: 25px;
+    margin-top: 17px;
     margin-left: 10px;
     float: left;
     color: #ebca6c;
