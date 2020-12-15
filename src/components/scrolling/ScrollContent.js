@@ -2,10 +2,10 @@ import styled from 'styled-components';
 
 const ScrollContent = styled.div`
   background: green;
-  flex: 0 0 20%;
+  flex: 0 0 10%;
   text-align: center;
   margin: 0 2px;
-  height: 70px;
+  height: 150px;
   transition: transform 300ms ease 50ms;
 
   &:hover ~ & {

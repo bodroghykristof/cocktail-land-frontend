@@ -9,6 +9,16 @@ export const SearchCocktails = () => {
     const [nonAlcoholicCocktails, setNonAlcoholicCocktails] = useState([]);
 
     const hasIngredient = (cocktail, searchedIngredient) => {
+        for (let i = 1; i <= 15; i++) {
+            const key = `strIngredient${i.toString()}`;
+            if (cocktail[key] === null) {
+                return false;
+            } else if (
+                cocktail[key].toLowerCase() === searchedIngredient.toLowerCase()
+            ) {
+                return true;
+            }
+        }
         return false;
     };
 
@@ -30,7 +40,7 @@ export const SearchCocktails = () => {
     const searchCocktailsByIngredient = (keyword) => {
         let currentResult = [];
         for (let cocktail of allCocktails) {
-            if (hasIngredient(cocktail, keyword)) {
+            if (hasIngredient(cocktail, keyword) && keyword !== "") {
                 currentResult.push(cocktail);
             }
         }
@@ -73,6 +83,11 @@ export const SearchCocktails = () => {
                     alcoholicCocktails={alcoholicCocktails}
                     nonAlcoholicCocktails={nonAlcoholicCocktails}
                 />
+            ) : (
+                ``
+            )}
+            {resultsByIngredient.length > 0 ? (
+                <ResultContainer cocktails={resultsByIngredient} />
             ) : (
                 ``
             )}
