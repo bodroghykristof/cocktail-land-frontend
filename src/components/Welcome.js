@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import WelcomeBox from '../elements/WelcomeBox';
+import { Link } from 'react-router-dom';
 
 export default function Welcome() {
   const [verbose, setVerbose] = useState(false);
@@ -21,15 +22,19 @@ export default function Welcome() {
       <p>
         {verbose
           ? `Underage drinking is a serious public health problem in the United
-        States. Alcohol is the most widely used substance among America’s youth,
+        States and most of Europe. Alcohol is the most widely used substance among youth,
         and drinking by young people poses enormous health and safety risks. The
         consequences of underage drinking can affect everyone - regardless of age
         or drinking status.`
           : ``}
       </p>
       <p>Would you like to enter the page?</p>
-      <button>Yes</button>
-      <button>No</button>
+      <Link to='/home'>
+        <button>Yes</button>
+      </Link>
+      <a href='https://www.sesamestreet.org/'>
+        <button>No</button>
+      </a>
     </WelcomeBox>
   );
 }
