@@ -1,4 +1,14 @@
 .header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 50px;
+  width: 100vw;
+  background-color: aliceblue;
+  padding: 10px;
+
+  .header-left-container {
+    width: 33%;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -22,35 +32,42 @@
     
     }
 
-    .header-middle-container {
-        width: 33%;
+    .home-link {
+      color: red;
+      text-decoration: none;
+
+      &:hover {
+        cursor: pointer;
+      }
     }
-    
+  }
 
-    .header-right-container {
-        width: 33%;
-        display: flex;
-        justify-content: flex-end;
+  .header-middle-container {
+    width: 33%;
+  }
 
-        .link-container {
-            width: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+  .header-right-container {
+    width: 33%;
+    display: flex;
+    justify-content: flex-end;
 
-            .link {
-                text-decoration: none;
-                cursor: pointer;
-                border: 1px solid #EBCA6C;
-                padding: 10px;
+    .link-container {
+      width: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
 
-                &:hover {
-                    background-color: black;
-                    color: #EBCA6C;
-                    transition: 0.1s all ease;
-                }
-            }
-        }
+      .link {
+        text-decoration: none;
+        cursor: pointer;
+        border: 1px solid aliceblue;
+        padding: 10px;
+
+        &:hover {
+          background-color: black;
+          color: aliceblue;
+          transition: 0.1s all ease;
     
     }
+  }
 }
