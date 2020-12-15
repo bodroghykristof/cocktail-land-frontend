@@ -2,6 +2,7 @@ import React from 'react';
 
 export default function SearchCard(props) {
   const style = {
+    borderTop: `black 2px solid`,
     backgroundImage: `url(${props.data.strDrinkThumb})`,
     backgroundPosition: `center`,
     backgroundSize: `cover`,
@@ -9,14 +10,18 @@ export default function SearchCard(props) {
     display: `flex`,
     flexDirection: `column`,
     justifyContent: `flex-end`,
-    paddingBottom: `10px`,
+    // paddingBottom: `10px`,
   };
 
   const titleStyle = {
     border: `black 2px solid`,
     background: `white`,
-    // minHeight: `30px`,
+    height: `2.5em`,
+    lineHeight: `1em`,
     marginTop: `20px`,
+    display: `flex`,
+    flexDirection: `column`,
+    justifyContent: `center`,
   };
 
   return (
