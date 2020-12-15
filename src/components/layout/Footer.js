@@ -5,6 +5,7 @@ export default function Footer() {
         position: "absolute",
         width: "100%",
         bottom: "0px",
+        backgroundColor: "#EBCA6C"
     };
 
     return (
