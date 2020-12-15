@@ -11,17 +11,15 @@ export const Home = () => {
 
     if ((allCocktails.length === 0) && (cocktailsByFirstLetter[0]['drinks'] !== undefined)) {
         let array = cocktailsByFirstLetter[0]['drinks'];
-        console.log(array);
-        array.map(cocktail => 
-             setAllCocktails([cocktail]));
-                
+        console.log("array: ", array);
+        setAllCocktails(array);
     } 
 
     console.log("allcocktails: ", allCocktails)
     return (
         <React.Fragment>
-        <h1>Cocktails in your Life</h1>
-        <p>F***ck yeah</p>
+            <h1>Cocktails in your Life</h1>
+            <p>F***ck yeah</p>
         </React.Fragment>
     )
 }
