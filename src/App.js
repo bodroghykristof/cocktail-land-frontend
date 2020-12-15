@@ -1,6 +1,6 @@
 import './App.css';
 import Header from './components/layout/Header';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { AllCocktailsProvider } from './components/AllCocktailsContext';
 import { Home } from './components/Home';
 import Welcome from './components/Welcome';
@@ -11,10 +11,12 @@ const App = () => {
     <Router>
       <AllCocktailsProvider>
         <div className='App'>
-          <Header />
           <Route exact path='/' component={Welcome} />
-          <Route exact path='/home' component={Home} />
-          <Route exact path='/search-cocktails' component={SearchCocktails} />
+          <Route path={['/home', '/search-cocktails']}>
+            <Header />
+            <Route exact path='/home' component={Home} />
+            <Route exact path='/search-cocktails' component={SearchCocktails} />
+          </Route>
         </div>
       </AllCocktailsProvider>
     </Router>
