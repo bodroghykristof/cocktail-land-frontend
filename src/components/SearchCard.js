@@ -3,6 +3,7 @@ import React from 'react';
 export default function SearchCard(props) {
   const style = {
     border: `black 2px solid`,
+    borderRadius: '5px',
     backgroundImage: `url(${props.data.strDrinkThumb})`,
     backgroundPosition: `center`,
     backgroundSize: `cover`,
