@@ -1,12 +1,12 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 
 export default function Header() {
     return (
         <header>
             <div>
                 <h3>Find your Favorite Cocktails!</h3>
-                <br/>
+                <br />
                 <Link to="/">Home</Link>
                 <span> | </span>
                 <Link to="/search-cocktails">Search</Link>
@@ -16,5 +16,5 @@ export default function Header() {
                 <Link to="#">About</Link>
             </div>
         </header>
-    )
+    );
 }
