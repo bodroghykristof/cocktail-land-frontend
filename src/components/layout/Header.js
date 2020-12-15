@@ -7,7 +7,7 @@ export default function Header() {
   return (
     <div className="header">
       <div className="header-left-container">
-        <Link className="home-link" to="/">Home</Link>
+        <Link className="home-link" to="/home">Home</Link>
       </div>
 
       <div className="header-middle-container">
