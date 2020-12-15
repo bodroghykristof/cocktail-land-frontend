@@ -1,6 +1,6 @@
 import './App.css';
 import Header from './components/layout/Header';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { AllCocktailsProvider } from './components/AllCocktailsContext';
 import { Home } from './components/Home';
 import Welcome from './components/Welcome';
