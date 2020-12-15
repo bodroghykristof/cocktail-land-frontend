@@ -6,15 +6,14 @@ export default function ResultContainer(props) {
     console.log(props);
     return (
         <Fragment>
+            <h3>Alcoholic:</h3>
             <DynamicScroller>
-                <p>Alcoholic:</p>
-
                 {props.alcoholicCocktails.map((cocktail) => (
                     <p>{cocktail.strDrink}</p>
                 ))}
             </DynamicScroller>
+            <h3>Non alcoholic:</h3>
             <DynamicScroller>
-                <p>Non alcoholic:</p>
                 {props.nonAlcoholicCocktails.map((cocktail) => (
                     <p>{cocktail.strDrink}</p>
                 ))}
