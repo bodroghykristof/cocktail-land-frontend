@@ -1,22 +1,29 @@
 import './App.css';
-import DynamicScroller from './components/scrolling/DynamicScroller';
+import Header from './components/layout/Header';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { AllCocktailsProvider } from './components/AllCocktailsContext';
+import { Home } from './components/Home';
+import Welcome from './components/Welcome';
+import Footer from './components/layout/Footer';
+import { SearchCocktails } from './components/SearchCocktails';
 
-function App() {
-  return (
-    <div className='App'>
-      <DynamicScroller>
-        <div>1</div>
-        <div>2</div>
-        <div>3</div>
-        <div>4</div>
-        <div>5</div>
-        <div>6</div>
-        <div>7</div>
-        <div>8</div>
-        <div>9</div>
-      </DynamicScroller>
-    </div>
+const App = () => {
+  let content = (
+    <Router>
+      <AllCocktailsProvider>
+        <div className='App'>
+          <Route exact path='/' component={Welcome} />
+          <Route path={['/home', '/search-cocktails']}>
+            <Header />
+            <Route exact path='/home' component={Home} />
+            <Route exact path='/search-cocktails' component={SearchCocktails} />
+            <Footer />
+          </Route>
+        </div>
+      </AllCocktailsProvider>
+    </Router>
   );
-}
+  return content;
+};
 
 export default App;
