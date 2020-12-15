@@ -10,11 +10,12 @@ export const SearchCocktails = () => {
   const hasIngredient = (cocktail, searchedIngredient) => {
     for (let i = 1; i <= 15; i++) {
       const key = `strIngredient${i.toString()}`;
-      console.log(cocktail[key]);
-      if (cocktail[key] === searchedIngredient) {
-        return true;
-      } else if (cocktail[key] === null) {
+      if (cocktail[key] === null) {
         return false;
+      } else if (
+        cocktail[key].toLowerCase() === searchedIngredient.toLowerCase()
+      ) {
+        return true;
       }
     }
     return false;
@@ -36,7 +37,7 @@ export const SearchCocktails = () => {
   const searchCocktailsByIngredient = (keyword) => {
     let currentResult = [];
     for (let cocktail of allCocktails) {
-      if (hasIngredient(cocktail, keyword)) {
+      if (hasIngredient(cocktail, keyword) && keyword !== '') {
         currentResult.push(cocktail);
       }
     }
