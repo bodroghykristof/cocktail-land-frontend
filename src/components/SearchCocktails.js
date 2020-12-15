@@ -7,6 +7,10 @@ export const SearchCocktails = () => {
   const [resultsByName, setResultsByName] = useState([]);
   const [resultByIngredient, setResultByIngredient] = useState([]);
 
+  const hasIngredient = (cocktail, searchedIngredient) => {
+    return false;
+  };
+
   const searchCocktailsByName = (event) => {
     const keyword = event.target.value;
     let currentResult = [];
@@ -22,7 +26,17 @@ export const SearchCocktails = () => {
     console.log(resultsByName);
   };
 
-  const searchCocktailsByIngredient = (event) => {};
+  const searchCocktailsByIngredient = (event) => {
+    const keyword = event.target.value;
+    let currentResult = [];
+    for (let cocktail of allCocktails) {
+      if (hasIngredient(cocktail, keyword)) {
+        currentResult.push(cocktail);
+      }
+    }
+    setResultsByName(currentResult);
+    console.log(resultsByName);
+  };
 
   const searchCocktails = () => {
     searchCocktailsByName();
