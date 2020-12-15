@@ -16,6 +16,7 @@ const App = () => {
             <Header />
             <Route exact path='/home' component={Home} />
             <Route exact path='/search-cocktails' component={SearchCocktails} />
+            <Footer />
           </Route>
         </div>
       </AllCocktailsProvider>
