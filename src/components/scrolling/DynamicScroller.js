@@ -20,5 +20,9 @@ export default function DynamicScroller(props) {
 }
 
 const style = {
+  backgroundColor: 'green',
+  border: 'solid black 2px',
   display: 'flex',
+  alignContent: 'flex-end',
+  // justifyContent: 'center',
 };

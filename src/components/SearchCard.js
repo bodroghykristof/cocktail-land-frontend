@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function SearchCard(props) {
   const style = {
-    borderTop: `black 2px solid`,
+    border: `black 2px solid`,
     backgroundImage: `url(${props.data.strDrinkThumb})`,
     backgroundPosition: `center`,
     backgroundSize: `cover`,
@@ -15,7 +15,7 @@ export default function SearchCard(props) {
 
   const titleStyle = {
     fontWeight: `900`,
-    border: `black 2px solid`,
+    borderTop: `black 2px solid`,
     background: `white`,
     height: `2.5em`,
     lineHeight: `1em`,
