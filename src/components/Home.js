@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { AllCocktailsContext } from "./AllCocktailsContext";
 import { CocktailCard } from "./CocktailCard";
-import { Div, H1, Button, IMG, Card, Span } from './HomeDesign';
+import { H1 } from './HomeDesign';
 
 export const Home = () => {
     const [cocktails, setCocktails] = useState([]);

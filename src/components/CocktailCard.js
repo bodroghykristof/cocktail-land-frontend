@@ -1,7 +1,6 @@
 import React from 'react';
-import { Link, Redirect } from "react-router-dom";
-import styled from 'styled-components';
-import { Div, P, Button, IMG, Card, Span } from './CocktailCardDesign';
+import { Link } from "react-router-dom";
+import { P, Button, IMG, Card, Span } from './CocktailCardDesign';
 
 export const CocktailCard = props => {
 
