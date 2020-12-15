@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
-import { Link } from "react-router-dom";
-import { Div, P, Button, IMG, Card, Span } from './CocktailCardDesign';
+import { H1 } from './CocktailCardDesign';
 import { FavoritesContext } from './FavoritesContext';
 import { CocktailCard } from './CocktailCard';
 
@@ -10,14 +9,14 @@ export const FavoriteCocktails = () => {
 
     let content = `<p>Loading your fantastic Favorites.....</p>`;
 
-    if(favorites) {
+    if( favorites.length > 0 ) {
         content = (favorites.map((cocktail) => ( 
             <CocktailCard cocktail={cocktail}
             key={cocktail.idDrink}
             />
         )))
     } else {
-        content = `<p>You don't have any favorite Cocktails :(</p>`
+        content = <H1>You don't have any favorite Cocktails :(</H1>
     }
     return content;
 }
