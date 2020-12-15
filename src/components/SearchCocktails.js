@@ -4,9 +4,11 @@ import { AllCocktailsContext } from "./AllCocktailsContext";
 
 export const SearchCocktails = () => {
     const [allCocktails] = useContext(AllCocktailsContext);
-    const [resultsByIngredient, setResultsByIngredient] = useState([]);
+    // const [resultsByIngredient, setResultsByIngredient] = useState([]);
     const [alcoholicCocktails, setAlcoholicCocktails] = useState([]);
     const [nonAlcoholicCocktails, setNonAlcoholicCocktails] = useState([]);
+    const [alcoholicIngredients, setAlcoholicIngredients] = useState([]);
+    const [nonAlcoholicIngredients, setNonAlcoholicIngredients] = useState([]);
 
     const hasIngredient = (cocktail, searchedIngredient) => {
         for (let i = 1; i <= 15; i++) {
@@ -39,12 +41,15 @@ export const SearchCocktails = () => {
 
     const searchCocktailsByIngredient = (keyword) => {
         let currentResult = [];
+
         for (let cocktail of allCocktails) {
             if (hasIngredient(cocktail, keyword) && keyword !== "") {
                 currentResult.push(cocktail);
             }
         }
-        setResultsByIngredient(currentResult);
+        console.log(currentResult);
+        separateIngredientsByAlcohol(currentResult);
+        // setResultsByIngredient(currentResult);
     };
 
     const separateCocktailsByAlcohol = (cocktails) => {
@@ -63,6 +68,26 @@ export const SearchCocktails = () => {
         setNonAlcoholicCocktails(nonAlcoholicResults);
     };
 
+    const separateIngredientsByAlcohol = (ingredients) => {
+        let alcoholicResults = [];
+        let nonAlcoholicResults = [];
+        console.log("ings");
+        console.log(ingredients);
+        for (let ingredient of ingredients) {
+            if (ingredient.strAlcoholic.toLowerCase() === "alcoholic") {
+                alcoholicResults.push(ingredient);
+            } else if (
+                ingredient.strAlcoholic.toLowerCase() === "non alcoholic"
+            ) {
+                nonAlcoholicResults.push(ingredient);
+            }
+        }
+        // console.log(alcoholicResults);
+        // console.log(nonAlcoholicResults);
+        setAlcoholicIngredients(alcoholicResults);
+        setNonAlcoholicIngredients(nonAlcoholicResults);
+    };
+
     const searchCocktails = (event) => {
         const keyword = event.target.value;
         searchCocktailsByName(keyword);
@@ -70,9 +95,9 @@ export const SearchCocktails = () => {
     };
 
     useEffect(() => {
-        console.log(alcoholicCocktails);
-        console.log(nonAlcoholicCocktails);
-    }, [alcoholicCocktails, nonAlcoholicCocktails]);
+        console.log(alcoholicIngredients);
+        console.log(nonAlcoholicIngredients);
+    }, [alcoholicIngredients, nonAlcoholicIngredients]);
 
     return (
         <React.Fragment>
@@ -86,8 +111,12 @@ export const SearchCocktails = () => {
             ) : (
                 ``
             )}
-            {resultsByIngredient.length > 0 ? (
-                <ResultContainer cocktails={resultsByIngredient} />
+            {alcoholicIngredients.length + nonAlcoholicIngredients.length >
+            0 ? (
+                <ResultContainer
+                    alcoholicCocktails={alcoholicIngredients}
+                    nonAlcoholicCocktails={nonAlcoholicIngredients}
+                />
             ) : (
                 ``
             )}
