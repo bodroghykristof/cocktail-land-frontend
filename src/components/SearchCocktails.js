@@ -5,6 +5,7 @@ import { AllCocktailsContext } from './AllCocktailsContext';
 export const SearchCocktails = () => {
   const [allCocktails] = useContext(AllCocktailsContext);
   const [resultsByName, setResultsByName] = useState([]);
+  const [resultByIngredient, setResultByIngredient] = useState([]);
 
   const searchCocktailsByName = (event) => {
     const keyword = event.target.value;
@@ -19,6 +20,13 @@ export const SearchCocktails = () => {
     }
     setResultsByName(currentResult);
     console.log(resultsByName);
+  };
+
+  const searchCocktailsByIngredient = (event) => {};
+
+  const searchCocktails = () => {
+    searchCocktailsByName();
+    searchCocktailsByIngredient();
   };
 
   return (
