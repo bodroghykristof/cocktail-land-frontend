@@ -14,6 +14,7 @@ export default function SearchCard(props) {
   };
 
   const titleStyle = {
+    fontWeight: `900`,
     border: `black 2px solid`,
     background: `white`,
     height: `2.5em`,
