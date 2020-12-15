@@ -6,6 +6,7 @@ import { Home } from './components/Home';
 import Welcome from './components/Welcome';
 import Footer from './components/layout/Footer';
 import { SearchCocktails } from './components/SearchCocktails';
+import { Favorites } from './components/Favorites';
 
 const App = () => {
   let content = (
@@ -17,6 +18,7 @@ const App = () => {
             <Header />
             <Route exact path='/home' component={Home} />
             <Route exact path='/search-cocktails' component={SearchCocktails} />
+            <Route exact path='/favorite-cocktails' component={Favorites} />
             <Footer />
           </Route>
         </div>
