@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function Footer() {
   const footerStyle = {
-    position: 'sticky',
+    position: 'absolute',
     width: '100%',
     bottom: '0px',
     backgroundColor: '#EBCA6C',
