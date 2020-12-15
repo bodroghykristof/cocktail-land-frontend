@@ -1,14 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ResultDesk from '../elements/ResultDesk';
+import DynamicScroller from './scrolling/DynamicScroller';
 
 export default function ResultContainer(props) {
   return (
-    <ResultDesk>
+    <DynamicScroller>
       {props.cocktails.map((cocktail) => (
         <p>{cocktail.strDrink}</p>
       ))}
-    </ResultDesk>
+    </DynamicScroller>
   );
 }
 

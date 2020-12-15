@@ -8,15 +8,15 @@ export const SearchCocktails = () => {
   const [resultsByIngredient, setResultsByIngredient] = useState([]);
 
   const hasIngredient = (cocktail, searchedIngredient) => {
-      for (let i = 1; i <= 15; i++) {
-        const key = `strIngredient${i.toString()}`;
-        console.log(cocktail[key]);
-        if (cocktail[key] === searchedIngredient) {
-          return true;
-        } else if (cocktail[key] === null) {
-          return false;
-        }
+    for (let i = 1; i <= 15; i++) {
+      const key = `strIngredient${i.toString()}`;
+      console.log(cocktail[key]);
+      if (cocktail[key] === searchedIngredient) {
+        return true;
+      } else if (cocktail[key] === null) {
+        return false;
       }
+    }
     return false;
   };
 
