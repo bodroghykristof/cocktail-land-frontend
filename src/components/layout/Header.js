@@ -20,7 +20,7 @@ export default function Header() {
           <Link className='link' to='/search-cocktails'>
             Search
           </Link>
-          <Link className='link' to='#'>
+          <Link className='link' to='/favorite-cocktails'>
             Favorites
           </Link>
           <Link className='link' to='#'>
