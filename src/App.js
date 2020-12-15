@@ -5,7 +5,6 @@ import { AllCocktailsProvider } from './components/AllCocktailsContext';
 import { Home } from './components/Home';
 import { SearchCocktails } from './components/SearchCocktails';
 
-
 const App = () => {
 
   let content = (
@@ -21,8 +20,7 @@ const App = () => {
       </AllCocktailsProvider>
     </Router>
   );
-  return content;
+  return content
 }
-
 
 export default App;
