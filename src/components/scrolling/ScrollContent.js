@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const ScrollContent = styled.div`
-  background: green;
+  background-image: ${(props) => `url(${props.background})`};
   flex: 0 0 10%;
   text-align: center;
   margin: 0 2px;
