@@ -1,5 +1,7 @@
 import React, { useContext, useState } from "react";
 import { AllCocktailsContext } from "./AllCocktailsContext";
+import { CocktailCard } from "./CocktailCard";
+import { Div, H1, Button, IMG, Card, Span } from './HomeDesign';
 
 export const Home = () => {
     const [cocktails, setCocktails] = useState([]);
@@ -28,9 +30,9 @@ export const Home = () => {
 
     return (
         <div>
-            <h1>Cocktails in your Life</h1>
+            <H1>Cocktails in your Life</H1>
             {cocktails.map((cocktail) => (
-                <div key={cocktail.idDrink}>{cocktail.strDrink}</div>
+                <CocktailCard key={cocktail.idDrink} cocktail={cocktail}/>
             ))}
             <h3>{allCocktails.length}</h3>
         </div>
