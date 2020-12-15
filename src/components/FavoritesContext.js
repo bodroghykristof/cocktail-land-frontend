@@ -7,9 +7,8 @@ export const FavoritesProvider = (props) => {
     const [favorites, setFavorites] = useState([]);
 
     return (
-        <CatchContext.Provider value={[favorites, setFavorites]}>
+        <FavoritesContext.Provider value={[favorites, setFavorites]}>
             {props.children}
-        </CatchContext.Provider>
+        </FavoritesContext.Provider>
     )
-
 }
