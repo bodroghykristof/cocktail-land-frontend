@@ -1,57 +1,82 @@
-import React, { useContext } from 'react';
-import { Link } from "react-router-dom";
-import { P, Button, IMG, Card } from './CocktailCardDesign';
+import React, { useContext, useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { P, addStyle, deleteStyle, IMG, Card } from './CocktailCardDesign';
 import { FavoritesContext } from './FavoritesContext';
+import { LanguageContext } from './language/LanguageContext';
+import dictionary from './language/Dictionary';
+import { IconButton } from '@material-ui/core';
+import FavoriteIcon from '@material-ui/icons/Favorite';
+import FavoriteBorderOutlinedIcon from '@material-ui/icons/FavoriteBorderOutlined';
 
-export const CocktailCard = props => {
+export const CocktailCard = (props) => {
+  const [favorites, setFavorites] = useContext(FavoritesContext);
+  const [language] = useContext(LanguageContext);
+  const { idDrink, strDrink, strDrinkThumb } = props.cocktail;
+  const [value, setValue] = useState(false);
 
-    const [favorites, setFavorites] = useContext(FavoritesContext);
-    const { idDrink, strDrink, strDrinkThumb } = props.cocktail;
-   
+  useEffect(() => {
+    const getFavoriteNames = () => {
+      let cocktailNames = [];
+      if (favorites.lenght !== 0) {
+        cocktailNames = favorites.map((cocktail) => cocktail.strDrink);
+        return cocktailNames;
+      }
+    };
 
-    const getFavoriteNames = () =>{
-        if (favorites.lenght !== 0) {
-            let cocktailNames = favorites.map(cocktail => cocktail.strDrink);
-        return cocktailNames
-        }
+    const getCardValue = (name) => {
+      let favoriteNames = getFavoriteNames();
+      setValue(favoriteNames.includes(name));
+    };
+    getCardValue(strDrink);
+  }, [favorites, strDrink]);
+
+  const onClickFavorite = (e) => {
+    if (value === false) {
+      addFavorites(e);
+    } else {
+      deleteFavorite(e);
     }
+  };
 
-    const onClickFavorite = (e) => {
-        if ( e.target.value === "true" ) {
-            addFavorites(e);
-        } else {
-            deleteFavorite(e);
-        }
-    }
+  const addFavorites = (e) => {
+    e.preventDefault();
+    setValue(true);
+    setFavorites((prevFavorites) => [
+      ...prevFavorites,
+      { strDrink: strDrink, idDrink: idDrink, strDrinkThumb: strDrinkThumb },
+    ]);
+  };
 
-    const addFavorites = (e) => {
-        e.preventDefault();
-        let bools = favorites.map(res => res.strDrink === e.target.name);
-        e.target.value = "false";
-        if ((!(bools.includes(true)))) {
-            setFavorites(prevFavorites => [...prevFavorites, {"strDrink": strDrink, "idDrink": idDrink, "strDrinkThumb":strDrinkThumb }])
-        }  
-    }
+  const deleteFavorite = (e) => {
+    e.preventDefault();
+    setValue(false);
+    const updatedFavorites = favorites.filter(
+      (cocktail) => cocktail.idDrink !== idDrink
+    );
+    setFavorites(updatedFavorites);
+  };
 
-    const deleteFavorite = (e) => {
-        e.preventDefault();
-        e.target.value = "true";
-        const updatedFavorites = favorites.filter(cocktail => cocktail.idDrink !== idDrink);
-        setFavorites(updatedFavorites);
-    }
-
-    const favoriteNames = getFavoriteNames();    
-
-    let content = ( 
-        <Link to={`cocktail/${idDrink}`}>
-        <Card className="card" >
-            <IMG src={ strDrinkThumb }></IMG>
-            <span>
-                <P>{ strDrink }</P><br />
-                <Button onClick={onClickFavorite} name={strDrink} value={favoriteNames.includes(strDrink) ? "false" : "true"} >{favoriteNames.includes(strDrink) ? "Delete" : "Add"}</Button>
-            </span>
-        </Card>
-        </Link>
-      )
-    return content;
-}
+  let content = (
+    <Link to={`cocktail/${idDrink}`}>
+      <Card className='card'>
+        <IMG src={strDrinkThumb}></IMG>
+        <span>
+          <P>{strDrink}</P>
+          <br />
+          <IconButton
+            onClick={(e) => onClickFavorite(e)}
+            name={strDrink}
+            value={value}
+          >
+            {value ? (
+              <FavoriteIcon style={deleteStyle} />
+            ) : (
+              <FavoriteBorderOutlinedIcon style={addStyle} />
+            )}
+          </IconButton>
+        </span>
+      </Card>
+    </Link>
+  );
+  return content;
+};
