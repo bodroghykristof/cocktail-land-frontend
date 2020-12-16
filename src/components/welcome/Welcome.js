@@ -3,6 +3,7 @@ import WelcomeBox from './WelcomeBox';
 import WelcomeHeader from './WelcomeHeader';
 import WarningIcon from '@material-ui/icons/Warning';
 import { Link } from 'react-router-dom';
+import './welcome.scss';
 
 export default function Welcome() {
   const [verbose, setVerbose] = useState(false);
@@ -19,7 +20,7 @@ export default function Welcome() {
     <Fragment>
       <WelcomeHeader>Welcome to Cocktail Land</WelcomeHeader>
       <WelcomeBox>
-        <div class='box-header'>
+        <div className='box-header'>
           <WarningIcon style={iconStyle} />
           <h2>Warning</h2>
           <WarningIcon style={iconStyle} />
@@ -30,7 +31,7 @@ export default function Welcome() {
           own good, leave this page!
         </p>
         {verbose ? `` : <button onClick={showMore}>More</button>}
-        <p>
+        <p className='details'>
           {verbose
             ? `Underage drinking is a serious public health problem in the United
         States and most of Europe. Alcohol is the most widely used substance among youth,

@@ -6,9 +6,10 @@ const WelcomeBox = styled.div`
   border: solid black 3px;
   width: 60vh;
   margin: auto;
+  padding: 10px;
 
   p {
-    margin: 10px 0;
+    margin: 20px 0;
   }
 `;
 

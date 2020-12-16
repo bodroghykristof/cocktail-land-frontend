@@ -1,0 +1,13 @@
+.box-header {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+
+  h2 {
+    margin: 0 10px;
+  }
+}
+
+.details {
+  font-size: 12px;
+}
