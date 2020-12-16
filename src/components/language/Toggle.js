@@ -1,5 +1,6 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import style from 'styled-components';
+import { LanguageContext } from './LanguageContext';
 
 const ToggleWrapper = style.div`
     display: flex;
@@ -61,10 +62,20 @@ const ToggleCheckBox = style.input`
 `;
 
 const Toggle = () => {
+  const [language, setLanguage] = useContext(LanguageContext);
+
+  const changeLanguage = () => {
+    setLanguage(language === 'english' ? 'german' : 'english');
+    console.log(language);
+  };
+
   return (
     <ToggleWrapper>
       <ToggleBox>
-        <ToggleCheckBox type='checkbox'></ToggleCheckBox>
+        <ToggleCheckBox
+          type='checkbox'
+          onChange={changeLanguage}
+        ></ToggleCheckBox>
         <ToggleSlider></ToggleSlider>
       </ToggleBox>
     </ToggleWrapper>
