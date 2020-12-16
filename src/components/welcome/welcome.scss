@@ -12,6 +12,12 @@
   font-size: 12px;
 }
 
+.button-container {
+  margin: auto;
+  width: 80%;
+  justify-content: space-around;
+}
+
 @font-face {
   font-family: 'Caribbean';
   src: url('../../static/Caribbean.ttf') format('truetype');
@@ -19,8 +25,8 @@
   font-style: normal;
 }
 
-.flamingo-wrapper {
+.flamingo-wrapper,
+.button-container {
   display: flex;
-  justify-content: center;
   flex-direction: row;
 }
