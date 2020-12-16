@@ -12,6 +12,9 @@ import React from 'react';
 import { FavoriteCocktails } from './components/FavoriteCocktails';
 import { FavoritesProvider } from './components/FavoritesContext';
 
+import IngredientDetail from './components/IngredientDetail';
+
+
 const App = () => {
   let content = (
     <Router>
@@ -25,6 +28,7 @@ const App = () => {
                 '/search-cocktails',
                 '/favorite-cocktails',
                 '/cocktail/:id',
+                '/ingredient/:name'
               ]}
             >
               <Header />
@@ -35,6 +39,7 @@ const App = () => {
                 component={SearchCocktails}
               />
               <Route exact path='/cocktail/:id' component={CocktailDetail} />
+              <Route exact path='/ingredient/:name' component={IngredientDetail} />
               <Route
                 path='/favorite-cocktails'
                 render={() => (
