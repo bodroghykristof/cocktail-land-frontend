@@ -1,10 +1,9 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext } from "react";
 import ResultContainer from "./ResultContainer";
 import { AllCocktailsContext } from "./AllCocktailsContext";
 
 export const SearchCocktails = () => {
     const [allCocktails] = useContext(AllCocktailsContext);
-    // const [resultsByIngredient, setResultsByIngredient] = useState([]);
     const [alcoholicCocktails, setAlcoholicCocktails] = useState([]);
     const [nonAlcoholicCocktails, setNonAlcoholicCocktails] = useState([]);
     const [alcoholicIngredients, setAlcoholicIngredients] = useState([]);
@@ -47,9 +46,7 @@ export const SearchCocktails = () => {
                 currentResult.push(cocktail);
             }
         }
-        console.log(currentResult);
         separateIngredientsByAlcohol(currentResult);
-        // setResultsByIngredient(currentResult);
     };
 
     const separateCocktailsByAlcohol = (cocktails) => {
@@ -71,8 +68,6 @@ export const SearchCocktails = () => {
     const separateIngredientsByAlcohol = (ingredients) => {
         let alcoholicResults = [];
         let nonAlcoholicResults = [];
-        console.log("ings");
-        console.log(ingredients);
         for (let ingredient of ingredients) {
             if (ingredient.strAlcoholic.toLowerCase() === "alcoholic") {
                 alcoholicResults.push(ingredient);
@@ -82,8 +77,6 @@ export const SearchCocktails = () => {
                 nonAlcoholicResults.push(ingredient);
             }
         }
-        // console.log(alcoholicResults);
-        // console.log(nonAlcoholicResults);
         setAlcoholicIngredients(alcoholicResults);
         setNonAlcoholicIngredients(nonAlcoholicResults);
     };
@@ -93,11 +86,6 @@ export const SearchCocktails = () => {
         searchCocktailsByName(keyword);
         searchCocktailsByIngredient(keyword);
     };
-
-    useEffect(() => {
-        console.log(alcoholicIngredients);
-        console.log(nonAlcoholicIngredients);
-    }, [alcoholicIngredients, nonAlcoholicIngredients]);
 
     return (
         <React.Fragment>
