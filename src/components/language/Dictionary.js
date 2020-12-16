@@ -1,6 +1,6 @@
 const dictionary = {
   headerTitle: {
-    english: 'Find your Favorite Cocktails!',
+    english: 'Find your Favourite Cocktails!',
     german: 'Finden Sie Ihre Lieblingscocktails!',
   },
   search: {
@@ -55,8 +55,8 @@ const dictionary = {
     english: 'cocktails by',
     german: 'Cocktails gefunden mit',
   },
-  noFavorite: {
-    english: 'You have no favorite cocktails yet',
+  noFavourite: {
+    english: 'You have no favourite cocktails yet',
     german: 'Sie haben keine lieblingsCocktail gewählen',
   },
 };
