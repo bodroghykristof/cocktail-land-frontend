@@ -1,19 +1,22 @@
 import React, { useContext, useState,useEffect } from 'react';
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 import { P, addStyle, deleteStyle, IMG, Card } from './CocktailCardDesign';
 import { FavoritesContext } from './FavoritesContext';
+import { LanguageContext } from './language/LanguageContext';
+import dictionary from './language/Dictionary';
 import { IconButton } from '@material-ui/core'
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import FavoriteBorderOutlinedIcon from '@material-ui/icons/FavoriteBorderOutlined';
 
-export const CocktailCard = props => {
-
-    const [value, setValue] = useState(false);
-    const [favorites, setFavorites ] = useContext(FavoritesContext);
-    const { idDrink, strDrink, strDrinkThumb } = props.cocktail;
+export const CocktailCard = (props) => {
+  const [favorites, setFavorites] = useContext(FavoritesContext);
+  const [language] = useContext(LanguageContext);
+  const { idDrink, strDrink, strDrinkThumb } = props.cocktail;
+  const [value, setValue] = useState(false);
+  const [favorites, setFavorites ] = useContext(FavoritesContext);
+  const { idDrink, strDrink, strDrinkThumb } = props.cocktail;
   
     useEffect(() => {
-
         const getFavoriteNames = () =>{
             let cocktailNames = [];
             if (favorites.lenght !== 0) {
@@ -37,13 +40,14 @@ export const CocktailCard = props => {
             deleteFavorite(e);
         }
     }
+  };
 
     const addFavorites = (e) => {
         e.preventDefault();
         setValue(true);
         setFavorites(prevFavorites => [...prevFavorites, {"strDrink": strDrink, "idDrink": idDrink, "strDrinkThumb":strDrinkThumb }])
-       
     }
+  };
 
     const deleteFavorite = (e) => {
         e.preventDefault();

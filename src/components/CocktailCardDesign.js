@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const Card = styled.div`
-    
     display: inline-block;
     height: 350px;
     width: 300px;
@@ -11,14 +10,13 @@ export const Card = styled.div`
     margin: 15px;
     background-color: rgba(144,238,144, 0.3);;
     `
-
 export const IMG = styled.img`
-    height: 75%;
-    width: 90%;
-    margin:10px;
-    border-radius: 8%;
-    border: 2px solid #ebca6c;
-`
+  height: 75%;
+  width: 90%;
+  margin: 10px;
+  border-radius: 8%;
+  border: 2px solid #ebca6c;
+`;
 
 export const P = styled.p`
     margin-top: 8px;
@@ -30,11 +28,10 @@ export const P = styled.p`
 `
 
 export const Button = styled.button`
-    margin-top: 20px;
-    float: right;
-    width: auto;
-    width: 20%;
-`
+  margin-top: 20px;
+  float: right;
+  width: auto;
+`;
 
 export const H1 = styled.h1`
     font-size: 80px;

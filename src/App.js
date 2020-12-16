@@ -11,42 +11,45 @@ import React from 'react';
 
 import { FavoriteCocktails } from './components/FavoriteCocktails';
 import { FavoritesProvider } from './components/FavoritesContext';
+import { LanguageProvider } from './components/language/LanguageContext';
 
 const App = () => {
   let content = (
     <Router>
       <AllCocktailsProvider>
-        <FavoritesProvider>
-          <div className='App'>
-            <Route exact path='/' component={Welcome} />
-            <Route
-              path={[
-                '/home',
-                '/search-cocktails',
-                '/favorite-cocktails',
-                '/cocktail/:id',
-              ]}
-            >
-              <Header />
-              <Route exact path='/home' component={Home} />
+        <LanguageProvider>
+          <FavoritesProvider>
+            <div className='App'>
+              <Route exact path='/' component={Welcome} />
               <Route
-                exact
-                path='/search-cocktails'
-                component={SearchCocktails}
-              />
-              <Route exact path='/cocktail/:id' component={CocktailDetail} />
-              <Route
-                path='/favorite-cocktails'
-                render={() => (
-                  <React.Fragment>
-                    <FavoriteCocktails />
-                  </React.Fragment>
-                )}
-              />
-              <Footer />
-            </Route>
-          </div>
-        </FavoritesProvider>
+                path={[
+                  '/home',
+                  '/search-cocktails',
+                  '/favorite-cocktails',
+                  '/cocktail/:id',
+                ]}
+              >
+                <Header />
+                <Route exact path='/home' component={Home} />
+                <Route
+                  exact
+                  path='/search-cocktails'
+                  component={SearchCocktails}
+                />
+                <Route exact path='/cocktail/:id' component={CocktailDetail} />
+                <Route
+                  path='/favorite-cocktails'
+                  render={() => (
+                    <React.Fragment>
+                      <FavoriteCocktails />
+                    </React.Fragment>
+                  )}
+                />
+                <Footer />
+              </Route>
+            </div>
+          </FavoritesProvider>
+        </LanguageProvider>
       </AllCocktailsProvider>
     </Router>
   );

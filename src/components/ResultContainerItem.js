@@ -1,16 +1,21 @@
-import React, { Fragment } from "react";
-import { Link } from "react-router-dom";
-import SearchCard from "./SearchCard";
-import DynamicScroller from "./scrolling/DynamicScroller";
+import React, { Fragment, useContext } from 'react';
+import { Link } from 'react-router-dom';
+import SearchCard from './SearchCard';
+import DynamicScroller from './scrolling/DynamicScroller';
+import { LanguageContext } from './language/LanguageContext';
+import dictionary from './language/Dictionary';
 import SearchTitle from "../elements/SearchTitle";
 
-export default function ResultContainerItem({ cocktails, search }) {
-    return (
+export default function ResultContainerItem({ cocktails, search, alcoholic }) {
+  const [language] = useContext(LanguageContext);
+
+  return (
+    <Fragment>
+      {cocktails.length > 0 ? (
         <Fragment>
             {cocktails.length > 0 ? (
                 <Fragment>
-                    <SearchTitle>Alcoholic cocktails by {search}:</SearchTitle>
-                    {/* <h3>Alcoholic cocktails by {search}:</h3> */}
+                    <SearchTitle>{alcoholic} {dictionary.searchHeaderMiddle[language]} {search}</SearchTitle>
                     <DynamicScroller>
                         {cocktails.map((cocktail) => (
                             <Link
@@ -30,5 +35,9 @@ export default function ResultContainerItem({ cocktails, search }) {
                 ``
             )}
         </Fragment>
-    );
+      ) : (
+        ``
+      )}
+    </Fragment>
+  );
 }

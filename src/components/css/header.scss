@@ -9,19 +9,25 @@
     top: 0;
     position: fixed;
 
-    .header-left-container {
+  .header-left-container {
         width: 33%;
         display: flex;
+    
+    .home-link {
+      color: red;
+      text-decoration: none;
+      margin-right: 20px;
 
-        .home-link {
-            color: red;
-            text-decoration: none;
-
-            &:hover {
-                cursor: pointer;
-            }
-        }
+      &:hover {
+        cursor: pointer;
+      }
     }
+
+    img {
+      height: 25px;
+      margin: 0 10px;
+    }
+  }
 
     .header-middle-container {
         width: 33%;
