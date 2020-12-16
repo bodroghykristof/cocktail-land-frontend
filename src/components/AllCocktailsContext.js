@@ -7,7 +7,6 @@ export const AllCocktailsProvider = (props) => {
 
     const [allCocktails, setAllCocktails] = useState([]);
 
-
     const cocktailsBya = useHttp('https://www.thecocktaildb.com/api/json/v1/1/search.php?f=a', [])[0]['drinks'];
     const cocktailsByb = useHttp('https://www.thecocktaildb.com/api/json/v1/1/search.php?f=b', [])[0]['drinks'];
     const cocktailsByc = useHttp('https://www.thecocktaildb.com/api/json/v1/1/search.php?f=c', [])[0]['drinks'];
@@ -61,10 +60,6 @@ export const AllCocktailsProvider = (props) => {
     if (allCocktails.length === 0) {
         getCocktails();
     }
-
-
-
-
 
     return (
         <AllCocktailsContext.Provider value={[allCocktails, setAllCocktails]}>
