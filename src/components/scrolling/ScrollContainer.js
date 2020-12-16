@@ -6,6 +6,11 @@ const ScrollContainer = styled.div`
   padding: 55px;
   overflow-x: hidden;
   width: 100%;
+  pointer-events: none;
+
+  & > div {
+    pointer-events: auto;
+  }
 
   &:hover > div {
     transform: translateX(-25%);

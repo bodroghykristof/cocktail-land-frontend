@@ -1,5 +1,6 @@
 import React, { useState, useContext } from 'react';
 import ResultContainer from './ResultContainer';
+import SearchBar from '../elements/SearchBar';
 import { AllCocktailsContext } from './AllCocktailsContext';
 
 export const SearchCocktails = () => {
@@ -53,7 +54,11 @@ export const SearchCocktails = () => {
   return (
     <React.Fragment>
       <h1>Search Cocktails</h1>
-      <input type='text' onChange={searchCocktails}></input>
+      <SearchBar
+        type='text'
+        placeholder='Find your cocktail...'
+        onChange={searchCocktails}
+      ></SearchBar>
       {resultsByName.length > 0 ? (
         <ResultContainer cocktails={resultsByName} />
       ) : (
