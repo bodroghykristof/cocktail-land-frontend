@@ -12,6 +12,7 @@ export default function ResultContainerItem({ cocktails, search }) {
                     <DynamicScroller>
                         {cocktails.map((cocktail) => (
                             <Link
+                                key={cocktail.idDrink}
                                 to={`cocktail/${cocktail.idDrink}`}
                                 style={{
                                     textDecoration: "none",
