@@ -44,16 +44,20 @@ const dictionary = {
     german: 'Alkoholfrei',
   },
   name: {
-    english: 'name',
+    english: 'Name',
     german: 'Namen',
   },
   ingredient: {
-    english: 'ingredient',
+    english: 'Ingredients',
     german: 'Zutaten',
   },
   searchHeaderMiddle: {
     english: 'cocktails by',
     german: 'Cocktails gefunden mit',
+  },
+  noFavorite: {
+    english: 'You have no favorite cocktails yet',
+    german: 'Sie haben keine lieblingsCocktail gewählen',
   },
 };
 

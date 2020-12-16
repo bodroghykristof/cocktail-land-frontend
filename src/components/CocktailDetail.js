@@ -1,14 +1,17 @@
-import React from "react";
-import { useParams } from "react-router-dom";
-import { AllCocktailsContext } from "./AllCocktailsContext";
-import { useContext, useEffect, useState, useRef } from "react";
-import gsap from "gsap";
-import ReactPlayer from "react-player";
+import React from 'react';
+import { useParams } from 'react-router-dom';
+import { AllCocktailsContext } from './AllCocktailsContext';
+import { useContext, useEffect, useState, useRef } from 'react';
+import gsap from 'gsap';
+import ReactPlayer from 'react-player';
+import { LanguageContext } from './language/LanguageContext';
+import dictionary from './language/Dictionary';
 
-import "../components/css/cocktailDetail.scss";
+import '../components/css/cocktailDetail.scss';
 
 const CocktailDetail = () => {
   const [allCocktails] = useContext(AllCocktailsContext);
+  const [language] = useContext(LanguageContext);
   const [cocktail, setCocktail] = useState({});
   const [ingredients, setIngredients] = useState([]);
   const { id } = useParams();
@@ -81,24 +84,28 @@ const CocktailDetail = () => {
   }
 
   return (
-    <div className="cocktail-detail">
-      <div className="title-container">
+    <div className='cocktail-detail'>
+      <div className='title-container'>
         <h1 ref={titleRef}>{cocktail.strDrink}</h1>
       </div>
-      <div ref={pic} className="image-container">
-        <img className="cocktailPic" src={cocktail.strDrinkThumb} alt="cocktail" />
+      <div ref={pic} className='image-container'>
+        <img
+          className='cocktailPic'
+          src={cocktail.strDrinkThumb}
+          alt='cocktail'
+        />
       </div>
-      <div ref={ingredientList} className="ingredients-container">
+      <div ref={ingredientList} className='ingredients-container'>
         <table>
           <thead>
             <tr>
-              <td className="table-title">Ingredients</td>
+              <td className='table-title'>{dictionary.ingredient[language]}</td>
             </tr>
           </thead>
           <tbody>
             {ingredients.map((ingredient) => (
               <tr>
-                <td className="ingredient" key={ingredient.id}>
+                <td className='ingredient' key={ingredient.id}>
                   {ingredient.name}
                 </td>
               </tr>
@@ -106,9 +113,13 @@ const CocktailDetail = () => {
           </tbody>
         </table>
       </div>
-      {cocktail.strVideo !== null ? <div ref={video} className="video-container">
-        <ReactPlayer url={cocktail.strVideo} />
-      </div> : ""}
+      {cocktail.strVideo !== null ? (
+        <div ref={video} className='video-container'>
+          <ReactPlayer url={cocktail.strVideo} />
+        </div>
+      ) : (
+        ''
+      )}
     </div>
   );
 };
