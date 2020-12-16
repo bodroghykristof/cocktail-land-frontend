@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from 'react';
-import WelcomeBox from '../elements/WelcomeBox';
-import WelcomeHeader from '../elements/WelcomeHeader';
+import WelcomeBox from './WelcomeBox';
+import WelcomeHeader from './WelcomeHeader';
 import WarningIcon from '@material-ui/icons/Warning';
 import { Link } from 'react-router-dom';
 
@@ -11,12 +11,19 @@ export default function Welcome() {
     setVerbose(true);
   };
 
+  const iconStyle = {
+    color: 'red',
+  };
+
   return (
     <Fragment>
-      <WarningIcon />
       <WelcomeHeader>Welcome to Cocktail Land</WelcomeHeader>
       <WelcomeBox>
-        <h2>Warning</h2>
+        <div class='box-header'>
+          <WarningIcon style={iconStyle} />
+          <h2>Warning</h2>
+          <WarningIcon style={iconStyle} />
+        </div>
         <p>
           This site offers a huge variety of alcoholic drinks, being not
           suitable for underage visitors. If you are under 18 please, for your
