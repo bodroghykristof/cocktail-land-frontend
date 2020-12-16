@@ -113,13 +113,9 @@ const CocktailDetail = () => {
           </tbody>
         </table>
       </div>
-      {cocktail.strVideo !== null ? (
-        <div ref={video} className='video-container'>
-          <ReactPlayer url={cocktail.strVideo} />
-        </div>
-      ) : (
-        ''
-      )}
+      {cocktail.strVideo !== null ? <div ref={video} className="video-container">
+        <ReactPlayer controls={true} url={cocktail.strVideo} />
+      </div> : ""}
     </div>
   );
 };

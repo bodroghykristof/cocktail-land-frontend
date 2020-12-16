@@ -3,7 +3,7 @@ import styled from "styled-components";
 const ScrollContainer = styled.div`
     display: flex;
     flex-wrap: nowrap;
-    padding: 55px 15px 55px 15px;
+    padding: 30px 15px;
     overflow-x: hidden;
     pointer-events: none;
     width: auto;

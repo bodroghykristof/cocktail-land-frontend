@@ -4,6 +4,7 @@ import SearchCard from './SearchCard';
 import DynamicScroller from './scrolling/DynamicScroller';
 import { LanguageContext } from './language/LanguageContext';
 import dictionary from './language/Dictionary';
+import SearchTitle from "../elements/SearchTitle";
 
 export default function ResultContainerItem({ cocktails, search, alcoholic }) {
   const [language] = useContext(LanguageContext);
@@ -12,22 +13,27 @@ export default function ResultContainerItem({ cocktails, search, alcoholic }) {
     <Fragment>
       {cocktails.length > 0 ? (
         <Fragment>
-          <h3>
-            {alcoholic} {dictionary.searchHeaderMiddle[language]} {search}
-          </h3>
-          <DynamicScroller>
-            {cocktails.map((cocktail) => (
-              <Link
-                to={`cocktail/${cocktail.idDrink}`}
-                style={{
-                  textDecoration: 'none',
-                  color: 'black',
-                }}
-              >
-                <SearchCard data={cocktail} />
-              </Link>
-            ))}
-          </DynamicScroller>
+            {cocktails.length > 0 ? (
+                <Fragment>
+                    <SearchTitle>{alcoholic} {dictionary.searchHeaderMiddle[language]} {search}</SearchTitle>
+                    <DynamicScroller>
+                        {cocktails.map((cocktail) => (
+                            <Link
+                                key={cocktail.idDrink}
+                                to={`cocktail/${cocktail.idDrink}`}
+                                style={{
+                                    textDecoration: "none",
+                                    color: "black",
+                                }}
+                            >
+                                <SearchCard data={cocktail} />
+                            </Link>
+                        ))}
+                    </DynamicScroller>
+                </Fragment>
+            ) : (
+                ``
+            )}
         </Fragment>
       ) : (
         ``
