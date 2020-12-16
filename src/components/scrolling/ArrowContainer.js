@@ -5,6 +5,11 @@ const ArrowContainer = styled.div`
     align-content: center;
     justify-content: center;
     align-items: center;
+    opacity: 0.6;
+
+    &:hover {
+        opacity: 1;
+    }
 `;
 
 export default ArrowContainer;
