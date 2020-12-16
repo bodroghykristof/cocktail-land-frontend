@@ -12,14 +12,21 @@
   .header-left-container {
     width: 33%;
     display: flex;
+    align-items: center;
 
     .home-link {
       color: red;
       text-decoration: none;
+      margin-right: 20px;
 
       &:hover {
         cursor: pointer;
       }
+    }
+
+    img {
+      height: 25px;
+      margin: 0 10px;
     }
   }
 

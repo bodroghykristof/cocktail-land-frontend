@@ -1,6 +1,9 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import "../../components/css/header.scss";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import '../../components/css/header.scss';
+import Toggle from '../language/Toggle';
+import germany from '../../static/germany.png';
+import uk from '../../static/united-kingdom.png';
 
 export default function Header() {
   return (
@@ -9,6 +12,9 @@ export default function Header() {
         <Link className='home-link' to='/home'>
           Home
         </Link>
+        <img src={uk} alt='uk flag'></img>
+        <Toggle />
+        <img src={germany} alt='german flag'></img>
       </div>
 
       <div className='header-middle-container'>
