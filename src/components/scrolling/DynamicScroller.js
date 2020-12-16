@@ -9,7 +9,10 @@ export default function DynamicScroller(props) {
             <ScrollArrow direction="left" text="left" />
             <ScrollContainer>
                 {props.children.map((element) => (
-                    <ScrollContent background={element.strDrinkThumb}>
+                    <ScrollContent
+                        key={props.children.indexOf(element)}
+                        background={element.strDrinkThumb}
+                    >
                         {element}
                     </ScrollContent>
                 ))}

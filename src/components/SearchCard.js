@@ -11,7 +11,6 @@ export default function SearchCard(props) {
         display: `flex`,
         flexDirection: `column`,
         justifyContent: `flex-end`,
-        // paddingBottom: `10px`,
     };
 
     const titleStyle = {

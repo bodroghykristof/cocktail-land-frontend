@@ -1,56 +1,58 @@
 .header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 50px;
-  width: 100vw;
-  background-color: #ebca6c;
-  padding: 10px;
-  top: 0;
-  position: fixed;
-
-  .header-left-container {
-    width: 33%;
     display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 50px;
+    width: 100vw;
+    background-color: #ebca6c;
+    padding: 10px;
+    top: 0;
+    position: fixed;
 
-    .home-link {
-      color: red;
-      text-decoration: none;
+    .header-left-container {
+        width: 33%;
+        display: flex;
 
-      &:hover {
-        cursor: pointer;
-      }
-    }
-  }
+        .home-link {
+            color: red;
+            text-decoration: none;
 
-  .header-middle-container {
-    width: 33%;
-  }
-
-  .header-right-container {
-    width: 33%;
-    display: flex;
-    justify-content: flex-end;
-
-    .link-container {
-      padding-right: 50px;
-      width: 80%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-
-      .link {
-        text-decoration: none;
-        cursor: pointer;
-        border: 1px solid #ebca6c;
-        padding: 10px;
-
-        &:hover {
-          background-color: black;
-          color: #ebca6c;
-          transition: 0.1s all ease;
+            &:hover {
+                cursor: pointer;
+            }
         }
-      }
     }
-  }
+
+    .header-middle-container {
+        width: 33%;
+    }
+
+    .header-right-container {
+        width: 33%;
+        display: flex;
+        justify-content: flex-end;
+
+        .link-container {
+            padding-right: 50px;
+            width: 80%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            .link {
+                text-decoration: none;
+                color: black;
+                cursor: pointer;
+                border: 1px solid #ebca6c;
+                padding: 10px;
+
+                &:hover {
+                    background-color: black;
+                    color: #ebca6c;
+                    transition: 0.1s all ease;
+                    border-radius: 6px;
+                }
+            }
+        }
+    }
 }
