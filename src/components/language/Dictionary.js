@@ -27,6 +27,34 @@ const dictionary = {
     english: 'Delete',
     german: 'Entfernen',
   },
+  searchTitle: {
+    english: 'Search Cocktails',
+    german: 'Cocktailsuchen',
+  },
+  searchPlaceholder: {
+    english: 'Find your cocktail...',
+    german: 'Finde deinen Cocktail...',
+  },
+  alcoholic: {
+    english: 'Alcoholic',
+    german: 'Alholische',
+  },
+  alcoholFree: {
+    english: 'Virgin',
+    german: 'Alkoholfrei',
+  },
+  name: {
+    english: 'name',
+    german: 'Namen',
+  },
+  ingredient: {
+    english: 'ingredient',
+    german: 'Zutaten',
+  },
+  searchHeaderMiddle: {
+    english: 'cocktails by',
+    german: 'Cocktails gefunden mit',
+  },
 };
 
 export default dictionary;
