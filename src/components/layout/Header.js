@@ -1,11 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import '../../components/css/header.scss';
 import Toggle from '../language/Toggle';
 import germany from '../../static/germany.png';
 import uk from '../../static/united-kingdom.png';
+import { LanguageContext } from '../language/LanguageContext';
+import dictionary from '../language/Dictionary';
 
 export default function Header() {
+  const [language, setLanguage] = useContext(LanguageContext);
+
   return (
     <div className='header'>
       <div className='header-left-container'>
@@ -18,7 +22,7 @@ export default function Header() {
       </div>
 
       <div className='header-middle-container'>
-        <h3>Find your Favorite Cocktails!</h3>
+        <h3>{dictionary.headerTitle[language]}</h3>
       </div>
 
       <div className='header-right-container'>
