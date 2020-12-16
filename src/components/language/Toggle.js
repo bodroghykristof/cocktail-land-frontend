@@ -13,6 +13,7 @@ const ToggleBox = style.label`
 `;
 
 const ToggleSlider = style.span`
+border-radius: 34px;
 position: absolute;
 cursor: pointer;
 top: 0;
@@ -24,6 +25,7 @@ background-color: #ccc;
 transition: .4s;
 
 &:before {
+    border-radius: 50%;
     position: absolute;
     content: "";
     height: 26px;
