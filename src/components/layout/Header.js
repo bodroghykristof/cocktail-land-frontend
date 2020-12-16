@@ -8,7 +8,7 @@ import { LanguageContext } from '../language/LanguageContext';
 import dictionary from '../language/Dictionary';
 
 export default function Header() {
-  const [language, setLanguage] = useContext(LanguageContext);
+  const [language] = useContext(LanguageContext);
 
   return (
     <div className='header'>
@@ -28,13 +28,13 @@ export default function Header() {
       <div className='header-right-container'>
         <div className='link-container'>
           <Link className='link' to='/search-cocktails'>
-            Search
+            {dictionary.search[language]}
           </Link>
           <Link className='link' to='/favorite-cocktails'>
-            Favorites
+            {dictionary.favourites[language]}
           </Link>
           <Link className='link' to='#'>
-            About
+            {dictionary.about[language]}
           </Link>
         </div>
       </div>
