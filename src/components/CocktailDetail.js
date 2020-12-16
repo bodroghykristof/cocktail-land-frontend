@@ -92,7 +92,7 @@ const CocktailDetail = () => {
         <table>
           <thead>
             <tr>
-              <td className="table-title">Hozzávalók</td>
+              <td className="table-title">Ingredients</td>
             </tr>
           </thead>
           <tbody>
