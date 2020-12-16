@@ -23,7 +23,12 @@ export default function Welcome() {
     <Fragment>
       <WelcomeHeader>Welcome to Cocktail Land</WelcomeHeader>
       <div className='flamingo-wrapper'>
-        <img src={flamingoReverse} alt='flamingo' height='450px'></img>
+        <img
+          src={flamingoReverse}
+          alt='flamingo'
+          height='450px'
+          className='spinning'
+        ></img>
         <WelcomeBox>
           <div className='box-header'>
             <WarningIcon style={iconStyle} />
@@ -50,7 +55,7 @@ export default function Welcome() {
               : ``}
           </p>
           <p>Would you like to enter the page?</p>
-          <div className="button-container">
+          <div className='button-container'>
             <Link to='/home'>
               <WelcomeButton>Yes</WelcomeButton>
             </Link>
@@ -59,7 +64,12 @@ export default function Welcome() {
             </a>
           </div>
         </WelcomeBox>
-        <img src={flamingo} alt='flamingo' height='450px'></img>
+        <img
+          src={flamingo}
+          alt='flamingo'
+          height='450px'
+          className='spinning'
+        ></img>
       </div>
     </Fragment>
   );
