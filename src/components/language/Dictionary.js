@@ -19,6 +19,14 @@ const dictionary = {
     english: 'Cocktails in your Life',
     german: 'Cocktails in Unserem Leben',
   },
+  add: {
+    english: 'Add',
+    german: 'Sammeln',
+  },
+  delete: {
+    english: 'Delete',
+    german: 'Entfernen',
+  },
 };
 
 export default dictionary;
