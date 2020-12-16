@@ -5,13 +5,6 @@ const ToggleWrapper = style.div`
     display: flex;
 `;
 
-const ToggleLabel = style.div`
-    display: flex;
-    align-items: center;
-    margin-left: 10px;
-    color: ${(props) => (props.customStyle === 'normal' ? 'black' : 'white')}
-`;
-
 const ToggleBox = style.label`
   position: relative;
   display: inline-block;
