@@ -99,7 +99,7 @@ const CocktailDetail = () => {
             {ingredients.map((ingredient) => (
               <tr>
                 <td className="ingredient" key={ingredient.id}>
-                  {ingredient.name}
+                  <a href={`/ingredient/${ingredient.name}`}>{ingredient.name}</a>
                 </td>
               </tr>
             ))}
