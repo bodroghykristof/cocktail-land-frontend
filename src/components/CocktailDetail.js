@@ -107,7 +107,7 @@ const CocktailDetail = () => {
         </table>
       </div>
       {cocktail.strVideo !== null ? <div ref={video} className="video-container">
-        <ReactPlayer url={cocktail.strVideo} />
+        <ReactPlayer controls={true} url={cocktail.strVideo} />
       </div> : ""}
     </div>
   );
