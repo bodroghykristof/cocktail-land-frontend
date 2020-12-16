@@ -91,19 +91,13 @@ export const SearchCocktails = () => {
         <React.Fragment>
             <h1>Search Cocktails</h1>
             <input type="text" onChange={searchCocktails}></input>
-            {alcoholicCocktails.length + nonAlcoholicCocktails.length > 0 ? (
+            {alcoholicCocktails.length + nonAlcoholicCocktails.length > 0 ||
+            alcoholicIngredients.length + nonAlcoholicIngredients.length > 0 ? (
                 <ResultContainer
                     alcoholicCocktails={alcoholicCocktails}
                     nonAlcoholicCocktails={nonAlcoholicCocktails}
-                />
-            ) : (
-                ``
-            )}
-            {alcoholicIngredients.length + nonAlcoholicIngredients.length >
-            0 ? (
-                <ResultContainer
-                    alcoholicCocktails={alcoholicIngredients}
-                    nonAlcoholicCocktails={nonAlcoholicIngredients}
+                    alcoholicIngredients={alcoholicIngredients}
+                    nonAlcoholicIngredients={nonAlcoholicIngredients}
                 />
             ) : (
                 ``
