@@ -7,6 +7,7 @@ const SearchBar = styled.input`
   font-size: 22px;
   text-align: center;
   border-radius: 10px;
+  outline: none;
 `;
 
 export default SearchBar;

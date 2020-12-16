@@ -1,19 +1,19 @@
 import styled from "styled-components";
 
 const ScrollContainer = styled.div`
-  display: flex;
-  flex-wrap: nowrap;
-  padding: 55px;
-  overflow-x: hidden;
-  width: 100%;
-  pointer-events: none;
+    display: flex;
+    flex-wrap: nowrap;
+    padding: 55px 15px 55px 15px;
+    overflow-x: hidden;
+    pointer-events: none;
+    width: auto;
 
-  & > div {
-    pointer-events: auto;
-  }
+    & > div {
+        pointer-events: auto;
+    }
 
     &:hover > div {
-        transform: translateX(-25%);
+        transform: translateX(-10%);
     }
 `;
 

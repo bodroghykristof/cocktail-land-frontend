@@ -6,6 +6,7 @@ export default function Footer() {
     width: '100%',
     bottom: '0',
     backgroundColor: '#EBCA6C',
+    zIndex: '100',
   };
 
   return (

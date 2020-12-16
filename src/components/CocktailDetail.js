@@ -92,7 +92,7 @@ const CocktailDetail = () => {
         <table>
           <thead>
             <tr>
-              <td className="table-title">Hozzávalók</td>
+              <td className="table-title">Ingredients</td>
             </tr>
           </thead>
           <tbody>
@@ -107,7 +107,7 @@ const CocktailDetail = () => {
         </table>
       </div>
       {cocktail.strVideo !== null ? <div ref={video} className="video-container">
-        <ReactPlayer url={cocktail.strVideo} />
+        <ReactPlayer controls={true} url={cocktail.strVideo} />
       </div> : ""}
     </div>
   );
