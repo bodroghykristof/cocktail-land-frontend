@@ -25,14 +25,19 @@ export const P = styled.p`
     margin-left: 10px;
     float: left;
     color: #ebca6c;
-    font-size:20px
+    font-size:20px;
+    width:70%
 `
     
 export const Button = styled.button`
     margin-top: 20px;
     float: right;
+    width: auto;
+    width: 20%;
 `
 
-export const Span = styled.span`
-    
+export const H1 = styled.h1`
+    font-size: 80px;
+    color: coral;
+    margin-top: 350px;
 `

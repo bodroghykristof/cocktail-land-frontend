@@ -1,9 +1,9 @@
 import React, { Fragment } from "react";
 import PropTypes from "prop-types";
 import DynamicScroller from "./scrolling/DynamicScroller";
+import SearchCard from './SearchCard';
 
 export default function ResultContainer(props) {
-    console.log(props);
     return (
         <Fragment>
             {props.alcoholicCocktails.length > 0 ? (
@@ -11,7 +11,7 @@ export default function ResultContainer(props) {
                     <h3>Alcoholic cocktails by name:</h3>
                     <DynamicScroller>
                         {props.alcoholicCocktails.map((cocktail) => (
-                            <p>{cocktail.strDrink}</p>
+                            <SearchCard data={cocktail} />
                         ))}
                     </DynamicScroller>
                 </Fragment>
@@ -23,7 +23,7 @@ export default function ResultContainer(props) {
                     <h3>Non alcoholic cocktails by name:</h3>
                     <DynamicScroller>
                         {props.nonAlcoholicCocktails.map((cocktail) => (
-                            <p>{cocktail.strDrink}</p>
+                            <SearchCard data={cocktail} />
                         ))}
                     </DynamicScroller>
                 </Fragment>
@@ -35,7 +35,7 @@ export default function ResultContainer(props) {
                     <h3>Alcoholic cocktails by ingredient:</h3>
                     <DynamicScroller>
                         {props.alcoholicIngredients.map((cocktail) => (
-                            <p>{cocktail.strDrink}</p>
+                            <SearchCard data={cocktail} />
                         ))}
                     </DynamicScroller>
                 </Fragment>
@@ -47,7 +47,7 @@ export default function ResultContainer(props) {
                     <h3>Non alcoholic cocktails by ingredient:</h3>
                     <DynamicScroller>
                         {props.nonAlcoholicIngredients.map((cocktail) => (
-                            <p>{cocktail.strDrink}</p>
+                            <SearchCard data={cocktail} />
                         ))}
                     </DynamicScroller>
                 </Fragment>

@@ -1,6 +1,8 @@
 import React, { useState, useContext } from "react";
 import ResultContainer from "./ResultContainer";
 import { AllCocktailsContext } from "./AllCocktailsContext";
+import SearchBar from '../elements/SearchBar';
+
 
 export const SearchCocktails = () => {
     const [allCocktails] = useContext(AllCocktailsContext);
@@ -89,8 +91,12 @@ export const SearchCocktails = () => {
 
     return (
         <React.Fragment>
-            <h1>Search Cocktails</h1>
-            <input type="text" onChange={searchCocktails}></input>
+        <h1>Search Cocktails</h1>
+        <SearchBar
+          type='text'
+          placeholder='Find your cocktail...'
+          onChange={searchCocktails}
+        />
             {alcoholicCocktails.length + nonAlcoholicCocktails.length > 0 ||
             alcoholicIngredients.length + nonAlcoholicIngredients.length > 0 ? (
                 <ResultContainer
