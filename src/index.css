@@ -15,11 +15,7 @@ body {
         "Helvetica Neue", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background: url("static/bg.jpg") no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: 1920px 800px;
+    background: no-repeat center center fixed;
     background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);
 }
 

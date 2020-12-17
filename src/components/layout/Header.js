@@ -12,34 +12,6 @@ export default function Header() {
     const [language] = useContext(LanguageContext);
 
     return (
-        // <div className='header'>
-        //   <div className='header-left-container'>
-        //     <Link className='home-link' to='/home'>
-        //       Home
-        //     </Link>
-        //     <img src={uk} alt='uk flag'></img>
-        //     <Toggle />
-        //     <img src={germany} alt='german flag'></img>
-        //   </div>
-
-        //   <div className='header-middle-container'>
-        //     <h3>{dictionary.headerTitle[language]}</h3>
-        //   </div>
-
-        //   <div className='header-right-container'>
-        //     <div className='link-container'>
-        //       <Link className='link' to='/search-cocktails'>
-        //         {dictionary.search[language]}
-        //       </Link>
-        //       <Link className='link' to='/favorite-cocktails'>
-        //         {dictionary.favourites[language]}
-        //       </Link>
-        //       <Link className='link' to='#'>
-        //         {dictionary.about[language]}
-        //       </Link>
-        //     </div>
-        //   </div>
-        // </div>
         <div className="header">
             <div className="logo">
                 <img src={logo} alt="logo" className="logo" />

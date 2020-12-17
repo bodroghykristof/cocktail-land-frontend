@@ -20,7 +20,7 @@ export const IMG = styled.img`
 
 export const P = styled.p`
     color: #2a2a2b;
-    font-size: 25px;
+    font-size: 23px;
     width: 70%;
 `;
 
@@ -33,6 +33,7 @@ export const H1 = styled.h1`
 export const SPAN = styled.span`
     display: flex;
     align-items: center;
+    justify-content: space-between;
 `;
 
 export const addStyle = {

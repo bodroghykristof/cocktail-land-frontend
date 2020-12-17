@@ -3,4 +3,10 @@
     overflow-x: hidden;
     padding-top: 20px;
     color: #2a2a2b;
+    padding-bottom: 40px;
+}
+
+.app-container {
+    position: relative;
+    min-height: 100vh;
 }
