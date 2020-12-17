@@ -4,6 +4,7 @@ import '../components/css/ingredientDetail.scss';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { H1 } from './HomeDesign';
+import SentimentVeryDissatisfiedIcon from '@material-ui/icons/SentimentVeryDissatisfied';
 
 import FreeBreakfastIcon from '@material-ui/icons/FreeBreakfast';
 import LocalBarIcon from '@material-ui/icons/LocalBar';
@@ -27,54 +28,36 @@ const IngredientDetail = () => {
 
   return (
     <Fragment>
-      <H1 className='ingredient-title'>{ingredients[0].strIngredient}</H1>
-      <div className='ingredient-detail'>
-        {/* {ingredients[0].strDescription !== null ? (
-        <div className="ingredient-description-container">
-          <div className="ingredient-description-text">
-            {ingredients[0].strDescription}
+      <div
+        className={
+          ingredients[0].strDescription !== null
+            ? 'title-container'
+            : 'title-container-empty'
+        }
+      >
+        <H1 className='ingredient-title'>{ingredients[0].strIngredient}</H1>
+        {ingredients[0].strAlcohol === 'Yes' ? (
+          <LocalBarIcon />
+        ) : (
+          <FreeBreakfastIcon />
+        )}
+      </div>
+      {ingredients[0].strDescription !== null ? (
+        <div className='ingredient-detail'>
+          <div className='ingredient-description-box'>
+            <div className='ingredient-description'>
+              {ingredients[0].strDescription}
+            </div>
           </div>
         </div>
       ) : (
-        ""
-      )} */}
-
-        {ingredients[0].strAlcohol === 'No' ? (
-          <h1 className='ingredient-alcohol'>
-            <span>
-              <FreeBreakfastIcon />
-            </span>
-            Alcohol:
-            {ingredients[0].strAlcohol}
-          </h1>
-        ) : ingredients[0].strAlcohol === 'Yes' ? (
-          <h1 className='ingredient-not-alcohol'>
-            <span>
-              <LocalBarIcon />
-            </span>
-            Alcohol:
-            {ingredients[0].strAlcohol}
-          </h1>
-        ) : (
-          <h1 className='ingredient-alcohol'>
-            <span>
-              <FreeBreakfastIcon />
-            </span>
-            Alcohol: Who knows
-          </h1>
-        )}
-
-        {ingredients[0].strABV === null ? (
-          <h1 className='ingredient-alcohol'>
-            0<span>%</span>
-          </h1>
-        ) : (
-          <h1 className='ingredient-not-alcohol'>
-            {ingredients[0].strABV}
-            <span>%</span>
-          </h1>
-        )}
-      </div>
+        <Fragment>
+          <h2>Currently there is no description available. Come back later!</h2>
+          <SentimentVeryDissatisfiedIcon
+            style={{ fontSize: '50px', marginTop: '10px' }}
+          />
+        </Fragment>
+      )}
     </Fragment>
   );
 };
