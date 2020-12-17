@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const Card = styled.div`
-    display: inline-block;
     height: 350px;
     width: 300px;
     border: 3px solid #ebca6c;
@@ -13,7 +12,6 @@ export const Card = styled.div`
 `;
 
 export const IMG = styled.img`
-    height: 75%;
     width: 90%;
     margin: 10px;
     border-radius: 6%;
@@ -21,24 +19,20 @@ export const IMG = styled.img`
 `;
 
 export const P = styled.p`
-    margin-top: 8px;
-    margin-left: 10px;
-    float: left;
     color: #2a2a2b;
     font-size: 25px;
     width: 70%;
-`;
-
-export const Button = styled.button`
-    margin-top: 20px;
-    float: right;
-    width: auto;
 `;
 
 export const H1 = styled.h1`
     font-size: 80px;
     color: #2a2a2b;
     margin-top: 350px;
+`;
+
+export const SPAN = styled.span`
+    display: flex;
+    align-items: center;
 `;
 
 export const addStyle = {
@@ -49,4 +43,8 @@ export const addStyle = {
 export const deleteStyle = {
     color: "#fe667a",
     fontSize: "150%",
+};
+
+export const linkStyle = {
+    textDecoration: "none",
 };

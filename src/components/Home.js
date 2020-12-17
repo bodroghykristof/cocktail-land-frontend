@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { AllCocktailsContext } from "./AllCocktailsContext";
 import { CocktailCard } from "./CocktailCard";
-import { H1 } from "./HomeDesign";
+import { H1, DIV } from "./HomeDesign";
 import { LanguageContext } from "./language/LanguageContext";
 import dictionary from "./language/Dictionary";
 
@@ -34,9 +34,11 @@ export const Home = () => {
     return (
         <div>
             <H1>{dictionary.homeTitle[language]}</H1>
-            {cocktails.map((cocktail) => (
-                <CocktailCard key={cocktail.idDrink} cocktail={cocktail} />
-            ))}
+            <DIV>
+                {cocktails.map((cocktail) => (
+                    <CocktailCard key={cocktail.idDrink} cocktail={cocktail} />
+                ))}
+            </DIV>
         </div>
     );
 };
