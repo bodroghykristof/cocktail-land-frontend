@@ -59,6 +59,14 @@ const dictionary = {
     english: 'You have no favourite cocktails yet',
     german: 'Sie haben keine lieblingsCocktail gewählen',
   },
+  instructions: {
+    english: 'Instructions',
+    german: 'Anweisungen',
+  },
+  howTo: {
+    english: "How it's made",
+    german: 'Wie ist es gemacht?',
+  },
 };
 
 export default dictionary;

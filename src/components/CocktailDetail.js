@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { useParams } from 'react-router-dom';
 import { AllCocktailsContext } from './AllCocktailsContext';
 import { useContext, useEffect, useState, useRef } from 'react';
@@ -6,6 +6,13 @@ import gsap from 'gsap';
 import ReactPlayer from 'react-player';
 import { LanguageContext } from './language/LanguageContext';
 import dictionary from './language/Dictionary';
+import { H1 } from './HomeDesign';
+import { IconButton } from '@material-ui/core';
+import FavoriteIcon from '@material-ui/icons/Favorite';
+import { FavoritesContext } from './FavoritesContext';
+import FavoriteBorderOutlinedIcon from '@material-ui/icons/FavoriteBorderOutlined';
+
+import { addStyle, deleteStyle } from './CocktailCardDesign';
 
 import '../components/css/cocktailDetail.scss';
 
@@ -15,11 +22,13 @@ const CocktailDetail = () => {
   const [cocktail, setCocktail] = useState({});
   const [ingredients, setIngredients] = useState([]);
   const { id } = useParams();
-
+  const [iconValue, setIconValue] = useState(false);
+  const [favorites, setFavorites] = useContext(FavoritesContext);
   const titleRef = useRef(null);
   const ingredientList = useRef(null);
   const pic = useRef(null);
   const video = useRef(null);
+  const instructions = useRef(null);
 
   useEffect(() => {
     gsap.from(titleRef.current, {
@@ -52,24 +61,49 @@ const CocktailDetail = () => {
       opacity: 0,
       scale: 0.5,
     });
+
+    gsap.from(instructions.current, {
+      duration: 1,
+      delay: 0.5,
+      y: 100,
+      opacity: 0,
+      scale: 0.5,
+    });
   }, []);
 
   useEffect(() => {
+    const getFavoriteNames = () => {
+      let cocktailNames = [];
+      if (favorites.lenght !== 0) {
+        cocktailNames = favorites.map(
+          (currentCocktail) => currentCocktail.strDrink
+        );
+        return cocktailNames;
+      }
+    };
+
+    const getCardValue = (name) => {
+      let favoriteNames = getFavoriteNames();
+      setIconValue(favoriteNames.includes(name));
+    };
+
     const cocktail = allCocktails.find(
       (cocktail) => cocktail.idDrink === id.toString()
     );
 
     setCocktail(cocktail);
+    if (cocktail !== undefined) {
+      getCardValue(cocktail.strDrink);
+    }
 
     const collectIngredients = () => {
       let ingredientObjects = [];
       if (cocktail !== undefined) {
         for (let index = 1; index < 16; index++) {
-          for (let [key, value] of Object.entries(cocktail)) {
-            if (key.toString() === `strIngredient${index}` && value !== null) {
-              let object = { name: value, id: index };
-              ingredientObjects.push(object);
-            }
+          let value = cocktail[`strIngredient${index}`];
+          if (value !== null && value !== '') {
+            let object = { name: value, id: index };
+            ingredientObjects.push(object);
           }
         }
       }
@@ -77,47 +111,101 @@ const CocktailDetail = () => {
     };
 
     collectIngredients();
-  }, [allCocktails, id]);
+  }, [allCocktails, id, favorites]);
 
   if (cocktail === undefined) {
     return null;
   }
 
-  return (
-    <div className='cocktail-detail'>
-      <div className='title-container'>
-        <h1 ref={titleRef}>{cocktail.strDrink}</h1>
-      </div>
-      <div ref={pic} className='image-container'>
-        <img
-          className='cocktailPic'
-          src={cocktail.strDrinkThumb}
-          alt='cocktail'
-        />
-      </div>
-      <div ref={ingredientList} className='ingredients-container'>
-        <table>
-          <thead>
-            <tr>
-              <td className='table-title'>{dictionary.ingredient[language]}</td>
-            </tr>
-          </thead>
-          <tbody>
-            {ingredients.map((ingredient) => (
-              <tr>
-                <td className="ingredient" key={ingredient.id}>
-                  <a href={`/ingredient/${ingredient.name}`}>{ingredient.name}</a>
+  const onClickFavorite = (e) => {
+    if (iconValue === false) {
+      addFavorites(e);
+    } else {
+      deleteFavorite(e);
+    }
+  };
 
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+  const addFavorites = (e) => {
+    e.preventDefault();
+    setIconValue(true);
+    setFavorites((prevFavorites) => [
+      ...prevFavorites,
+      {
+        strDrink: cocktail.strDrink,
+        idDrink: cocktail.idDrink,
+        strDrinkThumb: cocktail.strDrinkThumb,
+      },
+    ]);
+  };
+
+  const deleteFavorite = (e) => {
+    e.preventDefault();
+    setIconValue(false);
+    const updatedFavorites = favorites.filter(
+      (givenCocktail) => givenCocktail.idDrink !== cocktail.idDrink
+    );
+    setFavorites(updatedFavorites);
+  };
+
+  return (
+    <Fragment>
+      <H1 ref={titleRef}>{cocktail.strDrink}</H1>
+      <div className='cocktail-detail'>
+        <div className='first-column'>
+          <div ref={pic} className='image-container'>
+            <img
+              className='cocktailPic'
+              src={cocktail.strDrinkThumb}
+              alt='cocktail'
+            />
+            <IconButton
+              onClick={(e) => onClickFavorite(e)}
+              name={cocktail.strDrink}
+              value={cocktail.iconValue}
+            >
+              {iconValue ? (
+                <FavoriteIcon style={deleteStyle} />
+              ) : (
+                <FavoriteBorderOutlinedIcon style={addStyle} />
+              )}
+            </IconButton>
+          </div>
+          <div ref={ingredientList} className='ingredients-container'>
+            <h2>{dictionary.ingredient[language]}</h2>
+            <div className='ingredients-box'>
+              {ingredients.map((ingredient) => (
+                <a href={`/ingredient/${ingredient.name}`} key={ingredient.id}>
+                  <div className='ingredient'>{ingredient.name}</div>
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+        <div className='second-column'>
+          <div ref={instructions} className='instructions-container'>
+            <h2>{dictionary.instructions[language]}</h2>
+            {language === 'english' ? (
+              <div>{cocktail.strInstructions}</div>
+            ) : (
+              <div>{cocktail.strInstructionsDE}</div>
+            )}
+          </div>
+          {cocktail.strVideo !== null ? (
+            <div ref={video} className='video-container'>
+              <h2>{dictionary.howTo[language]}</h2>
+              <ReactPlayer
+                controls={true}
+                url={cocktail.strVideo}
+                width='360px'
+                height='200px'
+              />
+            </div>
+          ) : (
+            ''
+          )}
+        </div>
       </div>
-      {cocktail.strVideo !== null ? <div ref={video} className="video-container">
-        <ReactPlayer controls={true} url={cocktail.strVideo} />
-      </div> : ""}
-    </div>
+    </Fragment>
   );
 };
 

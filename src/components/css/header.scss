@@ -1,65 +1,65 @@
 .header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 50px;
-  width: 100vw;
-  background-color: #ebca6c;
-  padding: 10px;
-  top: 0;
-  position: fixed;
+  display: grid;
+  grid-template-columns: 0.1fr 1fr 1fr 1fr;
+  grid-template-areas: 'logo title nav language';
 
-  .header-left-container {
-    width: 33%;
-    display: flex;
-    align-items: center;
+  width: 85%;
+  margin: auto;
+  margin-bottom: 15px;
+  background-color: rgba(180, 183, 199, 0.8);
+  border-radius: 6px;
 
-    .home-link {
-      color: red;
-      text-decoration: none;
-      margin-right: 20px;
-
-      &:hover {
-        cursor: pointer;
-      }
-    }
+  .logo {
+    grid-area: logo;
+    padding-left: 5px;
 
     img {
-      height: 25px;
-      margin: 0 10px;
+      height: 70px;
     }
   }
 
-  .header-middle-container {
-    width: 33%;
+  .header-title {
+    grid-area: title;
+    justify-self: start;
+    align-self: center;
+    padding-left: 10px;
   }
 
-  .header-right-container {
-    width: 33%;
-    display: flex;
-    justify-content: flex-end;
+  .nav {
+    grid-area: nav;
+    display: grid;
+    justify-self: center;
+    align-self: center;
+    grid-template-columns: repeat(5, auto);
+    gap: 20px;
+    font-size: 1.3em;
+    font-weight: bold;
 
-    .link-container {
-      padding-right: 50px;
-      width: 80%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+    a {
+      text-decoration: none;
+      color: #2a2a2b;
+      padding: 7px 7px;
 
-      .link {
-        text-decoration: none;
-        color: black;
-        cursor: pointer;
-        border: 1px solid #ebca6c;
-        padding: 10px;
-
-        &:hover {
-          background-color: black;
-          color: #ebca6c;
-          transition: 0.1s all ease;
-          border-radius: 6px;
-        }
+      &:hover {
+        background-color: #555555;
+        color: #ebca6c;
+        border-radius: 5px;
       }
+    }
+  }
+
+  .language {
+    grid-area: language;
+    display: grid;
+    justify-self: end;
+    align-content: center;
+    grid-template-columns: repeat(3, auto);
+
+    padding-right: 20px;
+    gap: 10px;
+
+    img {
+      height: 30px;
     }
   }
 }
