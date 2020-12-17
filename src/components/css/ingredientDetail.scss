@@ -1,0 +1,51 @@
+.title-container {
+  display: flex;
+  justify-content: center;
+  gap: 2%;
+  align-items: center;
+  width: 60%;
+  margin-left: 13%;
+}
+
+.title-container-empty {
+  display: flex;
+  justify-content: center;
+  gap: 2%;
+  align-items: center;
+}
+
+.ingredient-detail {
+  background: url('../../static/lecture-man.png') center center;
+  background-size: cover;
+  //   background-position: 50% 0%;
+
+  width: 80%;
+  margin: auto;
+
+  .ingredient-description-box {
+    padding: 20px;
+    // background-color: white;
+
+    .ingredient-description {
+      overflow-y: scroll;
+      height: 60vh;
+      padding: 30px;
+      width: 70%;
+      margin-left: 6%;
+      text-align: justify;
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
+      /* Track */
+      &::-webkit-scrollbar-track {
+        background: red;
+      }
+
+      /* Handle */
+      &::-webkit-scrollbar-thumb {
+        background: #888;
+      }
+    }
+  }
+}
