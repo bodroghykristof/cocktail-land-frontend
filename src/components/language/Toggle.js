@@ -1,6 +1,6 @@
-import React, { useContext } from 'react';
-import style from 'styled-components';
-import { LanguageContext } from './LanguageContext';
+import React, { useContext } from "react";
+import style from "styled-components";
+import { LanguageContext } from "./LanguageContext";
 
 const ToggleWrapper = style.div`
     display: flex;
@@ -45,11 +45,11 @@ const ToggleCheckBox = style.input`
   height: 0;
 
   &:checked + ${ToggleSlider} {
-    background-color: #B5F7B5;
+    background-color: #ebca6c;
   }
 
   &:focus + ${ToggleSlider} {
-    box-shadow: 0 0 1px #B5F7B5;
+    box-shadow: 0 0 1px #ebca6c;
   }
 
   &:checked + ${ToggleSlider}:before {
@@ -62,24 +62,24 @@ const ToggleCheckBox = style.input`
 `;
 
 const Toggle = () => {
-  const [language, setLanguage] = useContext(LanguageContext);
+    const [language, setLanguage] = useContext(LanguageContext);
 
-  const changeLanguage = () => {
-    setLanguage(language === 'english' ? 'german' : 'english');
-    console.log(language);
-  };
+    const changeLanguage = () => {
+        setLanguage(language === "english" ? "german" : "english");
+        console.log(language);
+    };
 
-  return (
-    <ToggleWrapper>
-      <ToggleBox>
-        <ToggleCheckBox
-          type='checkbox'
-          onChange={changeLanguage}
-        ></ToggleCheckBox>
-        <ToggleSlider></ToggleSlider>
-      </ToggleBox>
-    </ToggleWrapper>
-  );
+    return (
+        <ToggleWrapper>
+            <ToggleBox>
+                <ToggleCheckBox
+                    type="checkbox"
+                    onChange={changeLanguage}
+                ></ToggleCheckBox>
+                <ToggleSlider></ToggleSlider>
+            </ToggleBox>
+        </ToggleWrapper>
+    );
 };
 
 export default Toggle;
