@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { useParams } from "react-router-dom";
 import { AllCocktailsContext } from "./AllCocktailsContext";
 import { useContext, useEffect, useState, useRef } from "react";
@@ -6,6 +6,7 @@ import gsap from "gsap";
 import ReactPlayer from "react-player";
 import { LanguageContext } from "./language/LanguageContext";
 import dictionary from "./language/Dictionary";
+import { H1 } from "./HomeDesign";
 
 import "../components/css/cocktailDetail.scss";
 
@@ -83,47 +84,49 @@ const CocktailDetail = () => {
     }
 
     return (
-        <div className="cocktail-detail">
-            <div className="title-container">
-                <h1 ref={titleRef}>{cocktail.strDrink}</h1>
-            </div>
-            <div ref={pic} className="image-container">
-                <img
-                    className="cocktailPic"
-                    src={cocktail.strDrinkThumb}
-                    alt="cocktail"
-                />
-            </div>
-            <div ref={ingredientList} className="ingredients-container">
-                <table>
-                    <thead>
-                        <tr>
-                            <td className="table-title">
-                                {dictionary.ingredient[language]}
-                            </td>
-                        </tr>
-                    </thead>
-                    <tbody>
+        <Fragment>
+            <H1 ref={titleRef}>{cocktail.strDrink}</H1>
+            <div className="cocktail-detail">
+                <div className="first-column">
+                    <div ref={pic} className="image-container">
+                        <img
+                            className="cocktailPic"
+                            src={cocktail.strDrinkThumb}
+                            alt="cocktail"
+                        />
+                    </div>
+                    <div ref={ingredientList} className="ingredients-container">
+                        <h2>{dictionary.ingredient[language]}</h2>
                         {ingredients.map((ingredient) => (
-                            <tr>
-                                <td className="ingredient" key={ingredient.id}>
-                                    <a href={`/ingredient/${ingredient.name}`}>
-                                        {ingredient.name}
-                                    </a>
-                                </td>
-                            </tr>
+                            <div className="ingredient" key={ingredient.id}>
+                                <a href={`/ingredient/${ingredient.name}`}>
+                                    {ingredient.name}
+                                </a>
+                            </div>
                         ))}
-                    </tbody>
-                </table>
-            </div>
-            {cocktail.strVideo !== null ? (
-                <div ref={video} className="video-container">
-                    <ReactPlayer controls={true} url={cocktail.strVideo} />
+                    </div>
                 </div>
-            ) : (
-                ""
-            )}
-        </div>
+                <div className="second-column">
+                    <div className="instructions-container">
+                        <h2>Instructions</h2>
+                        <div>{cocktail.strInstructions}</div>
+                    </div>
+                    {cocktail.strVideo !== null ? (
+                        <div ref={video} className="video-container">
+                            <h2>How to</h2>
+                            <ReactPlayer
+                                controls={true}
+                                url={cocktail.strVideo}
+                                width="360px"
+                                height="200px"
+                            />
+                        </div>
+                    ) : (
+                        ""
+                    )}
+                </div>
+            </div>
+        </Fragment>
     );
 };
 
