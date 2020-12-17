@@ -7,6 +7,12 @@ import ReactPlayer from 'react-player';
 import { LanguageContext } from './language/LanguageContext';
 import dictionary from './language/Dictionary';
 import { H1 } from './HomeDesign';
+import { IconButton } from '@material-ui/core';
+import FavoriteIcon from '@material-ui/icons/Favorite';
+import { FavoritesContext } from './FavoritesContext';
+import FavoriteBorderOutlinedIcon from '@material-ui/icons/FavoriteBorderOutlined';
+
+import { addStyle, deleteStyle } from './CocktailCardDesign';
 
 import '../components/css/cocktailDetail.scss';
 
@@ -16,7 +22,8 @@ const CocktailDetail = () => {
   const [cocktail, setCocktail] = useState({});
   const [ingredients, setIngredients] = useState([]);
   const { id } = useParams();
-
+  const [iconValue, setIconValue] = useState(false);
+  const [favorites, setFavorites] = useContext(FavoritesContext);
   const titleRef = useRef(null);
   const ingredientList = useRef(null);
   const pic = useRef(null);
@@ -65,11 +72,29 @@ const CocktailDetail = () => {
   }, []);
 
   useEffect(() => {
+    const getFavoriteNames = () => {
+      let cocktailNames = [];
+      if (favorites.lenght !== 0) {
+        cocktailNames = favorites.map(
+          (currentCocktail) => currentCocktail.strDrink
+        );
+        return cocktailNames;
+      }
+    };
+
+    const getCardValue = (name) => {
+      let favoriteNames = getFavoriteNames();
+      setIconValue(favoriteNames.includes(name));
+    };
+
     const cocktail = allCocktails.find(
       (cocktail) => cocktail.idDrink === id.toString()
     );
 
     setCocktail(cocktail);
+    if (cocktail !== undefined) {
+      getCardValue(cocktail.strDrink);
+    }
 
     const collectIngredients = () => {
       let ingredientObjects = [];
@@ -86,11 +111,41 @@ const CocktailDetail = () => {
     };
 
     collectIngredients();
-  }, [allCocktails, id]);
+  }, [allCocktails, id, favorites]);
 
   if (cocktail === undefined) {
     return null;
   }
+
+  const onClickFavorite = (e) => {
+    if (iconValue === false) {
+      addFavorites(e);
+    } else {
+      deleteFavorite(e);
+    }
+  };
+
+  const addFavorites = (e) => {
+    e.preventDefault();
+    setIconValue(true);
+    setFavorites((prevFavorites) => [
+      ...prevFavorites,
+      {
+        strDrink: cocktail.strDrink,
+        idDrink: cocktail.idDrink,
+        strDrinkThumb: cocktail.strDrinkThumb,
+      },
+    ]);
+  };
+
+  const deleteFavorite = (e) => {
+    e.preventDefault();
+    setIconValue(false);
+    const updatedFavorites = favorites.filter(
+      (givenCocktail) => givenCocktail.idDrink !== cocktail.idDrink
+    );
+    setFavorites(updatedFavorites);
+  };
 
   return (
     <Fragment>
@@ -103,6 +158,17 @@ const CocktailDetail = () => {
               src={cocktail.strDrinkThumb}
               alt='cocktail'
             />
+            <IconButton
+              onClick={(e) => onClickFavorite(e)}
+              name={cocktail.strDrink}
+              value={cocktail.iconValue}
+            >
+              {iconValue ? (
+                <FavoriteIcon style={deleteStyle} />
+              ) : (
+                <FavoriteBorderOutlinedIcon style={addStyle} />
+              )}
+            </IconButton>
           </div>
           <div ref={ingredientList} className='ingredients-container'>
             <h2>{dictionary.ingredient[language]}</h2>
