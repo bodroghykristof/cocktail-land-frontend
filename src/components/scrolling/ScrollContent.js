@@ -15,6 +15,8 @@ const ScrollContent = styled.div`
 
     &:hover {
         transform: scale(1.2) !important;
+        box-shadow: 1px 1px 10px -2px #000000;
+        transition: 0.3s all ease-in;
     }
 `;
 

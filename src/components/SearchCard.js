@@ -15,8 +15,7 @@ export default function SearchCard(props) {
 
     const titleStyle = {
         fontWeight: `900`,
-        borderTop: `black 2px solid`,
-        background: `white`,
+        backgroundImage: `linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1))`,
         height: `3.5em`,
         lineHeight: `1em`,
         marginTop: `20px`,
