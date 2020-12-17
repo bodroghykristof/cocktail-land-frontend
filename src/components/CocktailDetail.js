@@ -12,7 +12,7 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import { FavoritesContext } from './FavoritesContext';
 import FavoriteBorderOutlinedIcon from '@material-ui/icons/FavoriteBorderOutlined';
 
-import { addStyle, deleteStyle } from './CocktailCardDesign';
+import { favoriteIconStyle } from './CocktailCardDesign';
 
 import '../components/css/cocktailDetail.scss';
 
@@ -154,19 +154,19 @@ const CocktailDetail = () => {
         <div className='first-column'>
           <div ref={pic} className='image-container'>
             <img
-              className='cocktailPic'
+              className='cocktail-pic'
               src={cocktail.strDrinkThumb}
               alt='cocktail'
             />
-            <IconButton
+            <IconButton className="heart-icon"
               onClick={(e) => onClickFavorite(e)}
               name={cocktail.strDrink}
               value={cocktail.iconValue}
             >
               {iconValue ? (
-                <FavoriteIcon style={deleteStyle} />
+                <FavoriteIcon style={favoriteIconStyle} />
               ) : (
-                <FavoriteBorderOutlinedIcon style={addStyle} />
+                <FavoriteBorderOutlinedIcon style={favoriteIconStyle} />
               )}
             </IconButton>
           </div>

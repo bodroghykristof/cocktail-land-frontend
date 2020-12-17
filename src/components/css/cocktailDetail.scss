@@ -4,9 +4,15 @@
   justify-content: space-evenly;
   width: 70%;
 
-  .cocktailPic {
+  .cocktail-pic {
     height: 30vh;
     border-radius: 50%;
+  }
+
+  .image-container {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
   }
 
   .first-column {
