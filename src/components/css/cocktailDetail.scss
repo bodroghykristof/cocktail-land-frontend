@@ -1,57 +1,82 @@
 .cocktail-detail {
+  display: flex;
+  margin: auto;
+  justify-content: space-evenly;
+  width: 70%;
+
+  .cocktailPic {
+    height: 30vh;
+    border-radius: 50%;
+  }
+
+  .first-column {
     display: flex;
-    margin: auto;
+    flex-direction: column;
     justify-content: space-evenly;
-    width: 70%;
+    align-items: center;
+    gap: 30px;
+    flex: 1;
+  }
 
-    .cocktailPic {
-        height: 30vh;
-        border-radius: 50%;
+  .second-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    flex: 1;
+  }
+
+  .ingredients-container {
+    width: 100%;
+
+    h2 {
+      margin-bottom: 15px;
     }
 
-    .first-column {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-evenly;
-        align-items: center;
-        gap: 30px;
-        flex: 1;
-    }
+    .ingredients-box {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
 
-    .second-column {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-evenly;
-        align-items: center;
-        flex: 1;
-    }
-
-    .ingredients-container {
-        width: 30vh;
-    }
-
-    .ingredient {
+      a {
         padding: 10px;
         border: 1px solid black;
         background-color: lightgreen;
         border-radius: 10px;
-    }
+        width: 100px;
 
-    .instructions-container {
-        div {
-            border: 3px solid #ebca6c;
-            border-radius: 6px;
-            width: 80%;
-            margin: auto;
-            margin-top: 15px;
-            padding: 15px;
-            background-color: rgba(144, 238, 144, 0.3);
-        }
-    }
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 5px;
+        background-color: rgba(144, 238, 144, 0.3);
+        border: 3px solid #ebca6c;
+        text-decoration: none;
+        color: #2a2a2b;
 
-    .video-container {
-        h2 {
-            margin-bottom: 15px;
+        &:hover {
+          font-weight: 900;
         }
+      }
     }
+  }
+
+  .instructions-container {
+    div {
+      border: 3px solid #ebca6c;
+      border-radius: 6px;
+      width: 80%;
+      margin: auto;
+      margin-top: 15px;
+      margin-bottom: 15px;
+      padding: 15px;
+      background-color: rgba(144, 238, 144, 0.3);
+    }
+  }
+
+  .video-container {
+    h2 {
+      margin-bottom: 15px;
+    }
+  }
 }
