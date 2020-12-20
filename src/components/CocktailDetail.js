@@ -8,7 +8,7 @@ import { LanguageContext } from './language/LanguageContext';
 import dictionary from './language/Dictionary';
 import { H1 } from './HomeDesign';
 import { FavoritesContext } from './FavoritesContext';
-import FavoriteIcon  from './FavoriteIcon';
+import FavoriteIconHearth  from './FavoriteIconHearth';
 import '../components/css/cocktailDetail.scss';
 
 const CocktailDetail = () => {
@@ -16,7 +16,7 @@ const CocktailDetail = () => {
   const [favorites] = useContext(FavoritesContext);
   const { id } = useParams();
   const [cocktail, setCocktail] = useState({});
-  const [iconValue, setIconValue] = useState(favorites.map(cocktail => cocktail.idDrink).includes(id.toString()));
+  const [iconValue] = useState(favorites.map(cocktail => cocktail.idDrink).includes(id.toString()));
   const [language] = useContext(LanguageContext);
   const [ingredients, setIngredients] = useState([]);
   const titleRef = useRef(null);
@@ -105,7 +105,7 @@ const CocktailDetail = () => {
               src={cocktail.strDrinkThumb}
               alt='cocktail'
             />
-            <FavoriteIcon cocktail={cocktail} value={iconValue}/>
+            <FavoriteIconHearth cocktail={cocktail} value={iconValue}/>
           </div>
           <div ref={ingredientList} className='ingredients-container'>
             <h2>{dictionary.ingredient[language]}</h2>

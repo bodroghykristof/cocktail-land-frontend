@@ -5,13 +5,14 @@ import FavoriteBorderOutlinedIcon from '@material-ui/icons/FavoriteBorderOutline
 import { favoriteIconStyle } from './CocktailCardDesign';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 
-export default function MyFavoriteIcon(props) {
+export default function FavoriteIconHearth(props) {
 
   const [favorites, setFavorites] = useContext(FavoritesContext);
   const [value, setValue] = useState(props.value);
   const cocktail = props.cocktail;
 
   useEffect(() => {
+
     const getCardValue = (cocktailName) => {
       if ( props.value !== undefined) {
         setValue(value);
@@ -21,7 +22,8 @@ export default function MyFavoriteIcon(props) {
     };
 
     getCardValue(cocktail.strDrink);
-  }, [favorites, cocktail.strDrink]);
+
+  }, [favorites, cocktail.strDrink, value, props.value]);
 
 
   const onClickHeart = (e) => {

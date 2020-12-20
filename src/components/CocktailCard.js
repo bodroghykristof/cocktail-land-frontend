@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import {
   P,
@@ -7,7 +7,7 @@ import {
   Card,
   SPAN,
 } from './CocktailCardDesign';
-import FavoriteIcon from './FavoriteIcon';
+import FavoriteIconHearth from './FavoriteIconHearth';
 
 export const CocktailCard = (props) => {
 
@@ -19,7 +19,7 @@ export const CocktailCard = (props) => {
         <IMG src={cocktail.strDrinkThumb}></IMG>
         <SPAN>
           <P>{cocktail.strDrink}</P>
-          <FavoriteIcon cocktail={cocktail} key={cocktail.idDrink} value={props.value}/>
+          <FavoriteIconHearth cocktail={cocktail} key={cocktail.idDrink} value={props.value}/>
         </SPAN>
       </Card>
     </Link>
