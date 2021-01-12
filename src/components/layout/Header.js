@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import Private from '../../auth/Private';
+import Guest from '../../auth/Guest';
 import '../../components/css/header.scss';
 import Toggle from '../language/Toggle';
 import germany from '../../static/germany.png';
@@ -34,6 +35,16 @@ export default function Header() {
         <Link className='link' to='#'>
           {dictionary.about[language]}
         </Link>
+        <Guest>
+          <Link className='link' to='/login'>
+            Login
+          </Link>
+        </Guest>
+        <Guest>
+          <Link className='link' to='/register'>
+            {dictionary.register[language]}
+          </Link>
+        </Guest>
       </div>
       <div className='language'>
         <img src={uk} alt='uk flag'></img>

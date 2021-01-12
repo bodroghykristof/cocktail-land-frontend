@@ -15,6 +15,10 @@ const dictionary = {
     english: 'About',
     german: 'Über',
   },
+  register: {
+    english: 'Register',
+    german: 'Registieren',
+  },
   homeTitle: {
     english: 'Cocktails in your Life',
     german: 'Cocktails in Unserem Leben',
