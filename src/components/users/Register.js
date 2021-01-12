@@ -1,5 +1,4 @@
 import React, { useState, useRef } from 'react';
-import axios from 'axios';
 import UserFormContainer from './UserFormContainer';
 import RegisterButton from '../layout/Button';
 import apiService from '../services/Api';
@@ -24,8 +23,12 @@ function Register() {
       passwordTwoInput === ''
     ) {
       setErrorMessage('Please fill out all input fields!');
+    } else if (!RegExp('^[^@.]+@[^@.]+\\.[^@.]+$').test(emailInput)) {
+      setErrorMessage('Invalid email!');
     } else if (passwordOneInput !== passwordTwoInput) {
       setErrorMessage('Mismatching passwords!');
+    } else if (passwordOneInput.length < 5) {
+      setErrorMessage('Password must be at least 5 characters');
     } else {
       const user = {
         name: userNameInput,
