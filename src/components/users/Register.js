@@ -38,7 +38,6 @@ function Register() {
         password: passwordOneInput,
       };
       const response = await apiService.register(user);
-      console.log(response);
       if (response.status === 409) setErrorMessage(response.data.message);
       else history.push('/login');
     }
