@@ -30,15 +30,17 @@ function Register() {
     } else if (passwordOneInput !== passwordTwoInput) {
       setErrorMessage('Mismatching passwords!');
     } else if (passwordOneInput.length < 5) {
-      setErrorMessage('Password must be at least 5 characters');
+      setErrorMessage('Password must be at least 5 characters!');
     } else {
       const user = {
         name: userNameInput,
         email: emailInput,
         password: passwordOneInput,
       };
-      await apiService.register(user);
-      history.push('/login');
+      const response = await apiService.register(user);
+      console.log(response);
+      if (response.status === 409) setErrorMessage(response.data.message);
+      else history.push('/login');
     }
   };
 
