@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react';
+import { useHistory } from 'react-router-dom';
 import UserFormContainer from './UserFormContainer';
 import RegisterButton from '../layout/Button';
 import apiService from '../services/Api';
@@ -9,8 +10,9 @@ function Register() {
   const email = useRef(null);
   const passwordOne = useRef(null);
   const passwordTwo = useRef(null);
+  const history = useHistory();
 
-  const checkRegistration = () => {
+  const checkRegistration = async () => {
     const userNameInput = userName.current.value;
     const emailInput = email.current.value;
     const passwordOneInput = passwordOne.current.value;
@@ -35,7 +37,8 @@ function Register() {
         email: emailInput,
         password: passwordOneInput,
       };
-      apiService.register(user);
+      await apiService.register(user);
+      history.push('/login');
     }
   };
 
