@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from 'react';
 import WelcomeBox from './WelcomeBox';
-import WelcomeButton from './WelcomeButton';
+import WelcomeButton from '../layout/Button';
 import WelcomeHeader from './WelcomeHeader';
 import WarningIcon from '@material-ui/icons/Warning';
 import { Link } from 'react-router-dom';
