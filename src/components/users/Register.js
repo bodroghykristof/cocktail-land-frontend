@@ -37,7 +37,7 @@ function Register() {
         ref={passwordTwo}
       ></input>
       <br></br>
-      <p>{errorMessage}</p>
+      <p className="error-message">{errorMessage}</p>
       <br></br>
       <button
         id='loginConfirmationButton'
