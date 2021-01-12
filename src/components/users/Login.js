@@ -1,39 +1,47 @@
-import React, { useState, useRef } from 'react';
-import UserFormContainer from './UserFormContainer';
+import React, { useState, useRef } from "react";
+import UserFormContainer from "./UserFormContainer";
+import "../css/loginpage.scss";
+import { Button, Form } from "react-bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function Login() {
-  const [errorMessage, setErrorMessage] = useState('');
-  const userName = useRef(null);
+  const [errorMessage, setErrorMessage] = useState("");
+  const email = useRef(null);
   const password = useRef(null);
 
-  const forgotPasswordAction = () =>
-    alert('Shame on you, we do not have any smart solution for this yet');
-
   const checkLogin = () => {
-    const userNameInput = userName.current.value;
+    const emailInput = email.current.value;
     const passwordInput = password.current.value;
 
-    if (userNameInput === '' || passwordInput === '') {
-      setErrorMessage('Please fill out all input fields!');
+    if (emailInput === "" || passwordInput === "") {
+      setErrorMessage("Please fill out all input fields!");
     } else {
-      window.location.replace('/test');
+      window.location.replace("/test");
     }
   };
 
   return (
-    <UserFormContainer>
-      <input type='text' placeholder='Username' ref={userName}></input>
-      <br></br>
-      <input type='password' placeholder='Password' ref={password}></input>
-      <br></br>
-      <p>{errorMessage}</p>
-      <p id='forgotPassword' onClick={() => forgotPasswordAction()}>
-        Forgot my password
-      </p>
-      <button id='loginConfirmationButton' onClick={checkLogin}>
-        Login
-      </button>
-    </UserFormContainer>
+    <div className="login-page">
+      <Form className="login-form">
+        <Form.Group controlId="formBasicEmail">
+          <Form.Label>Email address</Form.Label>
+          <Form.Control type="email" placeholder="Enter email" ref={email} />
+        </Form.Group>
+
+        <Form.Group controlId="formBasicPassword">
+          <Form.Label>Password</Form.Label>
+          <Form.Control type="password" placeholder="Password" ref={password}/>
+        </Form.Group>
+
+        <Form.Group controlId="formBasicError">
+          <Form.Text>{errorMessage}</Form.Text>
+        </Form.Group>
+
+        <Button variant="secondary" type="button" onClick={checkLogin}>
+          Login
+        </Button>
+      </Form>
+    </div>
   );
 }
 
