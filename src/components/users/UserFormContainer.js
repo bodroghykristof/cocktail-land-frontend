@@ -1,13 +1,15 @@
 import styled from 'styled-components';
 
 const UserFormContainer = styled.div`
-  background-color: grey;
+  background-color: rgba(180, 183, 199);
   text-align: center;
-  /* border: ${(props) => props.theme.borderSecondary}; */
+  border: solid black 2px;
   border-collapse: collapse;
   border-radius: 10px;
   width: 40%;
   margin: auto;
+  height: 220px;
+  margin-top: 25vh;
   padding-top: 20px;
 
   input[type='text'],
@@ -16,19 +18,19 @@ const UserFormContainer = styled.div`
     border-radius: 5px;
     color: white;
     font-weight: 750;
-    width: 25%;
+    width: 35%;
+    font-size: 18px;
 
     background-color: transparent;
     border: none;
     border-bottom: solid black 1px;
     text-align: center;
-    padding-top: 1px;
 
     &:focus {
       transition: all 0.6s ease-in-out;
       outline: none;
       border-bottom: solid white 1px;
-      width: 30%;
+      width: 45%;
     }
 
     &::placeholder {

@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react';
 import UserFormContainer from './UserFormContainer';
+import RegisterButton from '../layout/Button';
 
 function Register() {
   const [errorMessage, setErrorMessage] = useState('');
@@ -37,14 +38,14 @@ function Register() {
         ref={passwordTwo}
       ></input>
       <br></br>
-      <p className="error-message">{errorMessage}</p>
+      <p className='error-message'>{errorMessage}</p>
       <br></br>
-      <button
+      <RegisterButton
         id='loginConfirmationButton'
         onClick={(e) => checkRegistration(e)}
       >
         Register
-      </button>
+      </RegisterButton>
     </UserFormContainer>
   );
 }
