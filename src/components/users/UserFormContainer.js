@@ -8,12 +8,11 @@ const UserFormContainer = styled.div`
   border-radius: 10px;
   width: 40%;
   margin: auto;
-  height: 220px;
+  height: 270px;
   margin-top: 25vh;
   padding-top: 20px;
 
-  input[type='text'],
-  input[type='password'] {
+  input {
     margin-bottom: 20px;
     border-radius: 5px;
     color: white;
