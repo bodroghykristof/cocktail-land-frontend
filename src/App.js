@@ -11,6 +11,7 @@ import { SearchCocktails } from './components/SearchCocktails';
 import CocktailDetail from './components/CocktailDetail';
 import Register from './components/users/Register';
 import Login from './components/users/Login';
+import PrivateRoute from './auth/PrivateRoute';
 
 import { FavoriteCocktails } from './components/FavoriteCocktails';
 import { FavoritesProvider } from './components/FavoritesContext';
@@ -55,13 +56,9 @@ const App = () => {
                     path='/ingredient/:name'
                     component={IngredientDetail}
                   />
-                  <Route
+                  <PrivateRoute
                     path='/favorite-cocktails'
-                    render={() => (
-                      <React.Fragment>
-                        <FavoriteCocktails />
-                      </React.Fragment>
-                    )}
+                    component={FavoriteCocktails}
                   />
                 </Route>
               </div>
