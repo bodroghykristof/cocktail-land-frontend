@@ -1,6 +1,5 @@
 import React, { useState, useRef } from 'react';
 import { useHistory } from 'react-router-dom';
-import UserFormContainer from './UserFormContainer';
 import '../css/loginpage.scss';
 import { Button, Form } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
