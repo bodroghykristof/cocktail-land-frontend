@@ -10,7 +10,7 @@ const apiService = {
     Axios.post(`${URL}/login`, user).catch((error) => error.response),
 
   getFavoriteCoctails: (token) =>
-    Axios.get(`/favourite/get`, token).catch((error) => error.response),
+    Axios.get(`${URL}/favourite`,  { headers: {"Authorization" : `Bearer ${token}`} }).catch((error) => error.response),
 };
 
 export default apiService;
