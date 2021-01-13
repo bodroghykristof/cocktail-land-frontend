@@ -4,6 +4,7 @@ import { IconButton } from '@material-ui/core';
 import FavoriteBorderOutlinedIcon from '@material-ui/icons/FavoriteBorderOutlined';
 import { favoriteIconStyle } from './CocktailCardDesign';
 import FavoriteIcon from '@material-ui/icons/Favorite';
+import apiService from "./services/Api";
 
 export default function FavoriteIconHearth(props) {
 
@@ -34,21 +35,24 @@ export default function FavoriteIconHearth(props) {
     }
   };
 
-  const addFavorites = (e) => {
+  const addFavorites = async (e) => {
+    const cocktailData = {
+      strDrink: cocktail.strDrink,
+      idDrink: cocktail.idDrink,
+      strDrinkThumb: cocktail.strDrinkThumb
+    } 
     e.preventDefault();
+    await apiService.addToFavourite(localStorage.getItem("token"), cocktailData);
     setFavorites((prevFavorites) => [
       ...prevFavorites,
-      {
-        strDrink: cocktail.strDrink,
-        idDrink: cocktail.idDrink,
-        strDrinkThumb: cocktail.strDrinkThumb,
-      },
+      cocktailData
     ]);
     setValue(true);
   };
 
-  const deleteFavorite = (e) => {
+  const deleteFavorite = async (e) => {
     e.preventDefault();
+    await apiService.deleteFromFavourite(localStorage.getItem("token"), cocktail.idDrink);
     setValue(false);
     const updatedFavorites = favorites.filter(
       (favCocktail) => favCocktail.idDrink !== cocktail.idDrink

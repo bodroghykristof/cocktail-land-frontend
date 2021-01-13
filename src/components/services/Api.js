@@ -10,7 +10,21 @@ const apiService = {
     Axios.post(`${URL}/login`, user).catch((error) => error.response),
 
   getFavoriteCoctails: (token) =>
-    Axios.get(`${URL}/favourite`,  { headers: {"Authorization" : `Bearer ${token}`} }).catch((error) => error.response),
+    Axios.get(`${URL}/favourite`, {
+      headers: { Authorization: `Bearer ${token}` },
+    }).catch((error) => error.response),
+
+  addToFavourite: (token, cocktail) =>
+    Axios.post(
+      `${URL}/favourite`,
+      cocktail,
+      {headers: { Authorization: `Bearer ${token}` }}
+    ).catch((error) => error.response),
+
+  deleteFromFavourite: (token, id) =>
+    Axios.delete(`${URL}/favourite/${id}`, {
+      headers: { Authorization: `Bearer ${token}` },
+    }).catch((error) => error.response),
 };
 
 export default apiService;
