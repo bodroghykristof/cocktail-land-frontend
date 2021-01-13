@@ -6,7 +6,7 @@ export const useHttp = (url) => {
     const [fetchedData, setData] = useState([]);
 
     useEffect(() => {
-        console.log('Sending Http request to URL: ' + url);
+        // console.log('Sending Http request to URL: ' + url);
 
         async function fetching() {
             await Axios.get(url)
