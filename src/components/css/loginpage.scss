@@ -1,0 +1,16 @@
+.login-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 90vh;
+    padding: 50px;
+
+    .login-form {
+        padding: 50px;
+        width: 40%;
+        background-color: #b4b7c7;
+        border-radius: 10px;
+        border: 1px solid black;
+        box-shadow: 0px 0px 20px 11px rgba(0,0,0,0.56);
+    }
+}
