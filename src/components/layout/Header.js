@@ -9,14 +9,17 @@ import uk from "../../static/united-kingdom.png";
 import { LanguageContext } from "../language/LanguageContext";
 import dictionary from "../language/Dictionary";
 import logo from "../../static/logo.png";
+import { IsLoggedInContext } from "../../auth/IsLoggedInContext";
 import apiService from "../services/Api";
 
 export default function Header() {
     const [language] = useContext(LanguageContext);
+    const [isLoggedIn, setIsLoggedIn] = useContext(IsLoggedInContext);
 
     const logout = async () => {
         await apiService.logout(localStorage.getItem("token"));
         localStorage.clear();
+        setIsLoggedIn(false);
     };
 
     return (
@@ -42,14 +45,22 @@ export default function Header() {
                     {dictionary.about[language]}
                 </Link>
                 <Guest>
-                    <Link className="link" to="/login">
-                        Login
-                    </Link>
+                    {!isLoggedIn ? (
+                        <Link className="link" to="/login">
+                            Login
+                        </Link>
+                    ) : (
+                        ""
+                    )}
                 </Guest>
                 <Guest>
-                    <Link className="link" to="/register">
-                        {dictionary.register[language]}
-                    </Link>
+                    {!isLoggedIn ? (
+                        <Link className="link" to="/register">
+                            {dictionary.register[language]}
+                        </Link>
+                    ) : (
+                        ""
+                    )}
                 </Guest>
                 <Private>
                     <Link className="link" to="/home" onClick={logout}>
