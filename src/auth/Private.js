@@ -1,5 +1,10 @@
+import { useContext } from 'react';
+import { IsLoggedInContext } from './IsLoggedInContext';
+
 function Private(props) {
-  return localStorage.getItem('token') !== null ? props.children : null;
+  const [isLoggedIn] = useContext(IsLoggedInContext);
+
+  return isLoggedIn ? props.children : null;
 }
 
 export default Private;
