@@ -17,8 +17,10 @@ const CocktailDetail = () => {
   const [favorites] = useContext(FavoritesContext);
   const { id } = useParams();
   const [cocktail, setCocktail] = useState({});
-  const [iconValue] = useState(
-    favorites.map((cocktail) => cocktail.idDrink).includes(id.toString())
+  const [iconValue, setIconValue] = useState(
+    favorites
+      .map((cocktail) => cocktail.idDrink.toString())
+      .includes(id.toString())
   );
   const [language] = useContext(LanguageContext);
   const [ingredients, setIngredients] = useState([]);
@@ -27,6 +29,9 @@ const CocktailDetail = () => {
   const pic = useRef(null);
   const video = useRef(null);
   const instructions = useRef(null);
+
+  console.log(favorites.length);
+  console.log(iconValue);
 
   useEffect(() => {
     gsap.from(titleRef.current, {
@@ -74,6 +79,11 @@ const CocktailDetail = () => {
       (cocktail) => cocktail.idDrink === id.toString()
     );
     setCocktail(cocktail);
+    setIconValue(
+      favorites
+        .map((cocktail) => cocktail.idDrink.toString())
+        .includes(id.toString())
+    );
 
     const collectIngredients = () => {
       let ingredientObjects = [];
@@ -86,6 +96,7 @@ const CocktailDetail = () => {
           }
         }
       }
+      console.log('Id: ' + id.toString());
       setIngredients(ingredientObjects);
     };
 

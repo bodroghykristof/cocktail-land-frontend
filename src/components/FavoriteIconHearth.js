@@ -16,9 +16,9 @@ export default function FavoriteIconHearth(props) {
       if (props.value !== undefined) {
         setValue(value);
       } else {
-        setValue(
-          favorites.map((favorite) => favorite.strDrink).includes(cocktailName)
-        );
+      setValue(
+        favorites.map((favorite) => favorite.strDrink).includes(cocktailName)
+      );
       }
     };
 
