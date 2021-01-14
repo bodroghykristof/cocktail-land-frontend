@@ -60,7 +60,7 @@ function Login() {
         </Form.Group>
 
         <Form.Group controlId="formBasicError">
-          <Form.Text>{errorMessage}</Form.Text>
+  <Form.Text>{errorMessage === "" ? <span style={{display: "inline-block", width: "20px"}}></span> : <span>{errorMessage}</span>}</Form.Text>
         </Form.Group>
 
         <Button variant="secondary" type="button" onClick={checkLogin}>
