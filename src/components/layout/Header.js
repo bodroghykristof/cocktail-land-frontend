@@ -9,9 +9,15 @@ import uk from "../../static/united-kingdom.png";
 import { LanguageContext } from "../language/LanguageContext";
 import dictionary from "../language/Dictionary";
 import logo from "../../static/logo.png";
+import apiService from "../services/Api";
 
 export default function Header() {
     const [language] = useContext(LanguageContext);
+
+    const logout = async () => {
+        await apiService.logout(localStorage.getItem("token"));
+        localStorage.clear();
+    };
 
     return (
         <div className="header">
@@ -46,7 +52,7 @@ export default function Header() {
                     </Link>
                 </Guest>
                 <Private>
-                    <Link className="link" to="/logout">
+                    <Link className="link" to="/home" onClick={logout}>
                         Logout
                     </Link>
                 </Private>

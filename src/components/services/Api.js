@@ -10,9 +10,13 @@ const apiService = {
         Axios.post(`${URL}/login`, user).catch((error) => error.response),
 
     logout: (token) =>
-        Axios.post(`${URL}/logout`, {
-            headers: { Authorization: `Bearer ${token}` },
-        }).catch((error) => error.response),
+        Axios.post(
+            `${URL}/logout`,
+            {},
+            {
+                headers: { Authorization: `Bearer ${token}` },
+            }
+        ).catch((error) => error.response),
 
     getFavoriteCoctails: (token) =>
         Axios.get(`${URL}/favourite`, {
