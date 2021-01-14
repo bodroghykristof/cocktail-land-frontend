@@ -11,7 +11,6 @@ import { SearchCocktails } from "./components/SearchCocktails";
 import CocktailDetail from "./components/CocktailDetail";
 import Register from "./components/users/Register";
 import Login from "./components/users/Login";
-import Logout from "./components/users/Logout";
 import PrivateRoute from "./auth/PrivateRoute";
 import GuestRoute from "./auth/GuestRoute";
 
@@ -47,7 +46,6 @@ const App = () => {
                                         "/favorite-cocktails",
                                         "/cocktail/:id",
                                         "/ingredient/:name",
-                                        "/logout",
                                     ]}
                                 >
                                     <Header />
@@ -74,10 +72,6 @@ const App = () => {
                                     <PrivateRoute
                                         path="/favorite-cocktails"
                                         component={FavoriteCocktails}
-                                    />
-                                    <PrivateRoute
-                                        path="/logout"
-                                        component={Logout}
                                     />
                                 </Route>
                             </div>
