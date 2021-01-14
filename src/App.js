@@ -29,8 +29,6 @@ const App = () => {
             <div className='app-container'>
               <div className='App'>
                 <Route exact path='/' component={Welcome} />
-                <GuestRoute exact path='/register' component={Register} />
-                <GuestRoute exact path='/login' component={Login} />
                 <Route
                   path={[
                     '/home',
@@ -38,9 +36,13 @@ const App = () => {
                     '/favorite-cocktails',
                     '/cocktail/:id',
                     '/ingredient/:name',
+                    '/register',
+                    '/login',
                   ]}
                 >
                   <Header />
+                  <GuestRoute exact path='/register' component={Register} />
+                  <GuestRoute exact path='/login' component={Login} />
                   <Route exact path='/home' component={Home} />
                   <Route
                     exact
