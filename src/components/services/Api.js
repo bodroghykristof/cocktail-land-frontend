@@ -9,6 +9,15 @@ const apiService = {
   login: (user) =>
     Axios.post(`${URL}/login`, user).catch((error) => error.response),
 
+  logout: (token) =>
+    Axios.post(
+      `${URL}/logout`,
+      {},
+      {
+        headers: { Authorization: `Bearer ${token}` },
+      }
+    ).catch((error) => error.response),
+
   getAllCocktails: (token) =>
     Axios.get(`${URL}/get-all-cocktails`, {
       headers: { Authorization: `Bearer ${token}` },
