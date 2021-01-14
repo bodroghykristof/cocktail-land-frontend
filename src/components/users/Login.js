@@ -5,6 +5,8 @@ import { Button, Form } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import apiService from "../services/Api";
 import { FavoritesContext } from "../FavoritesContext";
+import { IsLoggedInContext } from "../../auth/IsLoggedInContext";
+
 
 function Login() {
   const [errorMessage, setErrorMessage] = useState("");
@@ -12,6 +14,7 @@ function Login() {
   const password = useRef(null);
   const history = useHistory();
   const [favorites, setFavorites] = useContext(FavoritesContext);
+  const [isLoggedIn, setIsLoggedIn] = useContext(IsLoggedInContext);
 
 
   const checkLogin = async () => {
@@ -37,6 +40,7 @@ function Login() {
         localStorage.setItem("token", response.data.token);
         const usersFavourites = await apiService.getFavoriteCoctails(localStorage.getItem("token"));
         setFavorites(usersFavourites.data);
+        setIsLoggedIn(true);
         history.push("/home");
       }
     }
