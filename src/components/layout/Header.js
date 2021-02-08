@@ -41,7 +41,7 @@ export default function Header() {
                         {dictionary.favourites[language]}
                     </Link>
                 </Private>
-                <Link className="link" to="#">
+                <Link className="link" to="/about">
                     {dictionary.about[language]}
                 </Link>
                 <Guest>
