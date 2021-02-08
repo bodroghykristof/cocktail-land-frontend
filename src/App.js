@@ -14,6 +14,7 @@ import Register from "./components/users/Register";
 import Login from "./components/users/Login";
 import PrivateRoute from "./auth/PrivateRoute";
 import GuestRoute from "./auth/GuestRoute";
+import About from "./components/About";
 
 import { FavoriteCocktails } from "./components/FavoriteCocktails";
 import { FavoritesProvider } from "./components/FavoritesContext";
@@ -38,6 +39,7 @@ const App = () => {
                                             "/favorite-cocktails",
                                             "/cocktail/:id",
                                             "/ingredient/:name",
+                                            "/about",
                                             "/register",
                                             "/login",
                                         ]}
@@ -57,6 +59,11 @@ const App = () => {
                                             exact
                                             path="/home"
                                             component={Home}
+                                        />
+                                        <Route
+                                            exact
+                                            path="/about"
+                                            component={About}
                                         />
                                         <Route
                                             exact
