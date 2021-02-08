@@ -15,7 +15,7 @@ export const AllCocktailsProvider = (props) => {
       const token = localStorage.getItem('token');
       const result = await apiService.getAllCocktails(token);
       const cocktailsFromAPI = result.data.cocktails;
-
+      
       const favoritesBySavedNumber = await apiService.getFavoriteCoctailsBySavedNumber(token);
       console.log("fay:", favoritesBySavedNumber.data);
       const sortedAllCocktail = await sortAllCocktails(favoritesBySavedNumber.data, result.data.cocktails)
@@ -29,7 +29,9 @@ export const AllCocktailsProvider = (props) => {
 
   function sortAllCocktails(favorites, allCocktails) {
     const res = {};
-    favorites.forEach( cocktail => res[cocktail.idDrink.toString()] = cocktail.saved_number);
+    
+      favorites.forEach( cocktail => res[cocktail.idDrink.toString()] = cocktail.saved_number);
+    
     const keys = Object.keys(res);
     console.log("keysss", keys);
     for (let i = 0; i < allCocktails.length; i++) {
