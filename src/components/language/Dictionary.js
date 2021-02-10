@@ -71,6 +71,11 @@ const dictionary = {
     english: "How it's made",
     german: 'Wie ist es gemacht?',
   },
+
+  aboutText: {
+    english: "This application is for cocktail enthusiasts whose favorite free time activity is to make their own cocktails. You have the opportunity to look up different kinds of coktails and you can also pick your favorite ones and save them for later. This page also provides english and german version. In the future we are plannig to extend our functionality stack so that you can create your own cocktails!",
+    german: "Diese Anwendung ist für Cocktail-Enthusiasten gedacht, deren Lieblingsbeschäftigung in der Freizeit darin besteht, ihre eigenen Cocktails zuzubereiten. Sie haben die Möglichkeit, verschiedene Arten von Coktails nachzuschlagen und Ihre Favoriten auszuwählen und für später aufzubewahren. Diese Seite bietet auch englische und deutsche Version. In Zukunft planen wir, unseren Funktionsstapel zu erweitern, damit Sie Ihre eigenen Cocktails kreieren können!",
+  }
 };
 
 export default dictionary;
