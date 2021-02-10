@@ -7,7 +7,6 @@ const Button = styled.button`
   width: 80px;
   color: #2a2a2b;
   font-weight: 900;
-  padding: 5px;
 
   &:hover {
     background-color: #fcd2f5;
