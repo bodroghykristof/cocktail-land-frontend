@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Nothing+You+Could+Do&display=swap');
+
 .title-container {
   display: flex;
   justify-content: center;
@@ -27,12 +29,14 @@
     // background-color: white;
 
     .ingredient-description {
+      font-family: 'Gochi Hand', cursive;
       overflow-y: scroll;
       height: 60vh;
       padding: 30px;
       width: 70%;
       margin-left: 6%;
       text-align: justify;
+      font-size: xx-large;
       &::-webkit-scrollbar {
         display: none;
       }
