@@ -1,17 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import { DIV, H1 } from "./AboutDesign";
+import { LanguageContext } from "./language/LanguageContext";
+import dictionary from "./language/Dictionary";
 
 export default function About() {
-    return (
-        <DIV>
-            <H1>Cocktail Land</H1>
-            <p>
-                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
-                commodo ligula eget dolor. Aenean massa. Cum sociis natoque
-                penatibus et magnis dis parturient montes, nascetur ridiculus
-                mus. Donec quam felis, ultricies nec, pellentesque eu, pretium
-                quis, sem.
-            </p>
-        </DIV>
-    );
+  const [language] = useContext(LanguageContext);
+
+  return (
+    <DIV>
+      <H1>Cocktail Land</H1>
+      <p>{dictionary.aboutText[language]}</p>
+    </DIV>
+  );
 }
