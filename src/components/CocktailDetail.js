@@ -109,7 +109,7 @@ const CocktailDetail = () => {
 
   return (
     <Fragment>
-      <H1 ref={titleRef}>{cocktail.strDrink}</H1>
+      <H1 className="cocktail-title" ref={titleRef}>{cocktail.strDrink}</H1>
       <div className='cocktail-detail'>
         <div className='first-column'>
           <div ref={pic} className='image-container'>
@@ -146,10 +146,11 @@ const CocktailDetail = () => {
             <div ref={video} className='video-container'>
               <h2>{dictionary.howTo[language]}</h2>
               <ReactPlayer
+                className="video"
                 controls={true}
                 url={cocktail.strVideo}
-                width='360px'
-                height='200px'
+                width='540px'
+                height='300px'
               />
             </div>
           ) : (
