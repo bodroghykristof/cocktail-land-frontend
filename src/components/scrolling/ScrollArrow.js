@@ -7,7 +7,7 @@ import ArrowContainer from "./ArrowContainer";
 
 const ScrollArrow = (props) => {
     let scrollAnimation;
-    const difference = props.direction === "right" ? 2 : -2;
+    const difference = props.direction === "right" ? 1 : -1;
 
     const scroll = (event) => {
         scrollAnimation = setInterval(
