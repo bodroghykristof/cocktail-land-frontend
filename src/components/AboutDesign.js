@@ -14,8 +14,6 @@ export const DIV = styled.div`
     flex-direction: column;
     font-size: x-large;
 
-    margin: auto;
-    margin-top: 150px;
     padding: 20px 30px;
 
     border: solid #2a2a2b 3px;
