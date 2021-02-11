@@ -38,7 +38,7 @@ const App = () => {
                                             "/search-cocktails",
                                             "/favorite-cocktails",
                                             "/cocktail/:id",
-                                            "/ingredient/:name",
+                                            "/ingredient/:name/:cocktailId",
                                             "/about",
                                             "/register",
                                             "/login",
@@ -77,7 +77,7 @@ const App = () => {
                                         />
                                         <Route
                                             exact
-                                            path="/ingredient/:name"
+                                            path="/ingredient/:name/:cocktailId"
                                             component={IngredientDetail}
                                         />
                                         <PrivateRoute
