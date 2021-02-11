@@ -19,7 +19,10 @@ export default function SearchCard(props) {
         height: `3.5em`,
         lineHeight: `1em`,
         marginTop: `20px`,
+        marginBottom: `0`,
+
         display: `flex`,
+
         flexDirection: `column`,
         justifyContent: `center`,
     };
