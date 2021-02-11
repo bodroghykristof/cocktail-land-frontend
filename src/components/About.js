@@ -1,17 +1,31 @@
-import React from "react";
+import React, { useContext, Fragment } from "react";
 import { DIV, H1 } from "./AboutDesign";
+import { LanguageContext } from "./language/LanguageContext";
+import dictionary from "./language/Dictionary";
+import cocktail from "../static/cocktail.png";
+import "./welcome/welcome.scss";
 
 export default function About() {
+    const [language] = useContext(LanguageContext);
+
     return (
-        <DIV>
-            <H1>Cocktail Land</H1>
-            <p>
-                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
-                commodo ligula eget dolor. Aenean massa. Cum sociis natoque
-                penatibus et magnis dis parturient montes, nascetur ridiculus
-                mus. Donec quam felis, ultricies nec, pellentesque eu, pretium
-                quis, sem.
-            </p>
-        </DIV>
+        <div className="about-container">
+            <img
+                src={cocktail}
+                alt="cocktail"
+                className="spinning"
+                height="300px"
+            />
+            <DIV>
+                <H1>Cocktail Land</H1>
+                <p>{dictionary.aboutText[language]}</p>
+            </DIV>
+            <img
+                src={cocktail}
+                alt="cocktail"
+                className="spinning"
+                height="300px"
+            />
+        </div>
     );
 }

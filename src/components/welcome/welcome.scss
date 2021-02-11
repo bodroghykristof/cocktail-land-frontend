@@ -1,65 +1,73 @@
 .box-header {
-  display: flex;
-  justify-content: center;
-  flex-direction: row;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
 
-  h2 {
-    margin: 0 10px;
-  }
+    h2 {
+        margin: 0 10px;
+    }
 }
 
 .details {
-  font-size: 12px;
+    font-size: 12px;
 }
 
 .button-container {
-  margin: auto;
-  width: 80%;
-  justify-content: space-around;
+    margin: auto;
+    width: 80%;
+    justify-content: space-around;
 }
 
 @font-face {
-  font-family: 'Caribbean';
-  src: url('../../static/Caribbean.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
+    font-family: "Caribbean";
+    src: url("../../static/Caribbean.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
 }
 
 .flamingo-wrapper,
 .button-container {
-  display: flex;
-  flex-direction: row;
+    display: flex;
+    flex-direction: row;
 }
 
 @keyframes spin {
-  from {
-    transform: rotateY(0deg);
-    moz-transform: rotateY(0deg); //Firefox
-    ms-transform: rotateY(0deg); //Microsoft Browsers
-  }
-  to {
-    transform: rotateY(360deg);
-    moz-transform: rotateY(360deg); //Firefox
-    ms-transform: rotateY(360deg); //Microsoft Browsers
-  }
+    from {
+        transform: rotateY(0deg);
+        moz-transform: rotateY(0deg); //Firefox
+        ms-transform: rotateY(0deg); //Microsoft Browsers
+    }
+    to {
+        transform: rotateY(360deg);
+        moz-transform: rotateY(360deg); //Firefox
+        ms-transform: rotateY(360deg); //Microsoft Browsers
+    }
 }
 
 @-webkit-keyframes spin {
-  from {
-    -webkit-transform: rotateY(0deg);
-  }
-  to {
-    -webkit-transform: rotateY(360deg);
-  }
+    from {
+        -webkit-transform: rotateY(0deg);
+    }
+    to {
+        -webkit-transform: rotateY(360deg);
+    }
 }
 
 .spinning {
-  animation-name: spin;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  animation-duration: 5s;
-  -webkit-animation-name: spin;
-  -webkit-animation-timing-function: linear;
-  -webkit-animation-iteration-count: infinite;
-  -webkit-animation-duration: 5s;
+    animation-name: spin;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-duration: 5s;
+    -webkit-animation-name: spin;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-duration: 5s;
+}
+
+.about-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    margin-top: 8%;
 }
