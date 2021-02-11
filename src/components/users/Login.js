@@ -60,6 +60,7 @@ function Login() {
                     <Form.Control
                         type="email"
                         placeholder="Enter email"
+                        autocomplete="off"
                         ref={email}
                         onKeyPress={handleKeypress}
                     />
@@ -70,6 +71,7 @@ function Login() {
                     <Form.Control
                         type="password"
                         placeholder="Password"
+                        autocomplete="off"
                         ref={password}
                         onKeyPress={handleKeypress}
                     />
@@ -85,7 +87,14 @@ function Login() {
                                 }}
                             ></span>
                         ) : (
-                            <span>{errorMessage}</span>
+                            <span
+                                style={{
+                                    color: "red",
+                                    fontSize: "medium",
+                                }}
+                            >
+                                {errorMessage}
+                            </span>
                         )}
                     </Form.Text>
                 </Form.Group>
