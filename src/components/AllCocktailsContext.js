@@ -1,5 +1,5 @@
 import React, { useState, createContext, useEffect } from 'react';
-import apiService from './services/Api';
+import Axios from 'axios';
 
 export const AllCocktailsContext = createContext();
 
