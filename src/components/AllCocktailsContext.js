@@ -6,6 +6,7 @@ export const AllCocktailsContext = createContext();
 export const AllCocktailsProvider = (props) => {
   const [allCocktails, setAllCocktails] = useState([]);
 
+  
   useEffect(() => {
     async function fetchCocktails() {
       const token = localStorage.getItem('token');
