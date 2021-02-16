@@ -17,10 +17,13 @@ export default function FavoriteIconHearth(props) {
         setValue(value);
       } else {
 <<<<<<< HEAD
+<<<<<<< HEAD
           setValue(
               favorites.map((favorite) => favorite.strDrink).includes(cocktailName)
           );
 =======
+=======
+>>>>>>> dc412e89a64e293bd075ead1558df7ddcd9921d0
         // console.log( typeof favorites);
         // if(typeof favorites !== "object" ) {
           setValue(
@@ -28,6 +31,9 @@ export default function FavoriteIconHearth(props) {
           );
 
 
+<<<<<<< HEAD
+>>>>>>> dc412e89a64e293bd075ead1558df7ddcd9921d0
+=======
 >>>>>>> dc412e89a64e293bd075ead1558df7ddcd9921d0
       }
     };

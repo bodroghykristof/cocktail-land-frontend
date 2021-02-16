@@ -23,15 +23,21 @@ export const AllCocktailsProvider = (props) => {
       setAllCocktails(cocktail);
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
     fetchCocktails();
   }, [])
 =======
+=======
+>>>>>>> dc412e89a64e293bd075ead1558df7ddcd9921d0
   
     fetching();
   
   }, [])
 
 console.log("allCocktails", allCocktails);
+<<<<<<< HEAD
+>>>>>>> dc412e89a64e293bd075ead1558df7ddcd9921d0
+=======
 >>>>>>> dc412e89a64e293bd075ead1558df7ddcd9921d0
 
   return (
