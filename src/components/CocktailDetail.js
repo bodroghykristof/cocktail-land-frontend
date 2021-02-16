@@ -30,9 +30,6 @@ const CocktailDetail = () => {
     const video = useRef(null);
     const instructions = useRef(null);
 
-    console.log(favorites.length);
-    console.log(iconValue);
-
     useEffect(() => {
         gsap.from(titleRef.current, {
             duration: 1,
@@ -96,7 +93,6 @@ const CocktailDetail = () => {
                     }
                 }
             }
-            console.log("Id: " + id.toString());
             setIngredients(ingredientObjects);
         };
 
