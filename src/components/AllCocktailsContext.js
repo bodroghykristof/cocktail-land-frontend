@@ -1,12 +1,12 @@
-import React, { useState, createContext, useEffect } from 'react';
+import React, {createContext, useEffect, useState} from 'react';
 import apiService from './services/Api';
 
 export const AllCocktailsContext = createContext();
 
 export const AllCocktailsProvider = (props) => {
+
   const [allCocktails, setAllCocktails] = useState([]);
 
-  
   useEffect(() => {
     async function fetchCocktails() {
       const token = localStorage.getItem('token');
@@ -14,7 +14,7 @@ export const AllCocktailsProvider = (props) => {
       setAllCocktails(result.data.cocktails);
     }
     fetchCocktails();
-  }, []);
+  }, [])
 
   return (
     <AllCocktailsContext.Provider value={[allCocktails, setAllCocktails]}>
