@@ -16,25 +16,9 @@ export default function FavoriteIconHearth(props) {
       if (props.value !== undefined) {
         setValue(value);
       } else {
-<<<<<<< HEAD
-<<<<<<< HEAD
           setValue(
               favorites.map((favorite) => favorite.strDrink).includes(cocktailName)
           );
-=======
-=======
->>>>>>> dc412e89a64e293bd075ead1558df7ddcd9921d0
-        // console.log( typeof favorites);
-        // if(typeof favorites !== "object" ) {
-          setValue(
-              favorites.map((favorite) => favorite.strDrink).includes(cocktailName)
-          );
-
-
-<<<<<<< HEAD
->>>>>>> dc412e89a64e293bd075ead1558df7ddcd9921d0
-=======
->>>>>>> dc412e89a64e293bd075ead1558df7ddcd9921d0
       }
     };
 
