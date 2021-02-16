@@ -28,6 +28,11 @@ const apiService = {
       headers: { Authorization: `Bearer ${token}` },
     }).catch((error) => error.response),
 
+    getFavoriteCoctailsBySavedNumber: (token) =>
+    Axios.get(`${URL}/favoriteCocktailsBySavedNumber`, {
+      headers: { Authorization: `Bearer ${token}` },
+    }).catch((error) => error.response),
+
   addToFavourite: (token, cocktail) =>
     Axios.post(`${URL}/favourite`, cocktail, {
       headers: { Authorization: `Bearer ${token}` },
