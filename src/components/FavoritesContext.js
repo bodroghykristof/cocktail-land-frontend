@@ -17,7 +17,6 @@ export const FavoritesProvider = (props) => {
   
     if (localStorage.getItem("token") !== null) {
       getUsersFavouriteCoctails(setFavorites);
-      
     } 
 
   }, [])
