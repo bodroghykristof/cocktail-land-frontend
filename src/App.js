@@ -37,6 +37,7 @@ const App = () => {
                                             "/home",
                                             "/search-cocktails",
                                             "/favorite-cocktails",
+                                            "/mine",
                                             "/cocktail/:id",
                                             "/ingredient/:name/:cocktailId",
                                             "/about",
@@ -82,6 +83,10 @@ const App = () => {
                                         />
                                         <PrivateRoute
                                             path="/favorite-cocktails"
+                                            component={FavoriteCocktails}
+                                        />
+                                        <PrivateRoute
+                                            path="/mine"
                                             component={FavoriteCocktails}
                                         />
                                     </Route>
