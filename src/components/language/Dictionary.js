@@ -82,6 +82,10 @@ const dictionary = {
         english: "Mine",
         german: "Meine",
     },
+    createCocktail: {
+        english: "Create cocktail",
+        german: "Cocktail kreieren",
+    },
 };
 
 export default dictionary;
