@@ -1,4 +1,4 @@
-import React, { useContext, Fragment } from "react";
+import React, { useContext } from "react";
 import { DIV, H1 } from "./AboutDesign";
 import { LanguageContext } from "./language/LanguageContext";
 import dictionary from "./language/Dictionary";
