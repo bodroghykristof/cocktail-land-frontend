@@ -1,65 +1,65 @@
 .header {
-  display: grid;
-  grid-template-columns: 0.1fr 1fr 1fr 1fr;
-  grid-template-areas: 'logo title nav language';
-
-  width: 85%;
-  margin: auto;
-  margin-bottom: 15px;
-  background-color: rgba(180, 183, 199, 0.8);
-  border-radius: 6px;
-
-  .logo {
-    grid-area: logo;
-    padding-left: 5px;
-
-    img {
-      height: 70px;
-    }
-  }
-
-  .header-title {
-    grid-area: title;
-    justify-self: start;
-    align-self: center;
-    padding-left: 10px;
-  }
-
-  .nav {
-    grid-area: nav;
     display: grid;
-    justify-self: center;
-    align-self: center;
-    grid-template-columns: repeat(5, auto);
-    gap: 20px;
-    font-size: 1.3em;
-    font-weight: bold;
+    grid-template-columns: 0.1fr 1fr 1fr 1fr;
+    grid-template-areas: "logo title nav language";
 
-    a {
-      text-decoration: none;
-      color: #2a2a2b;
-      padding: 7px 7px;
+    width: 85%;
+    margin: auto;
+    margin-bottom: 15px;
+    background-color: rgba(180, 183, 199, 0.8);
+    border-radius: 6px;
 
-      &:hover {
-        background-color: #555555;
-        color: #ebca6c;
-        border-radius: 5px;
-      }
+    .logo {
+        grid-area: logo;
+        padding-left: 5px;
+
+        img {
+            height: 70px;
+        }
     }
-  }
 
-  .language {
-    grid-area: language;
-    display: grid;
-    justify-self: end;
-    align-content: center;
-    grid-template-columns: repeat(3, auto);
-
-    padding-right: 20px;
-    gap: 10px;
-
-    img {
-      height: 30px;
+    .header-title {
+        grid-area: title;
+        justify-self: start;
+        align-self: center;
+        padding-left: 10px;
     }
-  }
+
+    .nav {
+        grid-area: nav;
+        display: grid;
+        justify-self: center;
+        align-self: center;
+        grid-template-columns: repeat(6, auto);
+        gap: 20px;
+        font-size: 1.3em;
+        font-weight: bold;
+
+        a {
+            text-decoration: none;
+            color: #2a2a2b;
+            padding: 7px 7px;
+
+            &:hover {
+                background-color: #555555;
+                color: #ebca6c;
+                border-radius: 5px;
+            }
+        }
+    }
+
+    .language {
+        grid-area: language;
+        display: grid;
+        justify-self: end;
+        align-content: center;
+        grid-template-columns: repeat(3, auto);
+
+        padding-right: 20px;
+        gap: 10px;
+
+        img {
+            height: 30px;
+        }
+    }
 }

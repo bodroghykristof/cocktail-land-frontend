@@ -41,6 +41,11 @@ export default function Header() {
                         {dictionary.favourites[language]}
                     </Link>
                 </Private>
+                <Private>
+                    <Link className="link" to="/mine">
+                        {dictionary.ownCocktails[language]}
+                    </Link>
+                </Private>
                 <Link className="link" to="/about">
                     {dictionary.about[language]}
                 </Link>
