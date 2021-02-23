@@ -37,6 +37,11 @@ const apiService = {
     Axios.delete(`${URL}/favourite/${id}`, {
       headers: { Authorization: `Bearer ${token}` },
     }).catch((error) => error.response),
+
+  getAllIngredients: (token) =>
+  Axios.get(`${URL}/get-all-ingredients`, {
+    headers: { Authorization: `Bearer ${token}` },
+  }).catch((error) => error.response),
 };
 
 export default apiService;
