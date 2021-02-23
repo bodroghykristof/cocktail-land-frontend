@@ -13,8 +13,7 @@ export const DIV = styled.div`
 
 export const FORMDIV = styled.div`
     display: flex;
-    justify-content: center;
-    /* align-items: center; */
+    justify-content: space-between;
 
-    margin: auto;
+    width: 70%;
 `;
