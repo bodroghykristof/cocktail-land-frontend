@@ -16,6 +16,7 @@ import PrivateRoute from "./auth/PrivateRoute";
 import GuestRoute from "./auth/GuestRoute";
 import About from "./components/About";
 import OwnCocktail from "./components/ownCocktails/OwnCocktail";
+import CreateOwnCocktail from "./components/ownCocktails/CreateOwnCocktail";
 
 import { FavoriteCocktails } from "./components/FavoriteCocktails";
 import { FavoritesProvider } from "./components/FavoritesContext";
@@ -39,6 +40,7 @@ const App = () => {
                                             "/search-cocktails",
                                             "/favorite-cocktails",
                                             "/mine",
+                                            "/create-own",
                                             "/cocktail/:id",
                                             "/ingredient/:name/:cocktailId",
                                             "/about",
@@ -89,6 +91,10 @@ const App = () => {
                                         <PrivateRoute
                                             path="/mine"
                                             component={OwnCocktail}
+                                        />
+                                        <PrivateRoute
+                                            path="/create-own"
+                                            component={CreateOwnCocktail}
                                         />
                                     </Route>
                                 </div>
