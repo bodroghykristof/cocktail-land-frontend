@@ -11,65 +11,59 @@ export const CreateOwnCocktail = () => {
     return (
         <Fragment>
             <H1>Create your cocktail</H1>
-            <FORMDIV>
-                <div className="form-container">
-                    <Form
-                        className="form-detail"
-                        method="post"
-                        encType="multipart/form-data"
-                    >
-                        <div className="stm">
-                            <div className="cocktail-detail-container">
-                                <Form.Group controlId="formUploadPic">
-                                    <Form.Label>
-                                        Upload cocktail picture
-                                    </Form.Label>
-                                    <Form.File type="file" name="imageUpload" />
-                                </Form.Group>
-                                <Form.Group controlId="formCocktailName">
-                                    <Form.Label>Cocktail name</Form.Label>
-                                    <Form.Control
-                                        type="text"
-                                        name="name"
-                                        autoComplete="off"
-                                    />
-                                </Form.Group>
-                                <Form.Group controlId="formCocktailDescription">
-                                    <Form.Label>
-                                        Cocktail description
-                                    </Form.Label>
-                                    <Form.Control
-                                        as="textarea"
-                                        rows={3}
-                                        name="description"
-                                        autoComplete="off"
-                                    />
-                                </Form.Group>
-                            </div>
-
-                            <div className="ingredients-container">
-                                <Form.Group controlId="formCocktailIngredients">
-                                    <Form.Label>
-                                        Cocktail ingredients
-                                    </Form.Label>
-                                    {allIngredients.map((ingredient) => (
-                                        <div
-                                            key={ingredient.idIngredient}
-                                            className="mb-3"
-                                        >
-                                            <Form.Check
-                                                type="checkbox"
-                                                id={ingredient.idIngredient}
-                                                label={ingredient.strIngredient}
-                                            />
-                                        </div>
-                                    ))}
-                                </Form.Group>
-                            </div>
-                        </div>
-                    </Form>
+            <Form
+                className="form-detail"
+                method="post"
+                encType="multipart/form-data"
+            >
+                <div className="cocktail-detail-container">
+                    <Form.Group controlId="formUploadPic">
+                        <Form.Label>Upload cocktail picture</Form.Label>
+                        <Form.File type="file" size="lg" name="imageUpload" />
+                    </Form.Group>
+                    <Form.Group controlId="formCocktailName">
+                        <Form.Label>Cocktail name</Form.Label>
+                        <Form.Control
+                            type="text"
+                            size="lg"
+                            name="name"
+                            autoComplete="off"
+                        />
+                    </Form.Group>
+                    <Form.Group controlId="formCocktailDescription">
+                        <Form.Label>Cocktail description</Form.Label>
+                        <Form.Control
+                            as="textarea"
+                            rows={6}
+                            size="lg"
+                            name="description"
+                            autoComplete="off"
+                        />
+                    </Form.Group>
+                    <Button variant="secondary" type="submit" size="lg">
+                        Submit
+                    </Button>
                 </div>
-            </FORMDIV>
+                <Form.Group
+                    controlId="formCocktailIngredients"
+                    className="ingredients-container"
+                >
+                    <Form.Label>Cocktail ingredients</Form.Label>
+                    <div className="ingredients">
+                        {allIngredients.map((ingredient) => (
+                            <div key={ingredient.idIngredient} className="mb-3">
+                                <Form.Check
+                                    type="checkbox"
+                                    id={ingredient.idIngredient}
+                                    label={ingredient.strIngredient}
+                                    value={ingredient.strIngredient}
+                                    onChange
+                                />
+                            </div>
+                        ))}
+                    </div>
+                </Form.Group>
+            </Form>
         </Fragment>
     );
 };
