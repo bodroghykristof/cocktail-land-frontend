@@ -1,5 +1,5 @@
 import React, { Fragment, useContext } from "react";
-import { DIV, H1 } from "../HomeDesign";
+import { H1 } from "../HomeDesign";
 import { LanguageContext } from "../language/LanguageContext";
 import dictionary from "../language/Dictionary";
 import { Link } from "react-router-dom";
