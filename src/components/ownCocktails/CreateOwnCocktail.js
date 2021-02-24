@@ -36,16 +36,9 @@ export const CreateOwnCocktail = () => {
                 ingredients: checkedIngredients
             };
 
-            console.log("owncocktail dta:", ownCocktail);
             const token = localStorage.getItem('token');
             const response = await apiService.saveOwnCocktail(token, ownCocktail);
-            if (response.status === 200) {
-                history.push("/mine");
-            } else {
-                console.log(response);
-            }
         }
-
     };
 
     return (
