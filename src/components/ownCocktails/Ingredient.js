@@ -1,25 +1,30 @@
-import React, { useState, useEffect } from "react";
-import { Button, Form } from "react-bootstrap";
+import React, { useState, useContext } from "react";
+import { CheckedIngredientsContext } from "./CheckedIngredientsContext";
+import { Form } from "react-bootstrap";
 
 export const Ingredient = ({ ingredient }) => {
-    const [checked, setChecked] = useState(null);
-
-    useEffect(() => {
-        if (checked === null) {
-            setChecked(false);
-        }
-    }, []);
+    const [checked, setChecked] = useState(false);
+    const [checkedIngredients, setCheckedIngredients] = useContext(
+        CheckedIngredientsContext
+    );
 
     const handleChange = (e) => {
-        console.log(checked);
         checked ? setChecked(false) : setChecked(true);
-        console.log(checked);
-        console.log(e.target.checked);
+
+        if (e.target.checked) {
+            setCheckedIngredients([...checkedIngredients, e.target.id]);
+        } else {
+            const ingredients = checkedIngredients.filter(
+                (ingrId) => ingrId != e.target.id
+            );
+            setCheckedIngredients(ingredients);
+        }
     };
 
     return (
-        <div key={ingredient.idIngredient} className="mb-3">
+        <div key={ingredient.idIngredient} className="mb-3" className="">
             <Form.Check
+                className="check"
                 type="checkbox"
                 id={ingredient.idIngredient}
                 label={ingredient.strIngredient}
