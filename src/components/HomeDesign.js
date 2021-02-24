@@ -10,10 +10,3 @@ export const DIV = styled.div`
     flex-wrap: wrap;
     justify-content: center;
 `;
-
-export const FORMDIV = styled.div`
-    display: flex;
-    justify-content: space-between;
-
-    width: 70%;
-`;
