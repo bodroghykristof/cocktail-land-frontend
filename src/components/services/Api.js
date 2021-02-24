@@ -42,6 +42,12 @@ const apiService = {
   Axios.get(`${URL}/get-all-ingredients`, {
     headers: { Authorization: `Bearer ${token}` },
   }).catch((error) => error.response),
+
+  saveOwnCocktail: (token, ownCocktail) =>
+  Axios.post(`${URL}/save-own-cocktail`, ownCocktail, {
+    headers: { Authorization: `Bearer ${token}` },
+  }).catch((error) => error.response),
+
 };
 
 export default apiService;
