@@ -4,6 +4,7 @@ import { Button, Form } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./ownCocktail.scss";
 import { AllIngredientsContext } from "./IngredientsContext";
+import Ingredient from "./Ingredient";
 
 export const CreateOwnCocktail = () => {
     const [allIngredients] = useContext(AllIngredientsContext);
@@ -51,15 +52,10 @@ export const CreateOwnCocktail = () => {
                     <Form.Label>Cocktail ingredients</Form.Label>
                     <div className="ingredients">
                         {allIngredients.map((ingredient) => (
-                            <div key={ingredient.idIngredient} className="mb-3">
-                                <Form.Check
-                                    type="checkbox"
-                                    id={ingredient.idIngredient}
-                                    label={ingredient.strIngredient}
-                                    value={ingredient.strIngredient}
-                                    onChange
-                                />
-                            </div>
+                            <Ingredient
+                                key={ingredient.idIngredient}
+                                ingredient={ingredient}
+                            />
                         ))}
                     </div>
                 </Form.Group>
