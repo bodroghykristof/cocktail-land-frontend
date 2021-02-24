@@ -1,4 +1,4 @@
-import React, { createContext, useEffect, useState } from "react";
+import React, { createContext, useState } from "react";
 
 export const CheckedIngredientsContext = createContext();
 
@@ -6,10 +6,10 @@ export const CheckedIngredientsProvider = (props) => {
     const [checkedIngredients, setCheckedIngredients] = useState([]);
 
     return (
-        <AllIngredientsContext.Provider
+        <CheckedIngredientsContext.Provider
             value={[checkedIngredients, setCheckedIngredients]}
         >
             {props.children}
-        </AllIngredientsContext.Provider>
+        </CheckedIngredientsContext.Provider>
     );
 };
