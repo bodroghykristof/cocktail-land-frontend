@@ -1,22 +1,25 @@
 import React, { Fragment, useContext } from "react";
-import { FORMDIV, DIV, H1 } from "../HomeDesign";
+import { H1 } from "../HomeDesign";
 import { Button, Form } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./ownCocktail.scss";
 import { AllIngredientsContext } from "./IngredientsContext";
+import { CheckedIngredientsContext } from "./CheckedIngredientsContext";
 import Ingredient from "./Ingredient";
 
 export const CreateOwnCocktail = () => {
     const [allIngredients] = useContext(AllIngredientsContext);
+    const [checkedIngredients] = useContext(CheckedIngredientsContext);
+
+    const handleSubmit = () => {
+        let matches = document.querySelectorAll(`[checked=true]`);
+        console.log(matches);
+    };
 
     return (
         <Fragment>
             <H1>Create your cocktail</H1>
-            <Form
-                className="form-detail"
-                method="post"
-                encType="multipart/form-data"
-            >
+            <Form className="form-detail" encType="multipart/form-data">
                 <div className="cocktail-detail-container">
                     <Form.Group controlId="formUploadPic">
                         <Form.Label>Upload cocktail picture</Form.Label>
@@ -41,7 +44,12 @@ export const CreateOwnCocktail = () => {
                             autoComplete="off"
                         />
                     </Form.Group>
-                    <Button variant="secondary" type="submit" size="lg">
+                    <Button
+                        variant="secondary"
+                        type="submit"
+                        size="lg"
+                        onSubmit={handleSubmit}
+                    >
                         Submit
                     </Button>
                 </div>
