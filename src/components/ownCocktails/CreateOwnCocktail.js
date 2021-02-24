@@ -1,4 +1,5 @@
-import React, { Fragment, useContext } from "react";
+import React, { Fragment, useContext, useState, useRef } from "react";
+import { useHistory } from "react-router-dom";
 import { H1 } from "../HomeDesign";
 import { Button, Form } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -6,14 +7,45 @@ import "./ownCocktail.scss";
 import { AllIngredientsContext } from "./IngredientsContext";
 import { CheckedIngredientsContext } from "./CheckedIngredientsContext";
 import Ingredient from "./Ingredient";
+import apiService from "../services/Api";
+
 
 export const CreateOwnCocktail = () => {
+
+    const [errorMessage, setErrorMessage] = useState("");
     const [allIngredients] = useContext(AllIngredientsContext);
     const [checkedIngredients] = useContext(CheckedIngredientsContext);
+    const history = useHistory();
 
-    const handleSubmit = () => {
-        let matches = document.querySelectorAll(`[checked=true]`);
-        console.log(matches);
+    const name = useRef(null);
+    const description = useRef(null);
+
+    const handleSubmit = async (e) => {
+        console.log("handel submit ");
+        e.preventDefault();
+        const nameInput = name.current.value;
+        const descriptionInput = description.current.value;
+
+        if (nameInput === "" || descriptionInput === "") {
+            setErrorMessage("Please fill out all input fields!");
+            console.log("neszeeee", errorMessage);
+        } else {
+            const ownCocktail = {
+                name: nameInput,
+                description: descriptionInput,
+                ingredients: checkedIngredients
+            };
+
+            console.log("owncocktail dta:", ownCocktail);
+            const token = localStorage.getItem('token');
+            const response = await apiService.saveOwnCocktail(token, ownCocktail);
+            if (response.status === 200) {
+                history.push("/mine");
+            } else {
+                console.log(response);
+            }
+        }
+
     };
 
     return (
@@ -32,6 +64,7 @@ export const CreateOwnCocktail = () => {
                             size="lg"
                             name="name"
                             autoComplete="off"
+                            ref={name}
                         />
                     </Form.Group>
                     <Form.Group controlId="formCocktailDescription">
@@ -42,13 +75,14 @@ export const CreateOwnCocktail = () => {
                             size="lg"
                             name="description"
                             autoComplete="off"
+                            ref={description}
                         />
                     </Form.Group>
                     <Button
                         variant="secondary"
                         type="submit"
                         size="lg"
-                        onSubmit={handleSubmit}
+                        onClick={handleSubmit}
                     >
                         Submit
                     </Button>
