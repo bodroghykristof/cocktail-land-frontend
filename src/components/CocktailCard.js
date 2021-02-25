@@ -7,8 +7,12 @@ import Private from '../auth/Private';
 export const CocktailCard = (props) => {
   const cocktail = props.cocktail;
 
+  const id = props.own ? cocktail.id : cocktail.idDrink;
+  const url = props.own ? `own-cocktail/${id}` : `cocktail/${id}`;
+
+
   let content = (
-    <Link to={`cocktail/${cocktail.idDrink}`} style={linkStyle}>
+    <Link to={url} style={linkStyle}>
       <Card className='card'>
         <IMG src={cocktail.strDrinkThumb}></IMG>
         <SPAN>
@@ -16,7 +20,7 @@ export const CocktailCard = (props) => {
           <Private>
             <FavoriteIconHearth
               cocktail={cocktail}
-              key={cocktail.idDrink}
+              key={id}
               value={props.value}
             />
           </Private>
