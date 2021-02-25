@@ -17,7 +17,6 @@ import CocktailPicture from "../../static/cocktail.png";
 const OwnCocktailDetail = () => {
     const [ownCocktails] = useContext(OwnCocktailsContext);
     const { id } = useParams();
-    // const [id, setId] = useState();
     const [cocktail, setCocktail] = useState({});
 
     const [language] = useContext(LanguageContext);
