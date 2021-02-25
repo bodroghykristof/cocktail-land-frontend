@@ -48,6 +48,11 @@ const apiService = {
     headers: { Authorization: `Bearer ${token}` },
   }).catch((error) => error.response),
 
+  getOwnCocktails: (token) =>
+    Axios.get(`${URL}/get-own-cocktails`, {
+      headers: { Authorization: `Bearer ${token}` },
+    }).catch((error) => error.response),
+
 };
 
 export default apiService;
