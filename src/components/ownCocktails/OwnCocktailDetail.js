@@ -56,13 +56,13 @@ const OwnCocktailDetail = () => {
             scale: 0.5,
         });
 
-        gsap.from(video.current, {
-            duration: 1,
-            delay: 0.5,
-            y: 100,
-            opacity: 0,
-            scale: 0.5,
-        });
+        // gsap.from(video.current, {
+        //     duration: 1,
+        //     delay: 0.5,
+        //     y: 100,
+        //     opacity: 0,
+        //     scale: 0.5,
+        // });
 
         gsap.from(instructions.current, {
             duration: 1,
