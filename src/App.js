@@ -8,6 +8,7 @@ import Welcome from "./components/welcome/Welcome";
 import Footer from "./components/layout/Footer";
 import { SearchCocktails } from "./components/SearchCocktails";
 import CocktailDetail from "./components/CocktailDetail";
+import OwnCocktailDetail from "./components/ownCocktails/OwnCocktailDetail";
 import Register from "./components/users/Register";
 import Login from "./components/users/Login";
 import PrivateRoute from "./auth/PrivateRoute";
@@ -106,6 +107,12 @@ const App = () => {
                                                     path="/create-own"
                                                     component={
                                                         CreateOwnCocktail
+                                                    }
+                                                />
+                                                <PrivateRoute
+                                                    path="/own-cocktail/:id"
+                                                    component={
+                                                        OwnCocktailDetail
                                                     }
                                                 />
                                             </Route>
