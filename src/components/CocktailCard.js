@@ -10,7 +10,6 @@ export const CocktailCard = (props) => {
   const id = props.own ? cocktail.id : cocktail.idDrink;
   const url = props.own ? `own-cocktail/${id}` : `cocktail/${id}`;
 
-
   let content = (
     <Link to={url} style={linkStyle}>
       <Card className='card'>
