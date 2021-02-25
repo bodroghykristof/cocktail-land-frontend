@@ -36,7 +36,7 @@ export const Home = () => {
       <H1>{dictionary.homeTitle[language]}</H1>
       <DIV>
         {cocktails.map((cocktail) => (
-          <CocktailCard key={cocktail.idDrink} cocktail={cocktail} />
+          <CocktailCard key={cocktail.idDrink} cocktail={cocktail} own={false} />
         ))}
       </DIV>
     </div>
