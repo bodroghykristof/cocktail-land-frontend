@@ -31,8 +31,8 @@ export const CreateOwnCocktail = () => {
             console.log("neszeeee", errorMessage);
         } else {
             const ownCocktail = {
-                name: nameInput,
-                description: descriptionInput,
+                strDrink: nameInput,
+                strInstructions: descriptionInput,
                 ingredients: checkedIngredients
             };
 
