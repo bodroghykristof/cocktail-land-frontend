@@ -13,6 +13,7 @@ export const Card = styled.div`
 
 export const IMG = styled.img`
     width: 90%;
+    height: 75%;
     margin: auto;
     margin-top: 8px;
     border-radius: 10px;

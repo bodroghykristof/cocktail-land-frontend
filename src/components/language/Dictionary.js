@@ -79,12 +79,12 @@ const dictionary = {
             "Diese Anwendung ist für Cocktail-Enthusiasten gedacht, deren Lieblingsbeschäftigung in der Freizeit darin besteht, ihre eigenen Cocktails zuzubereiten. Sie haben die Möglichkeit, verschiedene Arten von Coktails nachzuschlagen und Ihre Favoriten auszuwählen und für später aufzubewahren. Diese Seite bietet auch englische und deutsche Version. In Zukunft planen wir, unseren Funktionsstapel zu erweitern, damit Sie Ihre eigenen Cocktails kreieren können!",
     },
     ownCocktails: {
-        english: "Mine",
+        english: "Own",
         german: "Meine",
     },
     createCocktail: {
-        english: "Create cocktail",
-        german: "Cocktail kreieren",
+        english: "Create",
+        german: "Kreieren",
     },
 };
 

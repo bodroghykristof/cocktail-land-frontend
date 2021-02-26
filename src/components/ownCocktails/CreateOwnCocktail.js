@@ -6,15 +6,15 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./ownCocktail.scss";
 import { AllIngredientsContext } from "./IngredientsContext";
 import { CheckedIngredientsContext } from "./CheckedIngredientsContext";
+import { OwnCocktailsContext } from "./OwnCocktailsContext";
 import Ingredient from "./Ingredient";
 import apiService from "../services/Api";
 
-
 export const CreateOwnCocktail = () => {
-
     const [errorMessage, setErrorMessage] = useState("");
     const [allIngredients] = useContext(AllIngredientsContext);
     const [checkedIngredients] = useContext(CheckedIngredientsContext);
+    const [ownCocktails, setOwnCocktails] = useContext(OwnCocktailsContext);
     const history = useHistory();
 
     const name = useRef(null);
@@ -33,25 +33,33 @@ export const CreateOwnCocktail = () => {
             const ownCocktail = {
                 strDrink: nameInput,
                 strInstructions: descriptionInput,
-                ingredients: checkedIngredients
+                ingredients: checkedIngredients,
             };
 
-            const token = localStorage.getItem('token');
-            const response = await apiService.saveOwnCocktail(token, ownCocktail);
+            const token = localStorage.getItem("token");
+            const response = await apiService.saveOwnCocktail(
+                token,
+                ownCocktail
+            );
+            console.log(response);
+            setOwnCocktails((prevOwnCocktails) => [
+                ...prevOwnCocktails,
+                ownCocktail,
+            ]);
+
+            history.push("/mine");
         }
     };
 
     return (
         <Fragment>
             <H1>Create your cocktail</H1>
-            <Form className="form-detail" encType="multipart/form-data">
+            <Form className="form-detail">
                 <div className="cocktail-detail-container">
-                    <Form.Group controlId="formUploadPic">
-                        <Form.Label>Upload cocktail picture</Form.Label>
-                        <Form.File type="file" size="lg" name="imageUpload" />
-                    </Form.Group>
                     <Form.Group controlId="formCocktailName">
-                        <Form.Label>Cocktail name</Form.Label>
+                        <Form.Label>
+                            <h3>Cocktail name</h3>
+                        </Form.Label>
                         <Form.Control
                             type="text"
                             size="lg"
@@ -61,7 +69,9 @@ export const CreateOwnCocktail = () => {
                         />
                     </Form.Group>
                     <Form.Group controlId="formCocktailDescription">
-                        <Form.Label>Cocktail description</Form.Label>
+                        <Form.Label>
+                            <h3>Cocktail description</h3>
+                        </Form.Label>
                         <Form.Control
                             as="textarea"
                             rows={6}
@@ -84,7 +94,9 @@ export const CreateOwnCocktail = () => {
                     controlId="formCocktailIngredients"
                     className="ingredients-container"
                 >
-                    <Form.Label>Cocktail ingredients</Form.Label>
+                    <Form.Label>
+                        <h3>Cocktail ingredients</h3>
+                    </Form.Label>
                     <div className="ingredients">
                         {allIngredients.map((ingredient) => (
                             <Ingredient

@@ -1,25 +1,22 @@
-import React, { Fragment, useContext, useState, useEffect } from "react";
+import React, { Fragment, useContext } from "react";
 import { DIV, H1 } from "../HomeDesign";
 import { LanguageContext } from "../language/LanguageContext";
 import { OwnCocktailsContext } from "./OwnCocktailsContext";
 import dictionary from "../language/Dictionary";
 import { Link } from "react-router-dom";
 import { CocktailCard } from "../CocktailCard";
+import "./ownCocktail.scss";
 
 export const OwnCocktail = () => {
     const [language] = useContext(LanguageContext);
     const [ownCocktails] = useContext(OwnCocktailsContext);
 
-    let content = `<p>Loading your handmade Cocktails.....</p>`;
-
     return (
         <Fragment>
             <H1>Own cocktails</H1>
-            <div>
-                <Link className="link" to="/create-own">
-                    {dictionary.createCocktail[language]}
-                </Link>
-            </div>
+            <Link className="create-link" to="/create-own">
+                {dictionary.createCocktail[language]}
+            </Link>
             <DIV>
                 {ownCocktails.map((cocktail) => (
                     <CocktailCard
