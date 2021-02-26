@@ -41,7 +41,11 @@ export const CreateOwnCocktail = () => {
                 token,
                 ownCocktail
             );
-            console.log(response);
+
+            ownCocktail['id'] = parseInt(response.data.data);
+            const ingredientsToStr = (checkedIngredients.map(cocktail => cocktail.strIngredient));
+            ownCocktail['ingredients'] = ingredientsToStr.join(',');
+
             setOwnCocktails((prevOwnCocktails) => [
                 ...prevOwnCocktails,
                 ownCocktail,
