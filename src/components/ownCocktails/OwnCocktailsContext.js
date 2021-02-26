@@ -7,7 +7,7 @@ export const OwnCocktailsProvider = (props) => {
     const [ownCocktails, setOwnCocktails] = useState([]);
 
     useEffect(() => {
-        const getOwnCocktails = async () => {
+        const getOwnCocktails = async (setOwnCocktails) => {
             const token = localStorage.getItem("token");
             const response = await apiService.getOwnCocktails(token);
             console.log(response);
@@ -17,6 +17,7 @@ export const OwnCocktailsProvider = (props) => {
         if (localStorage.getItem("token") !== null) {
             getOwnCocktails(setOwnCocktails);
         }
+
     }, []);
 
     return (
