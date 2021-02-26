@@ -51,8 +51,6 @@ const OwnCocktailDetail = () => {
             scale: 0.5,
         });
 
-
-
         gsap.from(instructions.current, {
             duration: 1,
             delay: 0.5,
