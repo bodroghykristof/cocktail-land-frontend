@@ -60,7 +60,7 @@ function Login() {
                     <Form.Control
                         type="email"
                         placeholder="Enter email"
-                        autocomplete="off"
+                        autoComplete="off"
                         ref={email}
                         onKeyPress={handleKeypress}
                     />
@@ -71,7 +71,7 @@ function Login() {
                     <Form.Control
                         type="password"
                         placeholder="Password"
-                        autocomplete="off"
+                        autoComplete="off"
                         ref={password}
                         onKeyPress={handleKeypress}
                     />

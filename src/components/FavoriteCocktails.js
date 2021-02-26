@@ -21,6 +21,7 @@ export const FavoriteCocktails = () => {
                         <CocktailCard
                             cocktail={cocktail}
                             key={cocktail.idDrink}
+                            own={false}
                         />
                     ))}
                 </DIV>
