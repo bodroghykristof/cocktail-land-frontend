@@ -2,6 +2,7 @@
     display: flex;
     justify-content: space-around;
     margin: auto;
+    margin-right: 20px;
 
     .cocktail-detail-container {
         display: flex;
@@ -27,4 +28,31 @@
             gap: 10px;
         }
     }
+}
+
+.create-link {
+    text-decoration: none;
+    background-color: #909090;
+    border-radius: 5px;
+    font-weight: bolder;
+    font-size: xx-large;
+    color: #ebca6c;
+    padding: 10px;
+    margin-bottom: 100px;
+
+    &:hover {
+        text-decoration: none;
+        background-color: #555555;
+        color: #ebca6c;
+        border-radius: 5px;
+    }
+}
+
+input[type="checkbox"] {
+    /* Double-sized Checkboxes */
+    -ms-transform: scale(1.2); /* IE */
+    -moz-transform: scale(1.2); /* FF */
+    -webkit-transform: scale(1.2); /* Safari and Chrome */
+    -o-transform: scale(1.2); /* Opera */
+    padding: 5px;
 }

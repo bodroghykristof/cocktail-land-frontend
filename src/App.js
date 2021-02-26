@@ -23,6 +23,7 @@ import { FavoriteCocktails } from "./components/FavoriteCocktails";
 import { FavoritesProvider } from "./components/FavoritesContext";
 import { LanguageProvider } from "./components/language/LanguageContext";
 import { AllIngredientsProvider } from "./components/ownCocktails/IngredientsContext";
+import { OwnCocktailsProvider } from "./components/ownCocktails/OwnCocktailsContext";
 import { CheckedIngredientsProvider } from "./components/ownCocktails/CheckedIngredientsContext";
 
 import IngredientDetail from "./components/IngredientDetail";
@@ -36,89 +37,98 @@ const App = () => {
                         <FavoritesProvider>
                             <AllIngredientsProvider>
                                 <CheckedIngredientsProvider>
-                                    <div className="app-container">
-                                        <div className="App">
-                                            <Route
-                                                exact
-                                                path="/"
-                                                component={Welcome}
-                                            />
-                                            <Route
-                                                path={[
-                                                    "/home",
-                                                    "/search-cocktails",
-                                                    "/favorite-cocktails",
-                                                    "/mine",
-                                                    "/create-own",
-                                                    "/cocktail/:id",
-                                                    "/ingredient/:name/:cocktailId",
-                                                    "/about",
-                                                    "/register",
-                                                    "/login",
-                                                ]}
-                                            >
-                                                <Header />
-                                                <GuestRoute
-                                                    exact
-                                                    path="/register"
-                                                    component={Register}
-                                                />
-                                                <GuestRoute
-                                                    exact
-                                                    path="/login"
-                                                    component={Login}
-                                                />
+                                    <OwnCocktailsProvider>
+                                        <div className="app-container">
+                                            <div className="App">
                                                 <Route
                                                     exact
-                                                    path="/home"
-                                                    component={Home}
+                                                    path="/"
+                                                    component={Welcome}
                                                 />
                                                 <Route
-                                                    exact
-                                                    path="/about"
-                                                    component={About}
-                                                />
-                                                <Route
-                                                    exact
-                                                    path="/search-cocktails"
-                                                    component={SearchCocktails}
-                                                />
-                                                <Route
-                                                    exact
-                                                    path="/cocktail/:id"
-                                                    component={CocktailDetail}
-                                                />
-                                                <Route
-                                                    exact
-                                                    path="/ingredient/:name/:cocktailId"
-                                                    component={IngredientDetail}
-                                                />
-                                                <PrivateRoute
-                                                    path="/favorite-cocktails"
-                                                    component={
-                                                        FavoriteCocktails
-                                                    }
-                                                />
-                                                <PrivateRoute
-                                                    path="/mine"
-                                                    component={OwnCocktail}
-                                                />
-                                                <PrivateRoute
-                                                    path="/create-own"
-                                                    component={
-                                                        CreateOwnCocktail
-                                                    }
-                                                />
-                                                <PrivateRoute
-                                                    path="/own-cocktail/:id"
-                                                    component={
-                                                        OwnCocktailDetail
-                                                    }
-                                                />
-                                            </Route>
+                                                    path={[
+                                                        "/home",
+                                                        "/search-cocktails",
+                                                        "/favorite-cocktails",
+                                                        "/mine",
+                                                        "/create-own",
+                                                        "/cocktail/:id",
+                                                        "/own-cocktail/:id",
+                                                        "/ingredient/:name/:cocktailId",
+                                                        "/about",
+                                                        "/register",
+                                                        "/login",
+                                                    ]}
+                                                >
+                                                    <Header />
+                                                    <GuestRoute
+                                                        exact
+                                                        path="/register"
+                                                        component={Register}
+                                                    />
+                                                    <GuestRoute
+                                                        exact
+                                                        path="/login"
+                                                        component={Login}
+                                                    />
+                                                    <Route
+                                                        exact
+                                                        path="/home"
+                                                        component={Home}
+                                                    />
+                                                    <Route
+                                                        exact
+                                                        path="/about"
+                                                        component={About}
+                                                    />
+                                                    <Route
+                                                        exact
+                                                        path="/search-cocktails"
+                                                        component={
+                                                            SearchCocktails
+                                                        }
+                                                    />
+                                                    <Route
+                                                        exact
+                                                        path="/cocktail/:id"
+                                                        component={
+                                                            CocktailDetail
+                                                        }
+                                                    />
+                                                    <Route
+                                                        exact
+                                                        path="/ingredient/:name/:cocktailId"
+                                                        component={
+                                                            IngredientDetail
+                                                        }
+                                                    />
+                                                    <PrivateRoute
+                                                        path="/favorite-cocktails"
+                                                        component={
+                                                            FavoriteCocktails
+                                                        }
+                                                    />
+                                                    <PrivateRoute
+                                                        path="/mine"
+                                                        component={OwnCocktail}
+                                                    />
+                                                    <PrivateRoute
+                                                        path="/create-own"
+                                                        component={
+                                                            CreateOwnCocktail
+                                                        }
+                                                    />
+                                                    <PrivateRoute
+                                                        path="/own-cocktail/:id"
+                                                        component={
+                                                            OwnCocktailDetail
+                                                        }
+                                                    />
+                                                </Route>
+                                            </div>
+                                            <Footer />
                                         </div>
-                                        <Footer />
-                                    </div>
+                                    </OwnCocktailsProvider>
                                 </CheckedIngredientsProvider>
                             </AllIngredientsProvider>
                         </FavoritesProvider>

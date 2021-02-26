@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 import { CheckedIngredientsContext } from "./CheckedIngredientsContext";
 import { Form } from "react-bootstrap";
+import "./ownCocktail.scss";
 
 export const Ingredient = ({ ingredient }) => {
     const [checked, setChecked] = useState(false);

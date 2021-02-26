@@ -1,28 +1,23 @@
-import React, { Fragment } from "react";
+import React, {
+    Fragment,
+    useContext,
+    useEffect,
+    useState,
+    useRef,
+} from "react";
 import { useParams } from "react-router-dom";
-import { useContext, useEffect, useState, useRef } from "react";
 import gsap from "gsap";
-import ReactPlayer from "react-player";
 import { LanguageContext } from "../language/LanguageContext";
+import { OwnCocktailsContext } from "./OwnCocktailsContext";
 import dictionary from "../language/Dictionary";
 import { H1 } from "../HomeDesign";
-import { FavoritesContext } from "../FavoritesContext";
-import Private from "../../auth/Private";
-import FavoriteIconHearth from "../FavoriteIconHearth";
 import "../../components/css/cocktailDetail.scss";
+import CocktailPicture from "../../static/cocktail.png";
 
 const OwnCocktailDetail = () => {
-
-    const [ownCocktails, setOwnCocktails] = useState([]);
+    const [ownCocktails] = useContext(OwnCocktailsContext);
     const { id } = useParams();
-
     const [cocktail, setCocktail] = useState({});
-
-    // const [iconValue, setIconValue] = useState(
-    //     favorites
-    //         .map((cocktail) => cocktail.idDrink.toString())
-    //         .includes(id.toString())
-    // );
 
     const [language] = useContext(LanguageContext);
     const [ingredients, setIngredients] = useState([]);
@@ -56,13 +51,7 @@ const OwnCocktailDetail = () => {
             scale: 0.5,
         });
 
-        // gsap.from(video.current, {
-        //     duration: 1,
-        //     delay: 0.5,
-        //     y: 100,
-        //     opacity: 0,
-        //     scale: 0.5,
-        // });
+
 
         gsap.from(instructions.current, {
             duration: 1,
@@ -74,27 +63,20 @@ const OwnCocktailDetail = () => {
     }, []);
 
     useEffect(() => {
-        const cocktail = ownCocktails.find(
-            (cocktail) => cocktail.idDrink === id.toString()
-        );
-        setCocktail(cocktail);
-        
+        const ownCocktail = ownCocktails.find((cocktail) => cocktail.id == id);
+        setCocktail(ownCocktail);
 
-        const collectIngredients = () => {
-            let ingredientObjects = [];
-            if (cocktail !== undefined) {
-                for (let index = 1; index < 16; index++) {
-                    let value = cocktail[`strIngredient${index}`];
-                    if (value !== null && value !== "") {
-                        let object = { name: value, id: index };
-                        ingredientObjects.push(object);
-                    }
-                }
+        const getIngredients = (ownCocktail) => {
+            if (
+                ownCocktail !== undefined &&
+                ownCocktail.hasOwnProperty("ingredients")
+            ) {
+                const ingredients = ownCocktail.ingredients;
+                setIngredients(ingredients.split(","));
             }
-            setIngredients(ingredientObjects);
         };
 
-        collectIngredients();
+        getIngredients(ownCocktail);
     }, [ownCocktails, id]);
 
     if (cocktail === undefined) {
@@ -111,23 +93,17 @@ const OwnCocktailDetail = () => {
                     <div ref={pic} className="image-container">
                         <img
                             className="cocktail-pic"
-                            src={cocktail.strDrinkThumb}
+                            src={CocktailPicture}
                             alt="cocktail"
                         />
-                        
                     </div>
                     <div ref={ingredientList} className="ingredients-container">
                         <h2>{dictionary.ingredient[language]}</h2>
                         <div className="ingredients-box">
-                            {ingredients.map((ingredient) => (
-                                <a
-                                    href={`/ingredient/${ingredient.name}/${id}`}
-                                    key={ingredient.id}
-                                >
-                                    <div className="ingredient">
-                                        {ingredient.name}
-                                    </div>
-                                </a>
+                            {ingredients.map((ingredient, index) => (
+                                <div key={index} className="ingredient">
+                                    {ingredient}
+                                </div>
                             ))}
                         </div>
                     </div>
@@ -135,11 +111,7 @@ const OwnCocktailDetail = () => {
                 <div className="second-column">
                     <div ref={instructions} className="instructions-container">
                         <h2>{dictionary.instructions[language]}</h2>
-                        {language === "english" ? (
-                            <div>{cocktail.strInstructions}</div>
-                        ) : (
-                            <div>{cocktail.strInstructionsDE}</div>
-                        )}
+                        <div>{cocktail.strInstructions}</div>
                     </div>
                 </div>
             </div>
