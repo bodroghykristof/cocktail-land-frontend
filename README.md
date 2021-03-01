@@ -1,8 +1,16 @@
-# Getting Started with Create React App
+# Getting Started with Cocktail Land app with React
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+With this app you can search for cocktail recipes and see them on pictures. We used the [Cocktail DB API](https://www.thecocktaildb.com/api.php). After registration and login, you can access more features like savibg your favorite cocktails and even making your own.
+
+This app is the frontend part of the Cokctail Land project.
+
+Technologies used in project:
+
+<p align="center"><a href="https://reactjs.org/" target="_blank"><img src="./public/react-logo.png" width="400"></a></p>
+
+## To run the application
 
 In the project directory, you can run:
 
