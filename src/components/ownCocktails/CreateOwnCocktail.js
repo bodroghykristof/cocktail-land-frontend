@@ -28,14 +28,13 @@ export const CreateOwnCocktail = () => {
 
         if (nameInput === "" || descriptionInput === "") {
             setErrorMessage("Please fill out all input fields!");
-            console.log("neszeeee", errorMessage);
         } else {
             const ownCocktail = {
                 strDrink: nameInput,
                 strInstructions: descriptionInput,
                 ingredients: checkedIngredients,
             };
-
+            console.log(ownCocktail.ingredients);
             const token = localStorage.getItem("token");
             const response = await apiService.saveOwnCocktail(
                 token,
@@ -43,7 +42,9 @@ export const CreateOwnCocktail = () => {
             );
 
             ownCocktail['id'] = parseInt(response.data.data);
-            const ingredientsToStr = (checkedIngredients.map(cocktail => cocktail.strIngredient));
+
+            const ingredientsToStr = await getIngredientDetails();
+
             ownCocktail['ingredients'] = ingredientsToStr.join(',');
 
             setOwnCocktails((prevOwnCocktails) => [
@@ -53,6 +54,16 @@ export const CreateOwnCocktail = () => {
 
             history.push("/mine");
         }
+    };
+
+    const getIngredientDetails = async () => {
+        let result = [];
+        for (const element of checkedIngredients){
+            const ingredient = await apiService.getIngredientData(localStorage.getItem('token'), element);
+            console.log(ingredient);
+            result.push(ingredient.data.ingredient.strIngredient);
+        }
+        return result;
     };
 
     return (
