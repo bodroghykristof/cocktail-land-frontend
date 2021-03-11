@@ -43,6 +43,11 @@ const apiService = {
     headers: { Authorization: `Bearer ${token}` },
   }).catch((error) => error.response),
 
+  getIngredientData: (token, id) =>
+    Axios.get(`${URL}/get-ingredient-data/${id}`, {
+        headers: { Authorization: `Bearer ${token}` },
+    }).catch((error) => error.response),
+
   saveOwnCocktail: (token, ownCocktail) =>
   Axios.post(`${URL}/save-own-cocktail`, ownCocktail, {
     headers: { Authorization: `Bearer ${token}` },
