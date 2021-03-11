@@ -10,7 +10,7 @@ export const AllIngredientsProvider = (props) => {
         async function fetchIngredients() {
             const token = localStorage.getItem("token");
             const result = await apiService.getAllIngredients(token);
-            setAllIngredients(result.data.ingredients);
+            setAllIngredients(result.data);
         }
         fetchIngredients();
     }, []);
