@@ -8,7 +8,6 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-
         width: 35%;
     }
 
@@ -23,9 +22,19 @@
         .ingredients {
             display: flex;
             flex-wrap: wrap;
-
-            height: 450px;
+            border: 1px solid beige;
+            width: 90%;
+            height: 50%;
             gap: 10px;
+            margin: 10px;
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.4);
+            border-radius: 5px;
+        }
+
+        .ingredientTypeLabel {
+            width: 100%;
+            text-align: left;
         }
     }
 }

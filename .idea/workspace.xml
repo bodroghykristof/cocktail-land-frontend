@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c1b99914-f3f4-4ad5-bf4b-901cd20a45ca" name="Default Changelist" comment="" />
+    <list default="true" id="c1b99914-f3f4-4ad5-bf4b-901cd20a45ca" name="Default Changelist" comment="change the content of checkedIngredient">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ownCocktails/CreateOwnCocktail.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ownCocktails/CreateOwnCocktail.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ownCocktails/IngredientsContext.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ownCocktails/IngredientsContext.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ownCocktails/ownCocktail.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ownCocktails/ownCocktail.scss" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -61,7 +66,42 @@
       <workItem from="1610531977519" duration="833000" />
       <workItem from="1610614501974" duration="9308000" />
       <workItem from="1610643426194" duration="14430000" />
+      <workItem from="1614371821265" duration="15696000" />
+      <workItem from="1614613678287" duration="645000" />
+      <workItem from="1615372576166" duration="14786000" />
+      <workItem from="1615536278921" duration="1635000" />
+      <workItem from="1615890653124" duration="5242000" />
+      <workItem from="1616697632646" duration="8553000" />
     </task>
+    <task id="LOCAL-00001" summary="add getIngredientData()">
+      <created>1615506730830</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1615506730830</updated>
+    </task>
+    <task id="LOCAL-00002" summary="change checkedIngredients">
+      <created>1615506919516</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1615506919516</updated>
+    </task>
+    <task id="LOCAL-00003" summary="change the content of checkedIngredient">
+      <created>1615506970954</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1615506970954</updated>
+    </task>
+    <task id="LOCAL-00004" summary="change the content of checkedIngredient">
+      <created>1615507155716</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1615507155716</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -78,5 +118,12 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="add getIngredientData()" />
+    <MESSAGE value="change chechkedIngredients" />
+    <MESSAGE value="change checkedIngredients" />
+    <MESSAGE value="change the content of checkedIngredient" />
+    <option name="LAST_COMMIT_MESSAGE" value="change the content of checkedIngredient" />
   </component>
 </project>
