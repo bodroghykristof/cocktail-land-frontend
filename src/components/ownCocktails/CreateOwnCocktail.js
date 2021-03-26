@@ -1,4 +1,4 @@
-import React, { Fragment, useContext, useState, useRef } from "react";
+import React, {Fragment, useContext, useState, useRef, useEffect} from "react";
 import { useHistory } from "react-router-dom";
 import { H1 } from "../HomeDesign";
 import { Button, Form } from "react-bootstrap";
@@ -13,6 +13,7 @@ import apiService from "../services/Api";
 export const CreateOwnCocktail = () => {
     const [errorMessage, setErrorMessage] = useState("");
     const [allIngredients] = useContext(AllIngredientsContext);
+
     const [checkedIngredients] = useContext(CheckedIngredientsContext);
     const [ownCocktails, setOwnCocktails] = useContext(OwnCocktailsContext);
     const history = useHistory();
@@ -21,21 +22,18 @@ export const CreateOwnCocktail = () => {
     const description = useRef(null);
 
     const handleSubmit = async (e) => {
-        console.log("handel submit ");
         e.preventDefault();
         const nameInput = name.current.value;
         const descriptionInput = description.current.value;
 
         if (nameInput === "" || descriptionInput === "") {
             setErrorMessage("Please fill out all input fields!");
-            console.log("neszeeee", errorMessage);
         } else {
             const ownCocktail = {
                 strDrink: nameInput,
                 strInstructions: descriptionInput,
                 ingredients: checkedIngredients,
             };
-
             const token = localStorage.getItem("token");
             const response = await apiService.saveOwnCocktail(
                 token,
@@ -43,7 +41,9 @@ export const CreateOwnCocktail = () => {
             );
 
             ownCocktail['id'] = parseInt(response.data.data);
-            const ingredientsToStr = (checkedIngredients.map(cocktail => cocktail.strIngredient));
+
+            const ingredientsToStr = await getIngredientDetails();
+
             ownCocktail['ingredients'] = ingredientsToStr.join(',');
 
             setOwnCocktails((prevOwnCocktails) => [
@@ -54,6 +54,17 @@ export const CreateOwnCocktail = () => {
             history.push("/mine");
         }
     };
+
+    const getIngredientDetails = async () => {
+        let result = [];
+        for (const element of checkedIngredients){
+            const ingredient = await apiService.getIngredientData(localStorage.getItem('token'), element);
+            result.push(ingredient.data.ingredient.strIngredient);
+        }
+        return result;
+    };
+
+    console.log(allIngredients);
 
     return (
         <Fragment>
@@ -101,14 +112,21 @@ export const CreateOwnCocktail = () => {
                     <Form.Label>
                         <h3>Cocktail ingredients</h3>
                     </Form.Label>
-                    <div className="ingredients">
-                        {allIngredients.map((ingredient) => (
-                            <Ingredient
-                                key={ingredient.idIngredient}
-                                ingredient={ingredient}
-                            />
-                        ))}
-                    </div>
+
+                    {Object.entries(allIngredients).map(([key, ingredientsByKey], index) => (
+                        <div className="ingredients" key={index}>
+                                <p className="ingredientTypeLabel">{key.toUpperCase()}: </p>
+                                {ingredientsByKey.map((ingredient) => (
+                                <Ingredient
+                                    key={ingredient.idIngredient}
+                                    ingredient={ingredient}
+                                />
+                            ))}
+                        </div>
+                    ))}
+
+
+
                 </Form.Group>
             </Form>
         </Fragment>

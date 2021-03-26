@@ -13,7 +13,7 @@ export const Ingredient = ({ ingredient }) => {
         checked ? setChecked(false) : setChecked(true);
 
         if (e.target.checked) {
-            setCheckedIngredients([...checkedIngredients, ingredient]);
+            setCheckedIngredients([...checkedIngredients, ingredient.id]);
         } else {
             const ingredients = checkedIngredients.filter(
                 (ingredient) => ingredient.idIngredient !== e.target.id
